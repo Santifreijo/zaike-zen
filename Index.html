@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zaike Zen | Meditación para el día a día</title>
+  <meta name="description" content="Zaike Zen: una web sencilla de práctica espiritual orientada a personas con curiosidad por la meditación." />
+  <style>
+    :root {
+      --bg: #f3f0e8;
+      --bg-soft: #eef2e8;
+      --surface: rgba(255, 253, 248, 0.82);
+      --text: #26312c;
+      --muted: #607068;
+      --accent: #7e9a84;
+      --accent-dark: #5f7865;
+      --line: rgba(120, 144, 126, 0.2);
+      --shadow: 0 18px 50px rgba(38, 49, 44, 0.08);
+      --shadow-soft: 0 10px 24px rgba(38, 49, 44, 0.05);
+      --max: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      background:
+        radial-gradient(circle at top left, rgba(232, 239, 231, 0.9), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(220, 232, 220, 0.7), transparent 28%),
+        linear-gradient(180deg, #f7f4ed 0%, #eef3ea 50%, #f7f4ed 100%);
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(rgba(255,255,255,0.05), rgba(255,255,255,0.05)),
+        repeating-linear-gradient(
+          90deg,
+          rgba(255,255,255,0.02) 0,
+          rgba(255,255,255,0.02) 1px,
+          transparent 1px,
+          transparent 90px
+        );
+      opacity: 0.45;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(92%, var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(247, 244, 237, 0.72);
+      border-bottom: 1px solid rgba(126, 154, 132, 0.12);
+      box-shadow: 0 6px 24px rgba(38, 49, 44, 0.04);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+    }
+
+    .brand span {
+      color: var(--accent-dark);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.94rem;
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-dark);
+      background: rgba(255,255,255,0.55);
+    }
+
+    .hero {
+      padding: 5.5rem 0 3.5rem;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.18fr 0.82fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 0.88rem;
+      color: var(--accent-dark);
+      background: rgba(255,255,255,0.55);
+      margin-bottom: 1.1rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 4.2vw, 4.8rem);
+      line-height: 1.06;
+      margin-bottom: 1rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      max-width: 11ch;
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 58ch;
+      margin-bottom: 1.6rem;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.95rem 1.3rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      font-weight: 600;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(180deg, #8ba78f, #6f8a74);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 14px 30px rgba(111, 138, 116, 0.22);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.48);
+      border-color: var(--line);
+      color: var(--text);
+    }
+
+    .hero-card,
+    .card,
+    .about-box,
+    .step,
+    .text-card {
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.45);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-card {
+      padding: 2rem;
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -40px -40px auto;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(126,154,132,0.16), transparent 70%);
+      pointer-events: none;
+    }
+
+    .breathing-box {
+      text-align: center;
+      padding: 1.15rem;
+      background: rgba(255,255,255,0.6);
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      position: relative;
+      z-index: 1;
+    }
+
+    .breathing-box h3 {
+      margin-bottom: 0.4rem;
+      font-size: 1rem;
+    }
+
+    .breathing-box p {
+      margin-bottom: 0.9rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    #breathing-text {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent-dark);
+      min-height: 2rem;
+      margin-top: 0.8rem;
+    }
+
+    section {
+      padding: 4.25rem 0;
+      position: relative;
+    }
+
+    .section-title {
+      margin-bottom: 0.85rem;
+      font-size: clamp(1.9rem, 2.8vw, 2.8rem);
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 74ch;
+      margin-bottom: 2rem;
+      font-size: 1.03rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.3rem;
+    }
+
+    .card {
+      padding: 1.55rem;
+    }
+
+    .card h3,
+    .text-card h3 {
+      margin-bottom: 0.7rem;
+      font-size: 1.16rem;
+      font-weight: 600;
+    }
+
+    .card p,
+    .card li,
+    .text-card p {
+      color: var(--muted);
+    }
+
+    .card ul {
+      padding-left: 1.1rem;
+      margin-top: 0.7rem;
+    }
+
+    .practice {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .steps {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .step {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1rem 1.05rem;
+    }
+
+    .step-number {
+      flex: 0 0 42px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #e8f0e8, #d5e2d5);
+      color: var(--accent-dark);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      box-shadow: inset 0 0 0 1px rgba(126,154,132,0.15);
+    }
+
+    .text-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.4rem;
+    }
+
+    .text-card {
+      padding: 1.6rem;
+    }
+
+    .text-card p + p {
+      margin-top: 0.9rem;
+    }
+
+    .about-box {
+      padding: 2.2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-box::after {
+      content: "";
+      position: absolute;
+      right: -30px;
+      top: -30px;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(126,154,132,0.12), transparent 70%);
+      pointer-events: none;
+    }
+
+    .quote {
+      margin-top: 1.25rem;
+      padding: 1rem 1.2rem;
+      border-left: 4px solid var(--accent);
+      background: rgba(255,255,255,0.58);
+      border-radius: 0 16px 16px 0;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-image {
+      width: 100%;
+      max-height: 320px;
+      object-fit: cover;
+      border-radius: 18px;
+      margin: 1.5rem 0 2rem;
+    }
+
+    .closing-image {
+      padding: 3rem 0 1rem;
+    }
+
+    .closing-img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .practice,
+      .cards,
+      .text-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 3.8rem;
+      }
+
+      h1 {
+        max-width: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      h1 {
+        font-size: 2.3rem;
+      }
+
+      .hero-card {
+        min-height: auto;
+      }
+
+      .nav-links {
+        gap: 0.35rem;
+      }
+
+      .nav-links a {
+        padding: 0.45rem 0.7rem;
+      }
+
+      .hero-image {
+        height: 180px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#inicio" class="brand">Zaike <span>Zen</span></a>
+      <nav class="nav-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#zen">Qué es el Zen</a>
+        <a href="#meditaciones">Meditación</a>
+        <a href="#textos">Textos</a>
+        <a href="#sobre-mi">Sobre Zaike Zen</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Zen para el día a día</div>
+          <h1>Meditación desde el centro, en quietud y en movimiento</h1>
+          <p>
+            Zaike Zen está pensado para personas que sienten curiosidad por la meditación y buscan una forma de practicarla de manera sencilla, honesta y profunda. No propone una huida del mundo, sino una forma de habitarlo con más presencia, con más claridad y con una relación menos rígida con uno mismo y con la realidad.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#meditaciones">Empezar a meditar</a>
+            <a class="btn btn-secondary" href="#textos">Explorar los textos</a>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <img src="hero.jpg" alt="Presencia en la vida cotidiana" class="hero-image">
+          <div class="breathing-box">
+            <h3>Práctica breve</h3>
+            <p>Pulsa el botón y sigue el ritmo de la respiración durante unos segundos.</p>
+            <button class="btn btn-primary" id="breathing-btn">Iniciar respiración</button>
+            <div id="breathing-text"></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="zen">
+      <div class="container">
+        <h2 class="section-title">Qué significa el zen en Zaike Zen</h2>
+        <img src="zen.jpg" alt="Equilibrio y simplicidad" class="section-image">
+        <p class="section-intro">
+          En Zaike Zen, el zen no se presenta como una doctrina cerrada, sino como una práctica de experiencia directa. Parte de una intuición sencilla y profunda: nada permanece por sí mismo, nada está aislado, y buena parte de nuestro sufrimiento tiene que ver con el intento de fijar lo que en realidad está cambiando. Comprender esto no es un ejercicio abstracto, sino una forma de vivir con más lucidez.
+        </p>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Sencillez</h3>
+            <p>
+              La práctica comienza en lo inmediato: sentarse, respirar, observar. No se trata de alcanzar un estado especial, sino de dejar de añadir dramatismo, rigidez o huida a lo que ya está ocurriendo.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Presencia</h3>
+            <p>
+              Estar presente no significa eliminar los pensamientos, sino dejar de ser arrastrado por ellos. La atención vuelve una y otra vez al momento actual, y en ese gesto repetido va apareciendo un espacio de claridad.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Comprensión</h3>
+            <p>
+              Lo que experimentamos no es una realidad fija. Nuestra vida, nuestro cuerpo, nuestras emociones e incluso nuestra identidad pueden entenderse como procesos y patrones en relación continua con el entorno. Ver eso con honestidad vuelve la mente más flexible y más abierta.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="meditaciones">
+      <div class="container">
+        <img src="meditacion.jpg" alt="Atención y transformación" class="section-image">
+
+        <div class="practice">
+          <div>
+            <h2 class="section-title">Una práctica sencilla para comenzar</h2>
+            <p class="section-intro">
+              La meditación no es una técnica para escapar de la realidad, sino una forma de entrar en ella con más precisión. A través de la atención sostenida, empezamos a ver cómo surgen los pensamientos, las emociones y las reacciones, y cómo pueden dejar de dominarnos. Cuando la atención se estabiliza, aparece una comprensión silenciosa: todo cambia, todo está interrelacionado, y en esa comprensión surge de forma natural una actitud más abierta hacia uno mismo, hacia los demás y hacia la vida cotidiana.
+            </p>
+
+            <div class="steps">
+              <div class="step">
+                <div class="step-number">1</div>
+                <div>
+                  <h3>Postura</h3>
+                  <p>Siéntate con la espalda erguida y el cuerpo relajado. Puedes usar una silla o un cojín. No busques una postura perfecta: busca una postura estable, digna y habitable.</p>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-number">2</div>
+                <div>
+                  <h3>Respiración</h3>
+                  <p>Observa la respiración tal como llega. No hace falta forzar nada. Solo acompaña el aire al entrar y al salir, como quien vuelve a una referencia sencilla y siempre disponible.</p>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-number">3</div>
+                <div>
+                  <h3>Atención</h3>
+                  <p>Cuando aparezcan pensamientos, recuerdos o inquietudes, no luches con ellos. Reconócelos y vuelve con amabilidad a la respiración. Ese regreso tranquilo es ya el corazón de la práctica.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="quote">
+              “La práctica no consiste en fabricar otra identidad, sino en aflojar el apego a la rigidez del yo y aprender a relacionarse con la realidad de un modo más libre, más flexible y más compasivo.”
+            </div>
+          </div>
+
+          <aside class="card">
+            <h3>Rutina sugerida</h3>
+            <ul>
+              <li>Empieza con 5 o 10 minutos al día.</li>
+              <li>Practica sin exigencia, pero con constancia.</li>
+              <li>Reserva un rincón sencillo donde puedas sentarte en paz.</li>
+              <li>Lleva esa presencia también a los pequeños gestos cotidianos.</li>
+            </ul>
+            <div class="quote">
+              “La práctica espiritual no consiste en alejarse de la vida, sino en aprender a habitarla con más presencia.”
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="textos">
+      <div class="container">
+        <h2 class="section-title">Textos para profundizar</h2>
+        <p class="section-intro">
+          Los materiales que están detrás de Zaike Zen desarrollan con más amplitud cuestiones como la impermanencia, la vacuidad, la compasión, la no dualidad y la realidad entendida como proceso. Aquí aparecen como una puerta de entrada breve. Más adelante, esta sección podrá crecer con textos completos, audios y otros materiales de consulta.
+        </p>
+
+        <div class="text-grid">
+          <article class="text-card">
+            <h3>Impermanencia y realidad</h3>
+            <p>
+              La impermanencia no significa que nada exista, sino que nada posee una esencia fija e independiente. Las cosas aparecen, se mantienen durante un tiempo y cambian. Vivimos en una realidad convencional, práctica y funcional; pero, en último término, esa realidad es relacional, dinámica y vacía de sustancia propia.
+            </p>
+            <p>
+              Esta comprensión no invita al nihilismo, sino a una manera más sobria y más libre de percibir. Cuando dejamos de pedir permanencia a lo que es cambiante, la experiencia se vuelve menos tensa y más verdadera.
+            </p>
+          </article>
+
+          <article class="text-card">
+            <h3>Vacuidad y no dualidad</h3>
+            <p>
+              La vacuidad no es la nada. Es la comprensión de que los fenómenos existen por dependencia mutua. Nada aparece aislado, nada se sostiene por sí mismo. Todo participa de una trama de relaciones.
+            </p>
+            <p>
+              Cuando la mente deja de aferrarse a oposiciones rígidas —yo y otro, éxito y fracaso, dentro y fuera— empieza a percibir la realidad con menos distorsión. Esa disminución de la rigidez conceptual es una forma de libertad.
+            </p>
+          </article>
+
+          <article class="text-card">
+            <h3>Patrones y transformación</h3>
+            <p>
+              También puede entenderse nuestra experiencia como una red de patrones: procesos que se sostienen durante un tiempo y luego se transforman. El problema no es que exista un yo funcional, sino que lo tomemos como una sustancia absoluta, cerrada y separada.
+            </p>
+            <p>
+              Cuando el patrón del ego se vuelve rígido aparece sufrimiento; cuando se vuelve flexible, aparece una relación más lúcida con uno mismo y con el entorno. La práctica ayuda justamente a reconocer esa rigidez y a aflojarla.
+            </p>
+          </article>
+
+          <article class="text-card">
+            <h3>Compasión y acción</h3>
+            <p>
+              La comprensión profunda no queda encerrada en la interioridad. Cuando se debilita la ilusión de separación, surge con más naturalidad la compasión. Ver con claridad conduce también a actuar de otro modo: con más cuidado, más responsabilidad y menos ceguera egocentrada.
+            </p>
+            <p>
+              La práctica se vuelve entonces una ética vivida. No una norma externa, sino una manera de estar en el mundo donde la comprensión y la acción dejan de estar separadas.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre-mi">
+      <div class="container">
+        <div class="about-box">
+          <h2 class="section-title">Sobre Zaike Zen</h2>
+
+<p class="section-intro">
+  Zaike Zen es un espacio de práctica y reflexión desde una perspectiva laica, que nace de una búsqueda personal sostenida en el tiempo. No pretende ofrecer un sistema cerrado, sino un marco sencillo desde el que explorar la experiencia con honestidad.
+</p>
+
+<p>
+  Este proyecto está desarrollado por Santiago Díaz de Freijo, y se apoya en una práctica continuada, en la observación directa y en una reflexión sobre la relación entre conciencia, conocimiento y vida cotidiana. La intención no es transmitir una doctrina, sino compartir una forma de mirar que pueda resultar útil a otras personas.
+</p>
+
+<p>
+  La práctica del zen, entendida de este modo, no separa conocimiento y acción. A medida que la comprensión se vuelve más clara, también cambia la forma en que nos relacionamos con nosotros mismos, con los demás y con la realidad. Esta web intenta ser un punto de apoyo para ese proceso.
+</p>
+
+<p>
+  Zaike Zen está en desarrollo. Con el tiempo podrá incorporar nuevos textos, audios y otros recursos, siempre con la misma intención: ofrecer una práctica clara, accesible y profundamente conectada con la experiencia real.
+</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing-image">
+      <div class="container">
+        <img src="arbol.jpg" alt="Proceso y equilibrio" class="closing-img">
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Zaike Zen · Una práctica sencilla de meditación para el día a día</p>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('breathing-btn');
+    const text = document.getElementById('breathing-text');
+
+    const sequence = [
+      { label: 'Inhala · 4', time: 4000 },
+      { label: 'Sostén · 4', time: 4000 },
+      { label: 'Exhala · 6', time: 6000 }
+    ];
+
+    let running = false;
+
+    btn.addEventListener('click', async () => {
+      if (running) return;
+      running = true;
+      btn.textContent = 'Práctica en curso';
+
+      for (let round = 0; round < 2; round++) {
+        for (const step of sequence) {
+          text.textContent = step.label;
+          await new Promise(resolve => setTimeout(resolve, step.time));
+        }
+      }
+
+      text.textContent = 'Práctica terminada. Observa cómo te sientes.';
+      btn.textContent = 'Repetir respiración';
+      running = false;
+    });
+  </script>
+</body>
+</html>
