@@ -385,6 +385,31 @@
       font-style: italic;
     }
 
+    .contact-form label {
+      display: block;
+      margin-bottom: 0.35rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(120, 144, 126, 0.35);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.76);
+      font: inherit;
+      color: var(--text);
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: 2px solid rgba(126, 154, 132, 0.35);
+      border-color: var(--accent);
+    }
+
     .footer {
       padding: 2rem 0 3rem;
       color: var(--muted);
@@ -476,6 +501,7 @@
         <a href="#meditaciones">Meditación</a>
         <a href="#textos">Textos</a>
         <a href="#sobre-mi">Sobre Zaike Zen</a>
+        <a href="#contacto">Contacto</a>
       </nav>
     </div>
   </header>
@@ -654,22 +680,44 @@
         <div class="about-box">
           <h2 class="section-title">Sobre Zaike Zen</h2>
 
-<p class="section-intro">
-  Zaike Zen es un espacio de práctica y reflexión desde una perspectiva laica, que nace de una búsqueda personal sostenida en el tiempo. No pretende ofrecer un sistema cerrado, sino un marco sencillo desde el que explorar la experiencia con honestidad.
-</p>
+          <p class="section-intro">
+            Zaike Zen es un espacio de práctica y reflexión desde una perspectiva laica, que nace de una búsqueda personal sostenida en el tiempo. No pretende ofrecer un sistema cerrado, sino un marco sencillo desde el que explorar la experiencia con honestidad.
+          </p>
 
-<p>
-  Este proyecto está desarrollado por Santiago Díaz de Freijo, y se apoya en una práctica continuada, en la observación directa y en una reflexión sobre la relación entre conciencia, conocimiento y vida cotidiana. La intención no es transmitir una doctrina, sino compartir una forma de mirar que pueda resultar útil a otras personas.
-</p>
+          <p>
+            Este proyecto está desarrollado por Santiago Díaz de Freijo, y se apoya en una práctica continuada, en la observación directa y en una reflexión sobre la relación entre conciencia, conocimiento y vida cotidiana. La intención no es transmitir una doctrina, sino compartir una forma de mirar que pueda resultar útil a otras personas.
+          </p>
 
-<p>
-  La práctica del zen, entendida de este modo, no separa conocimiento y acción. A medida que la comprensión se vuelve más clara, también cambia la forma en que nos relacionamos con nosotros mismos, con los demás y con la realidad. Esta web intenta ser un punto de apoyo para ese proceso.
-</p>
+          <p>
+            La práctica del zen, entendida de este modo, no separa conocimiento y acción. A medida que la comprensión se vuelve más clara, también cambia la forma en que nos relacionamos con nosotros mismos, con los demás y con la realidad. Esta web intenta ser un punto de apoyo para ese proceso.
+          </p>
 
-<p>
-  Zaike Zen está en desarrollo. Con el tiempo podrá incorporar nuevos textos, audios y otros recursos, siempre con la misma intención: ofrecer una práctica clara, accesible y profundamente conectada con la experiencia real.
-</p>
+          <p>
+            Zaike Zen está en desarrollo. Con el tiempo podrá incorporar nuevos textos, audios y otros recursos, siempre con la misma intención: ofrecer una práctica clara, accesible y profundamente conectada con la experiencia real.
+          </p>
         </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="container">
+        <h2 class="section-title">Contacto</h2>
+        <p class="section-intro">
+          Si quieres compartir una reflexión, hacer una pregunta o iniciar un diálogo, puedes escribirme desde aquí.
+        </p>
+
+        <form action="https://formspree.io/f/xkoygepv" method="POST" class="card contact-form" style="padding:1.5rem;">
+          <label for="nombre">Nombre</label>
+          <input id="nombre" type="text" name="name" required>
+
+          <label for="email">Email</label>
+          <input id="email" type="email" name="email" required>
+
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="message" rows="6" required></textarea>
+
+          <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+        </form>
       </div>
     </section>
 
