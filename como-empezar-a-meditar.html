@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Cómo empezar a meditar desde cero | Zaike Zen</title>
+
+  <meta name="description" content="Guía sencilla para empezar a meditar desde cero. Aprende los primeros pasos de la meditación, sus dificultades normales y cómo cultivar la atención en la vida diaria." />
+
+  <link rel="canonical" href="https://santifreijo.github.io/zaike-zen/como-empezar-a-meditar.html" />
+
+  <script data-goatcounter="https://zaikezen.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+
+  <style>
+    :root {
+      --bg: #f3f0e8;
+      --surface: rgba(255, 253, 248, 0.86);
+      --text: #26312c;
+      --muted: #607068;
+      --accent: #7e9a84;
+      --accent-dark: #5f7865;
+      --line: rgba(120, 144, 126, 0.2);
+      --shadow: 0 18px 50px rgba(38, 49, 44, 0.08);
+      --max: 960px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      line-height: 1.75;
+      background:
+        radial-gradient(circle at top left, rgba(232, 239, 231, 0.9), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(220, 232, 220, 0.7), transparent 28%),
+        linear-gradient(180deg, #f7f4ed 0%, #eef3ea 50%, #f7f4ed 100%);
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container { width: min(92%, var(--max)); margin: 0 auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(247, 244, 237, 0.78);
+      border-bottom: 1px solid rgba(126, 154, 132, 0.12);
+      box-shadow: 0 6px 24px rgba(38, 49, 44, 0.04);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+    }
+
+    .brand span { color: var(--accent-dark); }
+
+    .nav-links {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.94rem;
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-dark);
+      background: rgba(255,255,255,0.55);
+    }
+
+    .hero { padding: 5rem 0 3rem; }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 0.88rem;
+      color: var(--accent-dark);
+      background: rgba(255,255,255,0.55);
+      margin-bottom: 1.1rem;
+      box-shadow: 0 10px 24px rgba(38, 49, 44, 0.05);
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 4.2vw, 4.6rem);
+      line-height: 1.08;
+      margin-bottom: 1.2rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      max-width: 13ch;
+    }
+
+    .hero p {
+      font-size: 1.12rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.45);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      padding: clamp(1.5rem, 4vw, 3rem);
+      margin: 1.5rem 0 4rem;
+    }
+
+    .article-image {
+      width: 100%;
+      max-height: 340px;
+      object-fit: cover;
+      border-radius: 20px;
+      margin: 0 0 2rem;
+    }
+
+    section.block {
+      padding: 1.8rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    section.block:last-child { border-bottom: none; }
+
+    h2 {
+      font-size: clamp(1.6rem, 2.4vw, 2.3rem);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--muted);
+      font-size: 1.03rem;
+    }
+
+    .quote {
+      margin: 1.5rem 0;
+      padding: 1rem 1.2rem;
+      border-left: 4px solid var(--accent);
+      background: rgba(255,255,255,0.58);
+      border-radius: 0 16px 16px 0;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .steps {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.4rem;
+    }
+
+    .step {
+      background: rgba(255,255,255,0.62);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 1rem 1.1rem;
+      color: var(--muted);
+    }
+
+    .step strong { color: var(--accent-dark); }
+
+    .cta {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.95rem 1.3rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      font-weight: 600;
+      box-shadow: 0 10px 24px rgba(38, 49, 44, 0.05);
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: linear-gradient(180deg, #8ba78f, #6f8a74);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.48);
+      border-color: var(--line);
+      color: var(--text);
+    }
+
+    .footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      h1 {
+        font-size: 2.3rem;
+        max-width: none;
+      }
+
+      .nav-links {
+        gap: 0.35rem;
+      }
+
+      .nav-links a {
+        padding: 0.45rem 0.7rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="index.html" class="brand">Zaike <span>Zen</span></a>
+      <nav class="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="index.html#zen">Qué es el Zen</a>
+        <a href="index.html#meditaciones">Meditación</a>
+        <a href="index.html#textos">Textos</a>
+        <a href="index.html#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow">Guía para principiantes</div>
+        <h1>Cómo empezar a meditar desde cero</h1>
+        <p>
+          Una introducción sencilla para quienes sienten curiosidad por la meditación y desean comenzar sin prisas, sin rigidez y con una orientación clara.
+        </p>
+      </div>
+    </section>
+
+    <article class="container article-card">
+      <img src="meditacion.jpg" alt="Meditación, atención y transformación interior" class="article-image">
+
+      <section class="block">
+        <h2>Cuando aparece la necesidad de detenerse</h2>
+        <p>
+          Hoy en día, muchas personas sienten que han perdido la conexión consigo mismas. Tienen objetivos, responsabilidades y una agenda llena de compromisos, pero el ritmo es alto, el tiempo pasa deprisa y aparece una sensación difícil de definir: estar, pero no estar del todo.
+        </p>
+        <p>
+          En ocasiones, situaciones personales, familiares o laborales hacen que todo se tambalee. Son momentos de crisis en los que surge una pregunta inevitable: ¿qué hago yo aquí? ¿Quién soy realmente?
+        </p>
+        <p>
+          Pero estas preguntas no pertenecen solo a los momentos difíciles. Pueden aparecer en cualquier momento, de forma espontánea, como una expresión natural del asombro ante todo lo que desconocemos, empezando por nosotros mismos.
+        </p>
+        <p>
+          En ese punto, muchas personas se acercan por primera vez a la meditación. No como una técnica compleja, sino como una forma de detenerse y empezar a mirar hacia dentro.
+        </p>
+        <div class="quote">
+          ¿Te gustaría conocerte mejor? ¿Tienes curiosidad?
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>Qué es meditar</h2>
+        <p>
+          Cuando una persona empieza a meditar, lo más habitual es que se sienta confusa. No sabe exactamente qué busca ni por dónde empezar. Y, sin embargo, ese no saber es el mejor comienzo. En el zen se habla de la “mente del principiante”: una actitud abierta, sin certezas, pero con una decisión clara de explorar.
+        </p>
+        <p>
+          Esa determinación, aunque sea sencilla, es esencial.
+        </p>
+        <p>
+          La meditación invita a detenerse y a mirar hacia dentro. No es una técnica complicada, sino un ejercicio consciente de la atención. A través de la práctica, poco a poco, se aprende a cultivar el silencio con paciencia y delicadeza.
+        </p>
+        <p>
+          El zen es de pocas palabras porque la experiencia no puede explicarse del todo. Desde el primer día, meditar es algo personal, una vivencia directa que cada uno recorre a su manera.
+        </p>
+        <p>
+          Se puede meditar de muchas formas: sentado, de pie, caminando o incluso en las tareas cotidianas. Todas ellas son formas de entrenar la atención y de estar más presente.
+        </p>
+        <p>
+          En el fondo, meditar no es aislarse del mundo, sino abrirse a la vida tal como es.
+        </p>
+      </section>
+
+      <section class="block">
+        <h2>El primer paso para empezar a meditar</h2>
+        <p>
+          Si quieres empezar a meditar, puedes comenzar por algo muy sencillo: hacerte una pregunta honesta.
+        </p>
+        <div class="quote">
+          ¿Qué busco?
+        </div>
+        <p>
+          No hace falta responderla inmediatamente. Puedes mantenerla durante un tiempo en tu interior, como si fuera algo valioso. Cada vez que aparezca, en lugar de analizarla con razonamientos, prueba a sentirla con todo el cuerpo, en silencio.
+        </p>
+        <p>
+          Este primer paso ya es una forma de meditación.
+        </p>
+        <p>
+          Reserva pequeños momentos de intimidad y recogimiento. No tienen que ser largos ni perfectos. Lo importante es crear un espacio donde puedas detenerte y observar sin prisa.
+        </p>
+        <p>
+          A medida que avanzas, puede ser útil encontrar a alguien que te acompañe en el aprendizaje: una persona o un entorno que te inspire confianza y con el que sientas afinidad.
+        </p>
+        <p>
+          Aprender a meditar es una experiencia personal. Requiere continuidad, cierta perseverancia ante las dificultades y una determinación tranquila. No es una actividad de moda ni una técnica para alcanzar objetivos rápidos, sino una forma diferente de relacionarse con uno mismo, con los demás y con la realidad.
+        </p>
+
+        <div class="steps">
+          <div class="step"><strong>1.</strong> Reserva unos minutos al día, aunque sean pocos.</div>
+          <div class="step"><strong>2.</strong> Siéntate de forma estable y cómoda.</div>
+          <div class="step"><strong>3.</strong> Observa tu respiración sin intentar controlarla.</div>
+          <div class="step"><strong>4.</strong> Cuando la mente se distraiga, vuelve con suavidad.</div>
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>Dificultades normales al empezar</h2>
+        <p>
+          Cuando una persona empieza a meditar, especialmente si es principiante, lo más habitual es encontrarse con dificultades.
+        </p>
+        <p>
+          La primera es algo muy simple: reservar un tiempo. Igual que ocurre con el ejercicio físico, entrenar la mente requiere un espacio diario. Y no siempre es fácil encontrarlo.
+        </p>
+        <p>
+          La segunda dificultad es la continuidad. Al principio aparece la confusión. Se avanza por un camino que no se conoce hacia un lugar que tampoco está claro. Como consecuencia, surgen la impaciencia, la inconstancia e incluso la desconfianza.
+        </p>
+        <p>
+          Todo eso es normal. De hecho, podría decirse que forma parte del proceso. No significa que se esté haciendo mal, sino que es necesario sostener la práctica, reunir las propias fuerzas y seguir.
+        </p>
+        <p>
+          Cultivar el silencio no es algo inmediato. Requiere tiempo, repetición y muchos pequeños pasos en la misma dirección. A todos nos ha pasado.
+        </p>
+        <p>
+          Poco a poco, sin forzar, empieza a aparecer una mayor claridad. Y con ella, también llegan respuestas, aunque quizá no de la forma a la que estamos acostumbrados.
+        </p>
+      </section>
+
+      <section class="block">
+        <h2>Una idea para recordar</h2>
+        <p>
+          La meditación abre un camino de transformación personal orientado hacia algo muy sencillo y muy profundo: conocerse con honestidad.
+        </p>
+        <p>
+          A través de la práctica, la atención se convierte en comprensión, la comprensión en reflexión y, poco a poco, esa claridad se traslada también a la forma de actuar. Es un proceso de ida y vuelta entre lo que vemos dentro y cómo vivimos fuera.
+        </p>
+        <p>
+          Despertar no es algo lejano ni extraordinario. Es empezar a ver con más claridad: reconocer los propios automatismos, cuestionar las ideas que damos por hechas y descubrir hasta qué punto muchas de nuestras percepciones están condicionadas.
+        </p>
+        <p>
+          Ese proceso no nos aleja de la vida, sino que nos acerca a ella. La meditación cultiva el silencio, unifica la experiencia y favorece una forma de vivir más consciente, más ética y más abierta a los demás.
+        </p>
+        <p>
+          En quietud o en movimiento, en los momentos más simples del día, la práctica consiste en cultivar la atención y estar presentes. No hace falta nada especial, porque la base ya está en cada persona.
+        </p>
+        <p>
+          En ese sentido, meditar es volver a algo esencial que ya existe, y aprender a reconocerlo.
+        </p>
+
+        <div class="cta">
+          <a class="btn btn-primary" href="index.html#meditaciones">Volver a la práctica básica</a>
+          <a class="btn btn-secondary" href="index.html#contacto">Escribir un mensaje</a>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Zaike Zen · Meditación sencilla para la vida cotidiana</p>
+    </div>
+  </footer>
+</body>
+</html>
