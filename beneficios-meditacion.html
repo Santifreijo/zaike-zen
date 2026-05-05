@@ -1,9 +1,253 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Beneficios de la meditación | Zaike Zen</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Cómo empezar a meditar desde cero | Zaike Zen</title>
+
+  <meta name="description" content="Guía sencilla para empezar a meditar desde cero. Aprende los primeros pasos de la meditación, sus dificultades normales y cómo cultivar la atención en la vida diaria." />
+
+  <link rel="canonical" href="https://santifreijo.github.io/zaike-zen/como-empezar-a-meditar.html" />
+
+  <script data-goatcounter="https://zaikezen.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+
+  <style>
+    :root {
+      --bg: #f3f0e8;
+      --surface: rgba(255, 253, 248, 0.86);
+      --text: #26312c;
+      --muted: #607068;
+      --accent: #7e9a84;
+      --accent-dark: #5f7865;
+      --line: rgba(120, 144, 126, 0.2);
+      --shadow: 0 18px 50px rgba(38, 49, 44, 0.08);
+      --max: 960px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      line-height: 1.75;
+      background:
+        radial-gradient(circle at top left, rgba(232, 239, 231, 0.9), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(220, 232, 220, 0.7), transparent 28%),
+        linear-gradient(180deg, #f7f4ed 0%, #eef3ea 50%, #f7f4ed 100%);
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container { width: min(92%, var(--max)); margin: 0 auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(247, 244, 237, 0.78);
+      border-bottom: 1px solid rgba(126, 154, 132, 0.12);
+      box-shadow: 0 6px 24px rgba(38, 49, 44, 0.04);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+    }
+
+    .brand span { color: var(--accent-dark); }
+
+    .nav-links {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.94rem;
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-dark);
+      background: rgba(255,255,255,0.55);
+    }
+
+    .hero { padding: 5rem 0 3rem; }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 0.88rem;
+      color: var(--accent-dark);
+      background: rgba(255,255,255,0.55);
+      margin-bottom: 1.1rem;
+      box-shadow: 0 10px 24px rgba(38, 49, 44, 0.05);
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 4.2vw, 4.6rem);
+      line-height: 1.08;
+      margin-bottom: 1.2rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      max-width: 13ch;
+    }
+
+    .hero p {
+      font-size: 1.12rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.45);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      padding: clamp(1.5rem, 4vw, 3rem);
+      margin: 1.5rem 0 4rem;
+    }
+
+    .article-image {
+      width: 100%;
+      max-height: 340px;
+      object-fit: cover;
+      border-radius: 20px;
+      margin: 0 0 2rem;
+    }
+
+    section.block {
+      padding: 1.8rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    section.block:last-child { border-bottom: none; }
+
+    h2 {
+      font-size: clamp(1.6rem, 2.4vw, 2.3rem);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--muted);
+      font-size: 1.03rem;
+    }
+
+    .quote {
+      margin: 1.5rem 0;
+      padding: 1rem 1.2rem;
+      border-left: 4px solid var(--accent);
+      background: rgba(255,255,255,0.58);
+      border-radius: 0 16px 16px 0;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .steps {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.4rem;
+    }
+
+    .step {
+      background: rgba(255,255,255,0.62);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 1rem 1.1rem;
+      color: var(--muted);
+    }
+
+    .step strong { color: var(--accent-dark); }
+
+    .cta {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.95rem 1.3rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      font-weight: 600;
+      box-shadow: 0 10px 24px rgba(38, 49, 44, 0.05);
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: linear-gradient(180deg, #8ba78f, #6f8a74);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.48);
+      border-color: var(--line);
+      color: var(--text);
+    }
+
+    .footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      h1 {
+        font-size: 2.3rem;
+        max-width: none;
+      }
+
+      .nav-links {
+        gap: 0.35rem;
+      }
+
+      .nav-links a {
+        padding: 0.45rem 0.7rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
