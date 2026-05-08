@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Meditación sencilla para el día a día | Zaike Zen</title>
+  <meta name="description" content="Aprende meditación de forma sencilla y práctica. Guía clara para empezar en el zen y aplicar la atención plena en la vida diaria." />
+  <link rel="canonical" href="https://santifreijo.github.io/zaike-zen/" />
+
+  <script data-goatcounter="https://zaikezen.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+
+  <style>
+    :root {
+      --bg: #f3f0e8;
+      --surface: rgba(255, 253, 248, 0.82);
+      --text: #26312c;
+      --muted: #607068;
+      --accent: #7e9a84;
+      --accent-dark: #5f7865;
+      --line: rgba(120, 144, 126, 0.2);
+      --shadow: 0 18px 50px rgba(38, 49, 44, 0.08);
+      --shadow-soft: 0 10px 24px rgba(38, 49, 44, 0.05);
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      background:
+        radial-gradient(circle at top left, rgba(232, 239, 231, 0.9), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(220, 232, 220, 0.7), transparent 28%),
+        linear-gradient(180deg, #f7f4ed 0%, #eef3ea 50%, #f7f4ed 100%);
+      min-height: 100vh;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(92%, var(--max)); margin: 0 auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(247, 244, 237, 0.72);
+      border-bottom: 1px solid rgba(126, 154, 132, 0.12);
+      box-shadow: 0 6px 24px rgba(38, 49, 44, 0.04);
+    }
+
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; gap: 1rem; }
+    .brand {
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+    .brand span { color: var(--accent-dark); }
+    .nav-links {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.nav-links a.active {
+  background-color: #dbe7df;
+  font-weight: 500;
+}
+.nav-links a {
+  color: var(--muted);
+  font-size: 0.94rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+  background: rgba(255,255,255,0.35);
+  border: 1px solid rgba(120,140,125,0.18);
+}
+
+.nav-links a:hover {
+  color: var(--accent-dark);
+  background: rgba(255,255,255,0.85);
+  border-color: rgba(93,122,100,0.35);
+  box-shadow: 0 6px 18px rgba(40,60,45,0.08);
+  transform: translateY(-1px);
+}
+.nav-links a:active {
+  transform: scale(0.97);
+}
+.nav-links {
+  gap: 0.4rem;
+}
+
+    .hero { padding: 5.5rem 0 3.5rem; position: relative; }
+    .hero-grid { display: grid; grid-template-columns: 1.18fr 0.82fr; gap: 2rem; align-items: center; }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 0.88rem;
+      color: var(--accent-dark);
+      background: rgba(255,255,255,0.55);
+      margin-bottom: 1.1rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 4.2vw, 4.8rem);
+      line-height: 1.06;
+      margin-bottom: 1rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      max-width: 13ch;
+    }
+
+    .hero p { font-size: 1.08rem; color: var(--muted); max-width: 58ch; margin-bottom: 1.6rem; }
+    .cta-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.95rem 1.3rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      font-weight: 600;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: linear-gradient(180deg, #8ba78f, #6f8a74); color: white; }
+    .btn-secondary { background: rgba(255,255,255,0.6); border-color: var(--line); color: var(--text); }
+
+    .hero-card, .card, .about-box, .step, .text-card {
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.45);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-card { padding: 2rem; min-height: 400px; display: flex; flex-direction: column; justify-content: center; gap: 1.2rem; overflow: hidden; }
+    .breathing-box { text-align: center; padding: 1.15rem; background: rgba(255,255,255,0.6); border-radius: 20px; border: 1px solid var(--line); }
+    .breathing-box h3 { margin-bottom: 0.4rem; font-size: 1rem; }
+    .breathing-box p { margin-bottom: 0.9rem; color: var(--muted); font-size: 0.95rem; }
+    #breathing-text { font-size: 1.2rem; font-weight: 700; color: var(--accent-dark); min-height: 2rem; margin-top: 0.8rem; }
+
+    section { padding: 4.25rem 0; position: relative; }
+    section + section {
+  margin-top: 4rem;
+}
+    .section-title { margin-bottom: 0.85rem; font-size: clamp(1.9rem, 2.8vw, 2.8rem); font-family: Georgia, "Times New Roman", serif; font-weight: 500; letter-spacing: -0.02em; }
+    .section-intro { color: var(--muted); max-width: 74ch; margin-bottom: 2rem; font-size: 1.03rem; }
+
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.3rem; }
+    .card { padding: 1.55rem; }
+    .card h3, .text-card h3 { margin-bottom: 0.7rem; font-size: 1.16rem; font-weight: 600; }    .text-card h4 { margin-top: 1.4rem; margin-bottom: 0.6rem; font-size: 1.02rem; font-weight: 600; color: var(--text); }    .card p, .card li, .text-card p { color: var(--muted); }
+    .card ul { padding-left: 1.1rem; margin-top: 0.7rem; }
+.rutina-cartel {
+  width: min(96vw, 1100px);
+  max-width: none;
+  height: auto;
+  border-radius: 20px;
+  margin: 2rem 50%;
+  display: block;
+  transform: translateX(-50%);
+}
+
+    .practice {
+  display: block;
+}
+    .steps { display: grid; gap: 1rem; }
+    .step { display: flex; gap: 1rem; align-items: flex-start; padding: 1rem 1.05rem; }
+    .step-number { flex: 0 0 42px; width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(180deg, #e8f0e8, #d5e2d5); color: var(--accent-dark); display: grid; place-items: center; font-weight: 700; }
+
+    .text-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem; }
+    .text-card { padding: 1.6rem; }
+    .text-card p + p { margin-top: 0.9rem; }
+    .about-box { padding: 2.2rem; overflow: hidden; }
+
+    .quote {
+      margin-top: 1.25rem;
+      padding: 1rem 1.2rem;
+      border-left: 4px solid var(--accent);
+      background: rgba(255,255,255,0.58);
+      border-radius: 0 16px 16px 0;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .contact-form label { display: block; margin-bottom: 0.35rem; font-weight: 600; color: var(--text); }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(120, 144, 126, 0.35);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.76);
+      font: inherit;
+      color: var(--text);
+    }
+
+    .footer { padding: 2rem 0 3rem; color: var(--muted); text-align: center; font-size: 0.95rem; }
+    .hero-image { width: 100%; height: 220px; object-fit: cover; border-radius: 20px; margin-bottom: 1rem; }
+    .section-image {
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 2rem auto;
+  border-radius: 24px;
+}
+    .closing-image { padding: 3rem 0 1rem; }
+    .closing-img { width: 100%; max-height: 400px; object-fit: cover; border-radius: 20px; }
+
+    @media (max-width: 900px) {
+      .hero-grid, .practice, .cards, .text-grid { grid-template-columns: 1fr; }
+      .hero { padding-top: 3.8rem; }
+      h1 { max-width: none; }
+    }
+
+    @media (max-width: 640px) {
+      .nav { flex-direction: column; align-items: flex-start; }
+      h1 { font-size: 2.3rem; }
+      .hero-card { min-height: auto; }
+      .nav-links { gap: 0.35rem; }
+      .nav-links a {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #2f3a34;
+  transition: all 0.25s ease;
+}
+.nav-links a:hover {
+  background-color: #e8efe9;
+  color: #1e2a25;
+}
+      .hero-image { height: 180px; }
+      .rutina-cartel { max-width: 100%; }
+    }
+    section p:last-child {
+  margin-bottom: 2rem;
+}
+.tradition-cards {
+  margin-top: 3rem;
+}
+.practice h2,
+.practice-grid h2 {
+  max-width: 900px;
+  margin-bottom: 2rem;
+}
+
+    .audio-player-wrapper {
+      margin: 2.5rem 0;
+      padding: 1.5rem;
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.45);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .audio-player-wrapper h3 {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .tanden-audio {
+      width: 100%;
+      height: 40px;
+    }
+
+    .nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .nav-dropdown summary {
+      cursor: pointer;
+      padding: 0.5rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.35);
+      border: 1px solid rgba(120,140,125,0.18);
+      color: var(--muted);
+      font-size: 0.94rem;
+      transition: all 0.25s ease;
+    }
+
+    .nav-dropdown summary:hover {
+      color: var(--accent-dark);
+      background: rgba(255,255,255,0.85);
+      border-color: rgba(93,122,100,0.35);
+      box-shadow: 0 6px 18px rgba(40,60,45,0.08);
+      transform: translateY(-1px);
+    }
+
+    .nav-dropdown ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(120,144,126,0.2);
+      border-radius: 12px;
+      box-shadow: var(--shadow-soft);
+      min-width: 200px;
+      z-index: 10;
+      display: none;
+    }
+
+    .nav-dropdown[open] ul {
+      display: block;
+    }
+
+    .nav-dropdown li {
+      border-bottom: 1px solid rgba(120,144,126,0.1);
+    }
+
+    .nav-dropdown li:last-child {
+      border-bottom: none;
+    }
+
+    .nav-dropdown a {
+      display: block;
+      padding: 0.75rem 1rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .nav-dropdown a:hover {
+      background: rgba(126,154,132,0.1);
+      color: var(--accent-dark);
+    }
+
+    @media (max-width: 640px) {
+      .nav-dropdown ul {
+        position: static;
+        width: 100%;
+        min-width: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#inicio" class="brand">Zaike <span>Zen</span></a>
+      <nav class="nav-links">
+        <details class="nav-dropdown">
+          <summary>Inicio</summary>
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#meditaciones">Qué es meditar</a></li>
+            <li><a href="#zen">Qué es Zaike Zen</a></li>
+          </ul>
+        </details>
+        
+        <details class="nav-dropdown">
+          <summary>Cómo empezar</summary>
+          <ul>
+            <li><a href="#rutina-sugerida">Rutina sugerida</a></li>
+            <li><a href="como-empezar-a-meditar.html">Empezar desde cero</a></li>
+            <li><a href="cuanto-tiempo-meditar-al-dia.html">Cuánto tiempo meditar</a></li>
+            <li><a href="#meditaciones">Consignas básicas</a></li>
+            <li><a href="#postura-sentada">Postura sentada</a></li>
+            <li><a href="#respiracion-tanden">Respiración Tanden</a></li>
+            <li><a href="#atencion">Atención</a></li>
+          </ul>
+        </details>
+        
+        <details class="nav-dropdown">
+          <summary>Profundizar</summary>
+          <ul>
+            <li><a href="#textos">Impermanencia y realidad</a></li>
+            <li><a href="#textos">Vacuidad y no dualidad</a></li>
+            <li><a href="#textos">Patrones y transformación</a></li>
+            <li><a href="#textos">Compasión y acción</a></li>
+          </ul>
+        </details>
+        
+        <a href="beneficios-meditacion.html">Beneficios</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Zen para el día a día</div>
+          <h1>Meditación sencilla: cómo empezar en el zen en tu vida diaria</h1>
+          <p>Zaike Zen está pensado para personas que sienten curiosidad por la meditación y buscan una forma de practicarla de manera sencilla, honesta y profunda. No propone una huida del mundo, sino una forma de habitarlo con más presencia, con más claridad y con una relación menos rígida con uno mismo y con la realidad.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#meditaciones">Empezar a meditar</a>
+            <a class="btn btn-secondary" href="como-empezar-a-meditar.html">Cómo empezar desde cero</a>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <img src="hero.jpg" alt="Presencia en la vida cotidiana" class="hero-image">
+          <div class="breathing-box">
+            <h3>Práctica breve</h3>
+            <p>Pulsa el botón y sigue el ritmo de la respiración durante unos segundos.</p>
+            <button class="btn btn-primary" id="breathing-btn">Iniciar respiración</button>
+            <div id="breathing-text"></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="zen">
+      <div class="container">
+        <h2 class="section-title">Qué significa el zen en Zaike Zen</h2>
+        <h2>Qué significa Zaike Zen</h2>
+        <img src="zen.jpg" alt="Equilibrio y simplicidad" class="section-image">
+        <p class="section-intro">En Zaike Zen, el zen no se presenta como una doctrina cerrada, sino como una práctica de experiencia directa. Parte de una intuición sencilla y profunda: nada permanece por sí mismo, nada está aislado, y buena parte de nuestro sufrimiento tiene que ver con el intento de fijar lo que en realidad está cambiando.</p>
+<h2 class="section-title">Qué es el Zen</h2>
+
+<p>
+Zaike Zen significa un Zen accesible, un Zen para la vida cotidiana. No es un camino reservado a monjes o a contextos especiales, sino una práctica abierta a cualquier persona.
+</p>
+
+<p>
+Todas las personas, independientemente de su situación, tienen en su interior la semilla de la iluminación. La práctica no consiste en añadir algo nuevo, sino en reconocer, cultivar y dejar que esa semilla se exprese en la propia vida.
+</p>
+
+<p>
+Zaike Zen propone una aproximación sencilla y directa: integrar la atención, la presencia y la comprensión en los gestos más simples del día a día.
+</p>
+        <h2>Origen y tradición de Zaike Zen</h2>
+
+<p>
+Zaike es un término japonés que significa laico. Por tanto, Zaike Zen hace referencia a una práctica de Zen laico, un Zen para todas las personas, independientemente de si tienen o no alguna confesión religiosa o espiritual.
+</p>
+
+<p>
+Fue traído a España por la escuela Zen Sincronía, fundada y dirigida por el maestro Pedro Vidal, donde cuenta con numerosos practicantes.
+</p>
+
+<p>
+Este proyecto está desarrollado por Santiago Díaz de Freijo (Koji Hôkinshin), discípulo de Pedro Vidal, continuando así el legado de un Zen abierto y flexible iniciado en Japón en el siglo XVIII por el movimiento Sekimon Shingaku y continuado posteriormente por la escuela Sanzensha durante muchas generaciones.
+</p>
+
+<p>
+Esta tradición se mantiene en la actualidad a través de la escuela Sincronía y la Asociación Zaike Zen en España.
+</p>
+
+<p>
+También se puede reconocer la influencia de la línea Zen Rinzai a través del maestro Hakuin Ekaku (1686–1769) y sus enseñanzas recogidas en Yasenkanna, así como del maestro laico Kawajiri Hôkin (1842–1910), décimo director de Sanzensha, y la inspiración del Zen ignaciano del maestro zen y jesuita Kadowaki Kakichi (1926–2017).
+</p>
+        <div class="cards tradition-cards">
+          <article class="card">
+            <h3>Sencillez</h3>
+            <p>La práctica comienza en lo inmediato: sentarse, respirar, observar. No se trata de alcanzar un estado especial, sino de dejar de añadir dramatismo, rigidez o huida a lo que ya está ocurriendo.</p>
+          </article>
+          <article class="card">
+            <h3>Presencia</h3>
+            <p>Estar presente no significa eliminar los pensamientos, sino dejar de ser arrastrado por ellos. La atención vuelve una y otra vez al momento actual, y en ese gesto repetido va apareciendo un espacio de claridad.</p>
+          </article>
+          <article class="card">
+            <h3>Comprensión</h3>
+            <p>Lo que experimentamos no es una realidad fija. Nuestra vida, nuestro cuerpo, nuestras emociones e incluso nuestra identidad pueden entenderse como procesos y patrones en relación continua con el entorno.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="meditaciones">
+      <div class="container">
+        <img src="meditacion.jpg" alt="Atención y transformación" class="section-image">
+
+        <div class=.practice {
+  display: block;
+}
+          <div>
+            <h2 class="section-title">Una práctica sencilla para comenzar</h2>
+            <p class="section-intro">La meditación no es una técnica para escapar de la realidad, sino una forma de entrar en ella con más precisión. A través de la atención sostenida, empezamos a ver cómo surgen los pensamientos, las emociones y las reacciones, y cómo pueden dejar de dominarnos.</p>
+
+
+
+            <div class="quote">“La práctica no consiste en fabricar otra identidad, sino en aflojar el apego a la rigidez del yo y aprender a relacionarse con la realidad de un modo más libre, más flexible y más compasivo.”</div>
+
+            <img src="arbol.jpg" alt="Camino de aprendizaje en la meditación" class="section-image">
+
+            <div style="margin-top:1.5rem;">
+              <a href="como-empezar-a-meditar.html" class="btn btn-secondary">Cómo empezar a meditar</a>
+            </div>
+          </div>
+
+          <aside class="card">
+           <h3 id="rutina-sugerida">Rutina sugerida</h3>
+
+<ul>
+  <li>Empieza con 5 o 10 minutos al día.</li>
+  <li>Practica sin exigencia, pero con constancia.</li>
+  <li>Reserva un rincón sencillo donde puedas sentarte en paz.</li>
+  <li>Lleva esa presencia también a los pequeños gestos cotidianos.</li>
+</ul>
+
+<img src="cartel-para-comenzar.jpg" class="rutina-cartel" alt="Ilustración de inicio para comenzar la práctica">
+            <div class="steps">
+              <div class="step">
+                <div class="step-number">1</div>
+                <div>
+                  <h3>Postura</h3>
+                  <p>Siéntate con la espalda erguida y el cuerpo relajado. Puedes usar una silla o un cojín. No busques una postura perfecta: busca una postura estable, digna y habitable.</p>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-number">2</div>
+                <div>
+                  <h3>Respiración</h3>
+                  <p>Observa la respiración tal como llega. No hace falta forzar nada. Solo acompaña el aire al entrar y al salir.</p>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-number">3</div>
+                <div>
+                  <h3>Atención</h3>
+                  <p>Cuando aparezcan pensamientos, recuerdos o inquietudes, no luches con ellos. Reconócelos y vuelve con amabilidad a la respiración.</p>
+                </div>
+              </div>
+            </div>
+
+<div class="quote">“La práctica espiritual no consiste en alejarse de la vida, sino en aprender a habitarla con más presencia.”</div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="postura-sentada">
+      <div class="container">
+        <h2 class="section-title">La postura sentada</h2>
+        <p class="section-intro">Una postura estable y relajada crea las condiciones para que la meditación se sostenga con naturalidad. Aquí se describe cómo sentarse con dignidad y comodidad sin tensar el cuerpo.</p>
+
+        <img src="postura-sentada-cartel.jpg" alt="Postura sentada para meditar" class="section-image">
+
+        <div class="audio-player-wrapper">
+          <h3>Guía de postura sentada</h3>
+          <audio controls class="tanden-audio" aria-label="Guía de postura sentada">
+            <source src="postura-sentada.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+
+        <details>
+          <summary class="btn btn-secondary" style="display:inline-flex; cursor:pointer;">Práctica completa paso a paso</summary>
+          <div class="text-card" style="margin-top:1.5rem;">
+            <h3>Postura sentada en la meditación</h3>
+            <p>La postura sentada es el fundamento de una práctica estable. Busca una posición en la que la espalda permanezca erguida y relajada, la pelvis ligeramente inclinada hacia delante y los hombros suaves. Siéntate sobre un cojín o en una silla, según lo que permita que tu cuerpo se sostenga sin tensión.</p>
+            <p>Apoya los pies de forma firme si estás en una silla, o cruza las piernas con comodidad si estás en el suelo. Deja que la cabeza se apoye sobre la columna sin derrumbarse, como si un hilo suave tirara desde la coronilla hacia arriba. La barbilla puede caer ligeramente, alargando la parte posterior del cuello.</p>
+            <p>Las manos pueden descansar con naturalidad sobre los muslos o en el regazo. Si prefieres una posición clásica, coloca las palmas hacia arriba con los pulgares tocándose suavemente, formando un pequeño triángulo. Si prefieres una postura más sencilla, deja las manos sobre las piernas con los dedos sueltos y relajados.</p>
+            <p>Antes de iniciar la meditación, toma un momento para ajustar la postura. Comprueba la alineación de la columna, la apertura del pecho y la relajación del abdomen. Si notas tensión, respira suavemente y deja que el cuerpo se acomode de nuevo.</p>
+            <p>La postura no está pensada para ser rígida, sino para ser un marco que permita la atención. Con el tiempo, el equilibrio entre estabilidad y suavidad se vuelve más sencillo y la práctica puede desarrollarse con menos distracción.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section id="respiracion-tanden">
+      <div class="container">
+        <h2 class="section-title">Respiración Tanden</h2>
+        <p class="section-intro">El tanden es una zona situada unos centímetros por debajo del ombligo sobre la que se dirige suavemente la atención durante la meditación. La respiración tanden ayuda a integrar postura, respiración y atención en una experiencia estable y natural.</p>
+        
+        <img src="respiracion-tanden-cartel.jpg" alt="Técnica de respiración tanden" class="section-image">
+        
+        <div class="audio-player-wrapper">
+          <h3>Guía de respiración guiada</h3>
+          <audio controls class="tanden-audio" aria-label="Guía de respiración tanden">
+            <source src="respiracion-tanden.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        
+        <details>
+          <summary class="btn btn-secondary" style="display:inline-flex; cursor:pointer;">Práctica completa paso a paso</summary>
+          <div class="text-card" style="margin-top:1.5rem;">
+            <h3>El ajuste de la respiración: La Respiración Tanden</h3>
+            
+            <p>El tanden es una zona situada a unos 2-3 centímetros por debajo del ombligo sobre la que se sitúa la atención durante la meditación. A la respiración que sigue esta indicación se le llama de forma genérica respiración tanden. Se trata de una respiración abdominal, diafragmática: al contraerse, el diafragma tira hacia abajo de la caja torácica y crea una presión negativa que permite la entrada de aire. Esta contracción hace que el diafragma baje y comprima las vísceras abdominales, lo que provoca que el vientre se distienda y que notemos esa sensación hacia adelante y abajo como si se hinchara una pelota. Durante la exhalación, el diafragma se relaja y el aire sale pasivamente. En este momento la distensión abdominal cesa y el vientre vuelve a su posición inicial.</p>
+            
+            <h4>Primera fase: Integración natural</h4>
+            
+            <p>En una primera fase, el proceso se podría describir de la siguiente manera:</p>
+            
+            <p><em>"Entra el aire por las fosas nasales durante la inspiración y se dirige directamente al tanden. Apreciamos cómo, durante la inspiración, se distiende el vientre en la zona del tanden con una sensación similar a si se hinchara una pelota. Durante la exhalación, el aire sale pasivamente por las fosas nasales, el vientre vuelve pasivamente a su posición inicial y sentimos cómo si se deshinchase la pelota en la zona del tanden. La palma de la mano derecha, que está situada en esta zona, puede notar cómo se produce este movimiento en el tanden. La atención se dirige a las sensaciones que provienen de la postura y la respiración, observando cómo el proceso se realiza de forma natural y sin esfuerzo alguno. Si mantenemos la atención, con la práctica se apreciarán mejor los matices de estas sensaciones y la coordinación de todo el proceso. El resultado final es que la postura, la respiración y la atención se integran en una experiencia que se mantiene en el tiempo."</em></p>
+            
+            <h4>Segunda fase: Profundización consciente</h4>
+            
+            <p>En una segunda fase, cuando la primera está bien asentada y se realiza casi inconscientemente, podemos profundizar en la práctica de algunas instrucciones que focalizarán más la atención y darán más profundidad a la concentración. La inspiración es igual que la anterior y los cambios se producen durante el final de la exhalación:</p>
+            
+            <p><em>"Entra el aire por las fosas nasales durante la inspiración y se dirige directamente al tanden. Apreciamos cómo, durante la inspiración, se distiende el vientre en la zona del tanden con una sensación similar a si se hinchara una pelota. Durante la exhalación, el aire sale pasivamente por las fosas nasales y sentimos como si se deshinchase la pelota en la zona del tanden. Al final de la exhalación, contraemos suavemente los músculos de la zona del tanden haciendo que el vientre se excave ligeramente, ayudando así a expulsar parte del aire residual al final de la exhalación. Cuando esta contracción cesa y los músculos abdominales se relajan, entra el aire de nuevo por las fosas nasales iniciando la inspiración y, con ella, la suave distensión en el vientre que le acompaña. La palma de la mano derecha puede notar este pequeño "vuelco del tanden". La atención se centra en estas sensaciones internas regulando los movimientos del tanden para que no sean bruscos sino suaves y armónicos. Con la práctica se alcanzará mayor delicadeza en los movimientos y las sensaciones serán más sutiles, de tal manera que todo el proceso se integra sin ningún esfuerzo."</em></p>
+            
+            <h4>Tercera fase: Supervisión del maestro</h4>
+            
+            <p>Podríamos incluso hablar de una tercera fase en la que se introducen pequeños matices para que la atención se focalice mejor y más prolongadamente, al tiempo que la concentración pueda alcanzar mayores grados de intensidad. Esta tercera fase es recomendable que se realice bajo la supervisión de un maestro acompañante que resuelva dudas y oriente adecuadamente toda la práctica.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="atencion">
+      <div class="container">
+        <h2 class="section-title">La atención: observar y sentir</h2>
+        <p class="section-intro">La atención permite dirigir la mirada interior hacia las sensaciones del cuerpo, estabilizando la práctica y apartándola poco a poco del flujo mental habitual. Observar y sentir no consiste en luchar contra los pensamientos, sino en volver con claridad al cuerpo presente.</p>
+
+        <img src="atencion.jpg" alt="Atención en la meditación" class="section-image">
+
+        <div class="audio-player-wrapper">
+          <h3>Guía de atención</h3>
+          <audio controls class="tanden-audio" aria-label="Guía de atención">
+            <source src="atencion.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+
+        <details>
+          <summary class="btn btn-secondary" style="display:inline-flex; cursor:pointer;">Práctica completa paso a paso</summary>
+          <div class="text-card" style="margin-top:1.5rem;">
+            <h3>La atención: observar y sentir</h3>
+            <p>Hemos visto que tanto en la adopción de la postura correcta como en la regulación de la respiración tanden la atención juega un papel esencial para realizar los ajustes necesarios durante la práctica. Al principio todo es un poco ensayo, error y mejora, es un proceso de aprendizaje en definitiva y, por tanto, requiere de atención y perseverancia.</p>
+            <p>El cambio fundamental es que la atención deja de estar enfocada en el flujo mental habitual y pasa a detenerse en las sensaciones que provienen del cuerpo, tanto para mantener la postura como para integrarla con la respiración. Cuanto más correcta es la postura más fácil es realizar la respiración tanden y cuanto más integrada está la respiración mejor se mantiene la postura correcta. Una favorece a la otra si la atención detecta con sutileza las pequeñas desviaciones que habitualmente se producen y nos permite corregirlas, sobre todo al principio.</p>
+            <p>El resultado es que, para que el proceso se armonice y se mantenga, es necesario enfocar y concentrar nuestra atención sobre las sensaciones corporales y, con ello, distraer a nuestra mente de su flujo habitual. Pasamos a dedicarle un tiempo cada vez mayor y más valioso a observar y sentir. Desarrollamos nuestra mirada interior y así depositamos una atención amorosa sobre nosotros mismos. Al final, el hábito de la meditación se abrirá camino y nuestra mente podrá observar los cambios.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section id="textos">
+      <div class="container">
+        <h2 class="section-title">Textos para profundizar</h2>
+        <p class="section-intro">Los materiales que están detrás de Zaike Zen desarrollan con más amplitud cuestiones como la impermanencia, la vacuidad, la compasión, la no dualidad y la realidad entendida como proceso.</p>
+
+        <div class="text-grid">
+          <article class="text-card">
+            <h3>Impermanencia y realidad</h3>
+            <p>La impermanencia no significa que nada exista, sino que nada posee una esencia fija e independiente. Las cosas aparecen, se mantienen durante un tiempo y cambian.</p>
+            <p>Esta comprensión no invita al nihilismo, sino a una manera más sobria y más libre de percibir.</p>
+          </article>
+          <article class="text-card">
+            <h3>Vacuidad y no dualidad</h3>
+            <p>La vacuidad no es la nada. Es la comprensión de que los fenómenos existen por dependencia mutua. Nada aparece aislado, nada se sostiene por sí mismo.</p>
+            <p>Cuando la mente deja de aferrarse a oposiciones rígidas, empieza a percibir la realidad con menos distorsión.</p>
+          </article>
+          <article class="text-card">
+            <h3>Patrones y transformación</h3>
+            <p>También puede entenderse nuestra experiencia como una red de patrones: procesos que se sostienen durante un tiempo y luego se transforman.</p>
+            <p>Cuando el patrón del ego se vuelve rígido aparece sufrimiento; cuando se vuelve flexible, aparece una relación más lúcida con uno mismo y con el entorno.</p>
+          </article>
+          <article class="text-card">
+            <h3>Compasión y acción</h3>
+            <p>La comprensión profunda no queda encerrada en la interioridad. Cuando se debilita la ilusión de separación, surge con más naturalidad la compasión.</p>
+            <p>La práctica se vuelve entonces una ética vivida.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="contacto">
+      <div class="container">
+        <h2 class="section-title">Contacto</h2>
+        <p class="section-intro">Si quieres compartir una reflexión, hacer una pregunta o iniciar un diálogo, puedes escribirme desde aquí.</p>
+
+        <form action="https://formspree.io/f/xkoygepv" method="POST" class="card contact-form" style="padding:1.5rem;">
+          <label for="nombre">Nombre</label>
+          <input id="nombre" type="text" name="name" required>
+          <label for="email">Email</label>
+          <input id="email" type="email" name="email" required>
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="message" rows="6" required></textarea>
+          <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="closing-image">
+      <div class="container">
+        <img src="arbol.jpg" alt="Proceso y equilibrio" class="closing-img">
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Zaike Zen · Una práctica sencilla de meditación para el día a día</p>
+      <p>© Santiago Díaz de Freijo – Zaike Zen</p>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('breathing-btn');
+    const text = document.getElementById('breathing-text');
+
+    const sequence = [
+      { label: 'Inhala · 4', time: 4000 },
+      { label: 'Sostén · 4', time: 4000 },
+      { label: 'Exhala · 6', time: 6000 }
+    ];
+
+    let running = false;
+
+    btn.addEventListener('click', async () => {
+      if (running) return;
+      running = true;
+      btn.textContent = 'Práctica en curso';
+
+      for (let round = 0; round < 2; round++) {
+        for (const step of sequence) {
+          text.textContent = step.label;
+          await new Promise(resolve => setTimeout(resolve, step.time));
+        }
+      }
+
+      text.textContent = 'Práctica terminada. Observa cómo te sientes.';
+      btn.textContent = 'Repetir respiración';
+      running = false;
+    });
+  </script>
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Beneficios de la meditación | Zaike Zen</title>
+  <meta name="description" content="Beneficios de la meditación: calma mental, reducción del estrés, atención consciente y transformación de la relación con la mente y la vida cotidiana." />
+  <link rel="canonical" href="https://santifreijo.github.io/zaike-zen/beneficios-meditacion.html" />
+
+  <script data-goatcounter="https://zaikezen.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+
+  <style>
+    :root {
+      --surface: rgba(255, 253, 248, 0.86);
+      --text: #26312c;
+      --muted: #607068;
+      --accent: #7e9a84;
+      --accent-dark: #5f7865;
+      --line: rgba(120,144,126,0.2);
+      --shadow: 0 18px 50px rgba(38,49,44,0.08);
+      --max: 960px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      line-height: 1.75;
+      background:
+        radial-gradient(circle at top left, rgba(232,239,231,0.9), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(220,232,220,0.7), transparent 28%),
+        linear-gradient(180deg, #f7f4ed 0%, #eef3ea 50%, #f7f4ed 100%);
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(92%, var(--max)); margin: 0 auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(247,244,237,0.78);
+      border-bottom: 1px solid rgba(126,154,132,0.12);
+      box-shadow: 0 6px 24px rgba(38,49,44,0.04);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+    }
+
+    .brand span { color: var(--accent-dark); }
+
+    .nav-links {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.94rem;
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-dark);
+      background: rgba(255,255,255,0.55);
+    }
+
+    .nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .nav-dropdown summary {
+      cursor: pointer;
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.35);
+      border: 1px solid rgba(120,140,125,0.18);
+      color: var(--muted);
+      font-size: 0.94rem;
+      transition: all 0.2s ease;
+      list-style: none;
+    }
+
+    .nav-dropdown summary:hover {
+      color: var(--accent-dark);
+      background: rgba(255,255,255,0.85);
+      border-color: rgba(93,122,100,0.35);
+      box-shadow: 0 6px 18px rgba(40,60,45,0.08);
+      transform: translateY(-1px);
+    }
+
+    .nav-dropdown ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(120,144,126,0.2);
+      border-radius: 12px;
+      box-shadow: 0 10px 24px rgba(38, 49, 44, 0.05);
+      min-width: 200px;
+      z-index: 10;
+      display: none;
+    }
+
+    .nav-dropdown[open] ul {
+      display: block;
+    }
+
+    .nav-dropdown li {
+      border-bottom: 1px solid rgba(120,144,126,0.1);
+    }
+
+    .nav-dropdown li:last-child {
+      border-bottom: none;
+    }
+
+    .nav-dropdown a {
+      display: block;
+      padding: 0.75rem 1rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .nav-dropdown a:hover {
+      background: rgba(126,154,132,0.1);
+      color: var(--accent-dark);
+    }
+
+    .hero { padding: 5rem 0 3rem; }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 0.88rem;
+      color: var(--accent-dark);
+      background: rgba(255,255,255,0.55);
+      margin-bottom: 1.1rem;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 4.2vw, 4.6rem);
+      line-height: 1.08;
+      margin-bottom: 1.2rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 2.4vw, 2.3rem);
+      margin: 1.8rem 0 1rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--muted);
+      font-size: 1.03rem;
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.45);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      padding: clamp(1.5rem, 4vw, 3rem);
+      margin: 1.5rem 0 4rem;
+    }
+
+    .footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 640px) {
+      .nav { flex-direction: column; align-items: flex-start; }
+      h1 { font-size: 2.3rem; }
+
+      .nav-dropdown ul {
+        position: static;
+        width: 100%;
+        min-width: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="index.html" class="brand">Zaike <span>Zen</span></a>
+      <nav class="nav-links">
+        <details class="nav-dropdown">
+          <summary>Inicio</summary>
+          <ul>
+            <li><a href="index.html#inicio">Inicio</a></li>
+            <li><a href="index.html#meditaciones">Qué es meditar</a></li>
+            <li><a href="index.html#zen">Qué es Zaike Zen</a></li>
+          </ul>
+        </details>
+        
+        <details class="nav-dropdown">
+          <summary>Cómo empezar</summary>
+          <ul>
+            <li><a href="index.html#rutina-sugerida">Rutina sugerida</a></li>
+            <li><a href="como-empezar-a-meditar.html">Empezar desde cero</a></li>
+            <li><a href="cuanto-tiempo-meditar-al-dia.html">Cuánto tiempo meditar</a></li>
+            <li><a href="index.html#meditaciones">Consignas básicas</a></li>
+            <li><a href="index.html#postura-sentada">Postura sentada</a></li>
+            <li><a href="index.html#respiracion-tanden">Respiración Tanden</a></li>
+            <li><a href="index.html#atencion">Atención</a></li>
+          </ul>
+        </details>
+        
+        <details class="nav-dropdown">
+          <summary>Profundizar</summary>
+          <ul>
+            <li><a href="index.html#textos">Impermanencia y realidad</a></li>
+            <li><a href="index.html#textos">Vacuidad y no dualidad</a></li>
+            <li><a href="index.html#textos">Patrones y transformación</a></li>
+            <li><a href="index.html#textos">Compasión y acción</a></li>
+          </ul>
+        </details>
+        
+        <a href="beneficios-meditacion.html">Beneficios</a>
+        <a href="index.html#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow">Meditación y transformación</div>
+        <h1>Beneficios de la meditación</h1>
+        <p>
+          La meditación no es una práctica mágica ni una técnica misteriosa. Es una forma sencilla y profunda de adiestrar la mente mediante el ejercicio consciente de la atención.
+        </p>
+      </div>
+    </section>
+    <article class="container article-card">
+      <p>
+        Las personas que nunca se han acercado a la meditación pero han oído hablar de ella suelen imaginar que se trata de una actividad con cierto componente mágico. Sin embargo, bien al contrario, meditar es básicamente adiestrar la mente por medio del ejercicio consciente de la atención. A través de una práctica continuada y correctamente orientada, se derivan consecuencias muy positivas en la forma en que pensamos, sentimos y vivimos.
+      </p>
+
+      <h2>Beneficios más conocidos</h2>
+
+      <p>
+        Quizás los beneficios más conocidos tienen que ver con alcanzar una mayor calma mental o mitigar el estrés derivado de un ritmo de vida acelerado. Muchas personas utilizan la meditación como una terapia para equilibrar sus estados emocionales y encontrar mayor estabilidad.
+      </p>
+
+      <p>
+        Al conocer mejor la herramienta con la que pensamos y sentimos, es posible responder de forma más serena a las situaciones cotidianas, favoreciendo un mayor bienestar.
+      </p>
+
+      <h2>Un cambio en la relación con la mente</h2>
+
+      <p>
+        En la meditación Zen adquieren especial importancia el cultivo del silencio y el ejercicio de la mirada interior. Estas prácticas permiten desarrollar una forma de atención menos condicionada por el pensamiento racional y más abierta, directa e intuitiva.
+      </p>
+
+      <p>
+        A medida que profundizamos en la práctica, comenzamos a reconocer nuestros propios condicionantes y automatismos. Esto facilita desenmascarar patrones internos y replantear la relación con uno mismo, con los demás y con el mundo.
+      </p>
+
+      <p>
+        Observar el propio pensamiento y ejercitar la atención de forma consciente permite descubrir un mundo interior que muchas veces pasa desapercibido: un espacio fértil que puede cultivarse y experimentarse con claridad.
+      </p>
+
+      <h2>Una forma diferente de estar en la vida</h2>
+
+      <p>
+        Para muchas personas, la meditación es también una puerta de apertura a la realidad. No a una idea abstracta, sino a la experiencia directa de lo que nos rodea. A través de la práctica, se inicia un proceso de transformación personal que conduce hacia una mayor plenitud.
+      </p>
+
+      <p>
+        La separación entre lo interior y lo exterior pierde fuerza, y la vida empieza a experimentarse de forma más integrada. La meditación deja de limitarse a momentos de quietud y pasa a formar parte del movimiento, de la acción y de la relación con los demás.
+      </p>
+
+      <p>
+        En este sentido, meditar no es aislarse del mundo, sino aprender a habitarlo con más presencia, claridad y profundidad.
+      </p>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Zaike Zen · Meditación sencilla para la vida cotidiana</p>
+      <p>© Santiago Díaz de Freijo – Zaike Zen</p>
+    </div>
+  </footer>
+</body>
+</html>
