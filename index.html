@@ -354,19 +354,56 @@
         min-width: none;
       }
     }
+    #consignas-basicas {
+  scroll-margin-top: 140px;
+}
+
+#que-es-meditar {
+  scroll-margin-top: 140px;
+}
+.genealogia-img {
+  width: 100%;
+  max-width: 900px;
+  display: block;
+  margin: 1rem auto 2rem auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+.brand-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.header-logo {
+  height: 72px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+@media (max-width: 640px) {
+  .header-logo {
+    height: 58px;
+  }
+}
   </style>
 </head>
 
 <body>
   <header class="topbar">
     <div class="container nav">
-      <a href="#inicio" class="brand">Zaike <span>Zen</span></a>
+      <a href="#inicio" class="brand brand-logo" aria-label="Zaike Zen">
+  <img src="Imagen-zaike-zen.jpg"
+       alt="Zaike Zen - Zen laico"
+       class="header-logo">
+</a>
       <nav class="nav-links">
         <details class="nav-dropdown">
           <summary>Inicio</summary>
           <ul>
             <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#meditaciones">Qué es meditar</a></li>
+            <li><a href="#que-es-meditar">Qué es meditar</a>
             <li><a href="#zen">Qué es Zaike Zen</a></li>
           </ul>
         </details>
@@ -374,7 +411,7 @@
         <details class="nav-dropdown">
           <summary>Cómo empezar</summary>
           <ul>
-            <li><a href="#rutina-sugerida">Rutina sugerida</a></li>
+           <li><a href="#ancla-rutina-sugerida">Rutina sugerida</a></li>
             <li><a href="como-empezar-a-meditar.html">Empezar desde cero</a></li>
             <li><a href="cuanto-tiempo-meditar-al-dia.html">Cuánto tiempo meditar</a></li>
             <li><a href="#meditaciones">Consignas básicas</a></li>
@@ -428,10 +465,14 @@
     <section id="zen">
       <div class="container">
         <h2 class="section-title">Qué significa el zen en Zaike Zen</h2>
-        <h2>Qué significa Zaike Zen</h2>
         <img src="zen.jpg" alt="Equilibrio y simplicidad" class="section-image">
         <p class="section-intro">En Zaike Zen, el zen no se presenta como una doctrina cerrada, sino como una práctica de experiencia directa. Parte de una intuición sencilla y profunda: nada permanece por sí mismo, nada está aislado, y buena parte de nuestro sufrimiento tiene que ver con el intento de fijar lo que en realidad está cambiando.</p>
-<h2 class="section-title">Qué es el Zen</h2>
+<p class="section-intro" style="margin-top:2rem;">
+  El Zen laico es para cualquier persona, día a día.<br>
+  ¿Quieres vivir?<br>
+   Ábrete a la vida a través de tu vida.
+</p>
+        <h2 class="section-title">Qué es Zaike Zen</h2>
 
 <p>
 Zaike Zen significa un Zen accesible, un Zen para la vida cotidiana. No es un camino reservado a monjes o a contextos especiales, sino una práctica abierta a cualquier persona.
@@ -465,24 +506,24 @@ Esta tradición se mantiene en la actualidad a través de la escuela Sincronía 
 <p>
 También se puede reconocer la influencia de la línea Zen Rinzai a través del maestro Hakuin Ekaku (1686–1769) y sus enseñanzas recogidas en Yasenkanna, así como del maestro laico Kawajiri Hôkin (1842–1910), décimo director de Sanzensha, y la inspiración del Zen ignaciano del maestro zen y jesuita Kadowaki Kakichi (1926–2017).
 </p>
-        <div class="cards tradition-cards">
-          <article class="card">
-            <h3>Sencillez</h3>
-            <p>La práctica comienza en lo inmediato: sentarse, respirar, observar. No se trata de alcanzar un estado especial, sino de dejar de añadir dramatismo, rigidez o huida a lo que ya está ocurriendo.</p>
-          </article>
-          <article class="card">
-            <h3>Presencia</h3>
-            <p>Estar presente no significa eliminar los pensamientos, sino dejar de ser arrastrado por ellos. La atención vuelve una y otra vez al momento actual, y en ese gesto repetido va apareciendo un espacio de claridad.</p>
-          </article>
-          <article class="card">
-            <h3>Comprensión</h3>
-            <p>Lo que experimentamos no es una realidad fija. Nuestra vida, nuestro cuerpo, nuestras emociones e incluso nuestra identidad pueden entenderse como procesos y patrones en relación continua con el entorno.</p>
-          </article>
-        </div>
+
+
+<img src="cartel-origenes-zaike-zen.jpg"
+     alt="Genealogía e influencias del Zaike Zen"
+     class="genealogia-img">
+
+
+
+ <img src="cartel_maestros.jpg"
+     alt="Maestros e influencias del Zaike Zen"
+     class="genealogia-img">
+      
       </div>
     </section>
 
+   <div id="ancla-rutina-sugerida"></div>
     <section id="meditaciones">
+  <span id="que-es-meditar"></span>
       <div class="container">
         <img src="meditacion.jpg" alt="Atención y transformación" class="section-image">
 
@@ -490,7 +531,7 @@ También se puede reconocer la influencia de la línea Zen Rinzai a través del 
   display: block;
 }
           <div>
-            <h2 class="section-title">Una práctica sencilla para comenzar</h2>
+            <h2 id="que-es-meditar" class="section-title">Una práctica sencilla para comenzar</h2>
             <p class="section-intro">La meditación no es una técnica para escapar de la realidad, sino una forma de entrar en ella con más precisión. A través de la atención sostenida, empezamos a ver cómo surgen los pensamientos, las emociones y las reacciones, y cómo pueden dejar de dominarnos.</p>
 
 
@@ -505,14 +546,14 @@ También se puede reconocer la influencia de la línea Zen Rinzai a través del 
           </div>
 
           <aside class="card">
-           <h3 id="rutina-sugerida">Rutina sugerida</h3>
-
-<ul>
-  <li>Empieza con 5 o 10 minutos al día.</li>
-  <li>Practica sin exigencia, pero con constancia.</li>
-  <li>Reserva un rincón sencillo donde puedas sentarte en paz.</li>
-  <li>Lleva esa presencia también a los pequeños gestos cotidianos.</li>
-</ul>
+ <h3>Rutina sugerida</h3>
+  <ul>
+    <li>Empieza con 5 o 10 minutos al día.</li>
+    <li>Practica sin exigencia, pero con constancia.</li>
+    <li>Reserva un rincón sencillo donde puedas sentarte en paz.</li>
+    <li>Lleva esa presencia también a los pequeños gestos cotidianos.</li>
+  </ul>
+</aside>
 
 <img src="cartel-para-comenzar.jpg" class="rutina-cartel" alt="Ilustración de inicio para comenzar la práctica">
             <div class="steps">
@@ -546,6 +587,22 @@ También se puede reconocer la influencia de la línea Zen Rinzai a través del 
         </div>
       </div>
     </section>
+
+      <div class="container">
+  <div class="cards tradition-cards">
+          <article class="card">
+            <h3>Sencillez</h3>
+            <p>La práctica comienza en lo inmediato: sentarse, respirar, observar. No se trata de alcanzar un estado especial, sino de dejar de añadir dramatismo, rigidez o huida a lo que ya está ocurriendo.</p>
+          </article>
+          <article class="card">
+            <h3>Presencia</h3>
+            <p>Estar presente no significa eliminar los pensamientos, sino dejar de ser arrastrado por ellos. La atención vuelve una y otra vez al momento actual, y en ese gesto repetido va apareciendo un espacio de claridad.</p>
+          </article>
+          <article class="card">
+            <h3>Comprensión</h3>
+            <p>Lo que experimentamos no es una realidad fija. Nuestra vida, nuestro cuerpo, nuestras emociones e incluso nuestra identidad pueden entenderse como procesos y patrones en relación continua con el entorno.</p>
+          </article>
+</div>
 
     <section id="postura-sentada">
       <div class="container">
@@ -641,12 +698,16 @@ También se puede reconocer la influencia de la línea Zen Rinzai a través del 
         </details>
       </div>
     </section>
+    <img src="cartel-dificultades-principiante.jpg"
+     alt="Principales dificultades con las que se encuentra el principiante"
+     class="genealogia-img">
 
     <section id="textos">
       <div class="container">
         <h2 class="section-title">Textos para profundizar</h2>
         <p class="section-intro">Los materiales que están detrás de Zaike Zen desarrollan con más amplitud cuestiones como la impermanencia, la vacuidad, la compasión, la no dualidad y la realidad entendida como proceso.</p>
 
+        
         <div class="text-grid">
           <article class="text-card">
             <h3>Impermanencia y realidad</h3>
