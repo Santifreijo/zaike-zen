@@ -155,6 +155,50 @@
     .breathing-box p { margin-bottom: 0.9rem; color: var(--muted); font-size: 0.95rem; }
     #breathing-text { font-size: 1.2rem; font-weight: 700; color: var(--accent-dark); min-height: 2rem; margin-top: 0.8rem; }
 
+    .tanden-breath {
+      display: grid;
+      place-items: center;
+      gap: 1rem;
+      margin: 2rem auto;
+      padding: 1.6rem;
+      max-width: 520px;
+      background: rgba(255,255,255,0.54);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow-soft);
+      text-align: center;
+    }
+
+    .tanden-breath-orb {
+      width: clamp(120px, 32vw, 190px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, rgba(255,255,255,0.92) 0%, rgba(219,232,222,0.72) 54%, rgba(126,154,132,0.34) 100%);
+      border: 1px solid rgba(126,154,132,0.26);
+      box-shadow: 0 18px 50px rgba(95,120,101,0.16);
+      transform: scale(0.82);
+      transition: transform 4s ease-in-out, opacity 1.2s ease;
+    }
+
+    .tanden-breath.is-inhale .tanden-breath-orb { transform: scale(1); }
+    .tanden-breath.is-pause .tanden-breath-orb { transform: scale(1); opacity: 0.88; }
+    .tanden-breath.is-exhale .tanden-breath-orb { transform: scale(0.72); }
+
+    .tanden-breath-label {
+      min-height: 1.8rem;
+      color: var(--accent-dark);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .tanden-breath-orb {
+        transition: none;
+        transform: scale(0.9);
+      }
+    }
+
     section { padding: 4.25rem 0; position: relative; }
     section + section {
   margin-top: 4rem;
@@ -636,6 +680,11 @@ También se puede reconocer la influencia de la línea Zen Rinzai a través del 
         <p class="section-intro">El tanden es una zona situada unos centímetros por debajo del ombligo sobre la que se dirige suavemente la atención durante la meditación. La respiración tanden ayuda a integrar postura, respiración y atención en una experiencia estable y natural.</p>
         
         <img src="respiracion-tanden-cartel.jpg" alt="Técnica de respiración tanden" class="section-image">
+
+        <div class="tanden-breath" aria-label="Animación de respiración tanden">
+          <div class="tanden-breath-orb" aria-hidden="true"></div>
+          <div class="tanden-breath-label" aria-live="polite">Inhalar</div>
+        </div>
         
         <div class="audio-player-wrapper">
           <h3>Guía de respiración guiada</h3>
@@ -791,6 +840,29 @@ También se puede reconocer la influencia de la línea Zen Rinzai a través del 
       btn.textContent = 'Repetir respiración';
       running = false;
     });
+
+    const tandenBreath = document.querySelector('.tanden-breath');
+    const tandenLabel = document.querySelector('.tanden-breath-label');
+
+    if (tandenBreath && tandenLabel) {
+      const tandenSteps = [
+        { className: 'is-inhale', label: 'Inhalar', time: 4000 },
+        { className: 'is-pause', label: 'Pausa', time: 2000 },
+        { className: 'is-exhale', label: 'Exhalar', time: 6000 }
+      ];
+      let tandenStep = 0;
+
+      const updateTandenBreath = () => {
+        const step = tandenSteps[tandenStep];
+        tandenBreath.classList.remove('is-inhale', 'is-pause', 'is-exhale');
+        tandenBreath.classList.add(step.className);
+        tandenLabel.textContent = step.label;
+        tandenStep = (tandenStep + 1) % tandenSteps.length;
+        window.setTimeout(updateTandenBreath, step.time);
+      };
+
+      updateTandenBreath();
+    }
   </script>
 
 </body>
