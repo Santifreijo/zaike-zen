@@ -26,7 +26,7 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: auto; }
 
     body {
       font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -242,6 +242,29 @@
       }
     }
 
+    .anchor-arrive {
+      animation: anchor-arrive 0.7s ease both;
+    }
+
+    @keyframes anchor-arrive {
+      from {
+        opacity: 0.78;
+        transform: scale(0.985) translateY(6px);
+        filter: blur(1px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        filter: blur(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .anchor-arrive {
+        animation: none;
+      }
+    }
+
     section { padding: 4.25rem 0; position: relative; }
     section + section {
   margin-top: 4rem;
@@ -434,7 +457,70 @@
       color: var(--accent-dark);
     }
 
+    .mobile-menu-toggle,
+    .mobile-menu-panel {
+      display: none;
+    }
+
+    .mobile-menu-toggle {
+      align-items: center;
+      justify-content: center;
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(120,140,125,0.18);
+      background: rgba(255,255,255,0.55);
+      color: var(--muted);
+      font: inherit;
+      font-size: 0.94rem;
+      cursor: pointer;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .mobile-menu-panel {
+      width: 100%;
+      gap: 1rem;
+      padding: 1rem;
+      border: 1px solid rgba(120,144,126,0.2);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.82);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .mobile-menu-group {
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .mobile-menu-group p {
+      color: var(--accent-dark);
+      font-size: 0.86rem;
+      font-weight: 700;
+      margin-bottom: 0.1rem;
+    }
+
+    .mobile-menu-panel a {
+      color: var(--muted);
+      padding: 0.55rem 0;
+      border-bottom: 1px solid rgba(120,144,126,0.12);
+    }
+
+    .mobile-menu-panel a:last-child {
+      border-bottom: 0;
+    }
+
     @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-menu-toggle {
+        display: inline-flex;
+      }
+
+      .mobile-menu-panel.is-open {
+        display: grid;
+      }
+
       .nav-dropdown ul {
         position: static;
         width: 100%;
@@ -520,6 +606,39 @@
         
         <a href="beneficios-meditacion.html">Beneficios</a>
         <a href="#contacto">Contacto</a>
+      </nav>
+      <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu-panel">Menú</button>
+      <nav class="mobile-menu-panel" id="mobile-menu-panel" aria-label="Menú móvil">
+        <div class="mobile-menu-group">
+          <p>Inicio</p>
+          <a href="#inicio">Inicio</a>
+          <a href="#que-es-meditar">Qué es meditar</a>
+          <a href="#zen">Qué es Zaike Zen</a>
+        </div>
+
+        <div class="mobile-menu-group">
+          <p>Cómo empezar</p>
+          <a href="#rutina-sugerida">Rutina sugerida</a>
+          <a href="como-empezar-a-meditar.html">Empezar desde cero</a>
+          <a href="cuanto-tiempo-meditar-al-dia.html">Cuánto tiempo meditar</a>
+          <a href="#meditaciones">Consignas básicas</a>
+          <a href="#postura-sentada">Postura sentada</a>
+          <a href="#respiracion-tanden">Respiración Tanden</a>
+          <a href="#atencion">Atención</a>
+        </div>
+
+        <div class="mobile-menu-group">
+          <p>Profundizar</p>
+          <a href="#textos">Impermanencia y realidad</a>
+          <a href="#textos">Vacuidad y no dualidad</a>
+          <a href="#textos">Patrones y transformación</a>
+          <a href="#textos">Compasión y acción</a>
+        </div>
+
+        <div class="mobile-menu-group">
+          <a href="beneficios-meditacion.html">Beneficios</a>
+          <a href="#contacto">Contacto</a>
+        </div>
       </nav>
     </div>
   </header>
@@ -610,7 +729,6 @@ También se puede reconocer la influencia de la línea Zen Rinzai a través del 
 
    <div id="rutina-sugerida"></div>
     <section id="meditaciones">
-  <span id="que-es-meditar"></span>
       <div class="container">
         <img src="meditacion.jpg" alt="Atención y transformación" class="section-image">
 
@@ -930,6 +1048,85 @@ También se puede reconocer la influencia de la línea Zen Rinzai a través del 
     } else {
       revealItems.forEach(item => item.classList.add('is-visible'));
     }
+
+    const closeNavDropdowns = () => {
+      document.querySelectorAll('.nav-dropdown[open]').forEach(dropdown => {
+        dropdown.removeAttribute('open');
+      });
+    };
+
+    const navigateToInternalTarget = id => {
+      if (!id || id === '#') return;
+
+      const target = document.querySelector(id);
+      if (!target) return;
+
+      target.scrollIntoView({ behavior: 'auto', block: 'start' });
+      history.pushState(null, '', id);
+
+      if (!prefersReducedMotion) {
+        const visualTarget = target.matches('div:empty, span:empty')
+          ? target.nextElementSibling || target.parentElement || target
+          : target;
+
+        visualTarget.classList.remove('anchor-arrive');
+        void visualTarget.offsetWidth;
+        visualTarget.classList.add('anchor-arrive');
+
+        window.setTimeout(() => {
+          visualTarget.classList.remove('anchor-arrive');
+        }, 740);
+      }
+    };
+
+    const handleNavDropdownLink = event => {
+      const link = event.currentTarget;
+      const href = link.getAttribute('href') || '';
+
+      closeNavDropdowns();
+
+      if (!href.startsWith('#')) return;
+
+      event.preventDefault();
+      navigateToInternalTarget(href);
+    };
+
+    document.querySelectorAll('.nav-dropdown a').forEach(link => {
+      link.addEventListener('click', handleNavDropdownLink);
+    });
+
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileMenuPanel = document.querySelector('.mobile-menu-panel');
+
+    const closeMobileMenu = () => {
+      if (!mobileMenuToggle || !mobileMenuPanel) return;
+      mobileMenuPanel.classList.remove('is-open');
+      mobileMenuToggle.setAttribute('aria-expanded', 'false');
+    };
+
+    if (mobileMenuToggle && mobileMenuPanel) {
+      mobileMenuToggle.addEventListener('click', () => {
+        const isOpen = mobileMenuPanel.classList.toggle('is-open');
+        mobileMenuToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      mobileMenuPanel.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+      });
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      if (link.closest('.nav-dropdown')) return;
+
+      link.addEventListener('click', event => {
+        const href = link.getAttribute('href') || '';
+
+        if (!href || href === '#') return;
+
+        event.preventDefault();
+        navigateToInternalTarget(href);
+      });
+    });
   </script>
 
 </body>
