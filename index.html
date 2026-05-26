@@ -197,6 +197,47 @@
     .tanden-breath.is-exhale .tanden-breath-orb { transform: scale(0.72); }
     .tanden-breath.is-dig .tanden-breath-orb { transform: scale(0.72); opacity: 0.76; }
 
+    .tanden-dig-arrow {
+      position: absolute;
+      left: 84.1%;
+      top: 83.05%;
+      width: clamp(14px, 1.55vw, 20px);
+      height: 3px;
+      background: rgba(58, 76, 47, 0.88);
+      opacity: 0;
+      pointer-events: none;
+      transform: translate(-50%, -50%) rotate(180deg);
+      transition: opacity 0.5s ease;
+    }
+
+    .tanden-dig-arrow::after {
+      content: "";
+      position: absolute;
+      right: -1px;
+      top: 50%;
+      width: 8px;
+      height: 8px;
+      border-right: 3px solid rgba(58, 76, 47, 0.88);
+      border-top: 3px solid rgba(58, 76, 47, 0.88);
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    .tanden-poster.is-dig .tanden-dig-arrow {
+      opacity: 1;
+    }
+
+    @media (max-width: 640px) {
+      .tanden-dig-arrow {
+        left: 84.6%;
+        top: 83.25%;
+        width: 18px;
+      }
+
+      .tanden-poster.is-dig .tanden-dig-arrow {
+        opacity: 0.96;
+      }
+    }
+
     .tanden-breath-label {
       min-height: 1.4rem;
       padding: 0.1rem 0.5rem;
@@ -914,6 +955,7 @@ También se puede reconocer la influencia de la línea Zen Rinzai a través del 
             <div class="tanden-breath-orb" aria-hidden="true"></div>
             <div class="tanden-breath-label" aria-live="polite">Inhalar</div>
           </div>
+          <div class="tanden-dig-arrow" aria-hidden="true"></div>
         </div>
         
         <div class="audio-player-wrapper">
@@ -1073,8 +1115,9 @@ También se puede reconocer la influencia de la línea Zen Rinzai a través del 
 
     const tandenBreath = document.querySelector('.tanden-breath');
     const tandenLabel = document.querySelector('.tanden-breath-label');
+    const tandenPoster = document.querySelector('.tanden-poster');
 
-    if (tandenBreath && tandenLabel) {
+    if (tandenBreath && tandenLabel && tandenPoster) {
       const tandenSteps = [
         { className: 'is-inhale', label: 'Inhalar', time: 4000 },
         { className: 'is-pause', label: 'Pausa', time: 2000 },
@@ -1086,7 +1129,9 @@ También se puede reconocer la influencia de la línea Zen Rinzai a través del 
       const updateTandenBreath = () => {
         const step = tandenSteps[tandenStep];
         tandenBreath.classList.remove('is-inhale', 'is-pause', 'is-exhale', 'is-dig');
+        tandenPoster.classList.remove('is-inhale', 'is-pause', 'is-exhale', 'is-dig');
         tandenBreath.classList.add(step.className);
+        tandenPoster.classList.add(step.className);
         tandenLabel.textContent = step.label;
         tandenStep = (tandenStep + 1) % tandenSteps.length;
         window.setTimeout(updateTandenBreath, step.time);
