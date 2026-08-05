@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Cómo estabilizar | Zaike Zen</title>
+  <meta name="description" content="Estructura inicial de la fase Estabilizacion en Zaike Zen.">
+
+  <link rel="canonical" href="https://zaikezen.es/como-estabilizar.html">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .intro-estabilizacion {
+      max-width: 860px;
+      text-align: center;
+    }
+
+    .intro-estabilizacion p {
+      color: #607068;
+      font-size: 1.08rem;
+    }
+
+    .estabilizacion-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.3rem;
+    }
+
+    .estabilizacion-card {
+      min-height: 180px;
+      padding: 1.55rem;
+      background: rgba(255, 253, 248, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      border-radius: 24px;
+      box-shadow: 0 18px 50px rgba(38, 49, 44, 0.08);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .estabilizacion-card h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #26312c;
+    }
+
+    .estabilizacion-card p {
+      margin: 0;
+      color: #607068;
+    }
+
+    .card-media {
+      width: 100%;
+      height: 150px;
+      margin: 0;
+    }
+
+    .card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 18px;
+      display: block;
+    }
+
+    .card-media-placeholder {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      gap: 0.45rem;
+      padding: 1rem;
+      border: 1px dashed rgba(126, 154, 132, 0.42);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.36);
+      color: #7e9a84;
+      text-align: center;
+      font-size: 0.88rem;
+      line-height: 1.35;
+    }
+
+    .placeholder-symbol {
+      width: 42px;
+      height: 42px;
+      border: 2px solid rgba(126, 154, 132, 0.48);
+      border-right-color: transparent;
+      border-radius: 50%;
+      display: block;
+    }
+
+    .recorrido-practica {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      color: #607068;
+      font-weight: 600;
+    }
+
+    .recorrido-paso {
+      padding: 0.55rem 0.95rem;
+      border: 1px solid rgba(120, 140, 125, 0.18);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.35);
+      white-space: nowrap;
+    }
+
+    .recorrido-paso.activo {
+      color: #26312c;
+      background: #dbe7df;
+      border-color: rgba(93, 122, 100, 0.28);
+    }
+
+    .recorrido-flecha {
+      color: #7e9a84;
+    }
+
+    .estado-preparacion {
+      align-self: flex-start;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(126, 154, 132, 0.12);
+      color: #5f7865;
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+
+    .nota-estabilizacion {
+      max-width: 860px;
+      text-align: center;
+      color: #607068;
+      font-size: 1.05rem;
+    }
+
+    @media (max-width: 900px) {
+      .estabilizacion-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .recorrido-practica {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav class="navbar">
+    <a href="index.html" class="logo">Zaike Zen</a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="como-empezar-a-meditar.html">Cómo empezar</a></li>
+      <li><a href="camino-del-practicante.html">El Camino del Practicante</a></li>
+      <li><a href="como-estabilizar.html" class="active">Estabilización</a></li>
+      <li><a href="cuanto-tiempo-meditar-al-dia.html">Tiempo de práctica</a></li>
+      <li><a href="beneficios-meditacion.html">Beneficios</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Cómo estabilizar</h1>
+      <p>
+        Recursos para convertir la práctica en un hábito estable y natural.
+      </p>
+    </div>
+  </section>
+
+  <section class="section intro-estabilizacion">
+    <h2>Introducción</h2>
+    <p>
+      Después de conocer la postura, la respiración y la atención, llega el momento de estabilizar la práctica. Las ayudas que encontrarás a continuación no son ejercicios aislados, sino recursos que favorecen la integración corporal, respiratoria y atencional hasta que la meditación forme parte de la vida cotidiana.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="recorrido-practica" aria-label="Recorrido de la práctica">
+      <span class="recorrido-paso">Iniciación</span>
+      <span class="recorrido-flecha" aria-hidden="true">→</span>
+      <span class="recorrido-paso activo">Estabilización</span>
+      <span class="recorrido-flecha" aria-hidden="true">→</span>
+      <span class="recorrido-paso">Profundización</span>
+    </div>
+
+    <div class="estabilizacion-grid">
+      <article class="estabilizacion-card">
+        <figure class="card-media">
+          <img src="estabilizacion-automasaje.jpg" alt="Automasaje" hidden onload="this.hidden=false; this.nextElementSibling.hidden=true;" onerror="this.hidden=true;">
+          <figcaption class="card-media-placeholder"><span class="placeholder-symbol" aria-hidden="true"></span><span>Imagen en preparación</span></figcaption>
+        </figure>
+        <div>
+          <h3>Automasaje</h3>
+          <p>Preparar el cuerpo y la atención para entrar en la práctica con mayor presencia.</p>
+        </div>
+        <a class="button" href="automasaje.html">Comenzar</a>
+      </article>
+
+      <article class="estabilizacion-card">
+        <figure class="card-media">
+          <img src="estabilizacion-meditacion-movimiento.jpg" alt="Meditación en movimiento" hidden onload="this.hidden=false; this.nextElementSibling.hidden=true;" onerror="this.hidden=true;">
+          <figcaption class="card-media-placeholder"><span class="placeholder-symbol" aria-hidden="true"></span><span>Imagen en preparación</span></figcaption>
+        </figure>
+        <div>
+          <h3>Meditación en movimiento</h3>
+          <p>Integrar movimiento, respiración y atención antes de la meditación sentada.</p>
+        </div>
+        <span class="estado-preparacion">En preparación</span>
+      </article>
+
+      <article class="estabilizacion-card">
+        <figure class="card-media">
+          <img src="estabilizacion-hogenchaku.jpg" alt="Hogenchaku" hidden onload="this.hidden=false; this.nextElementSibling.hidden=true;" onerror="this.hidden=true;">
+          <figcaption class="card-media-placeholder"><span class="placeholder-symbol" aria-hidden="true"></span><span>Imagen en preparación</span></figcaption>
+        </figure>
+        <div>
+          <h3>Hogenchaku</h3>
+          <p>Relajarse y soltar progresivamente el cuerpo desde una postura estable.</p>
+        </div>
+        <span class="estado-preparacion">En preparación</span>
+      </article>
+
+      <article class="estabilizacion-card">
+        <figure class="card-media">
+          <img src="estabilizacion-nanso.jpg" alt="Nanso" hidden onload="this.hidden=false; this.nextElementSibling.hidden=true;" onerror="this.hidden=true;">
+          <figcaption class="card-media-placeholder"><span class="placeholder-symbol" aria-hidden="true"></span><span>Imagen en preparación</span></figcaption>
+        </figure>
+        <div>
+          <h3>Nanso</h3>
+          <p>Utilizar la imaginación y la respiración para profundizar en la atención corporal.</p>
+        </div>
+        <span class="estado-preparacion">En preparación</span>
+      </article>
+
+      <article class="estabilizacion-card">
+        <figure class="card-media">
+          <img src="estabilizacion-susokukan.jpg" alt="Susokukan" hidden onload="this.hidden=false; this.nextElementSibling.hidden=true;" onerror="this.hidden=true;">
+          <figcaption class="card-media-placeholder"><span class="placeholder-symbol" aria-hidden="true"></span><span>Imagen en preparación</span></figcaption>
+        </figure>
+        <div>
+          <h3>Susokukan</h3>
+          <p>Contar y sentir la respiración para estabilizar la atención.</p>
+        </div>
+        <span class="estado-preparacion">En preparación</span>
+      </article>
+
+      <article class="estabilizacion-card">
+        <figure class="card-media">
+          <img src="estabilizacion-respiraciones.jpg" alt="Respiraciones básicas" hidden onload="this.hidden=false; this.nextElementSibling.hidden=true;" onerror="this.hidden=true;">
+          <figcaption class="card-media-placeholder"><span class="placeholder-symbol" aria-hidden="true"></span><span>Imagen en preparación</span></figcaption>
+        </figure>
+        <div>
+          <h3>Respiraciones básicas</h3>
+          <p>Explorar progresivamente diferentes recorridos de la respiración.</p>
+        </div>
+        <span class="estado-preparacion">En preparación</span>
+      </article>
+    </div>
+  </section>
+
+  <section class="section nota-estabilizacion">
+    <p>
+      Estas ayudas están a disposición del practicante para ser utilizadas según su práctica personal y siempre teniendo en cuenta las sugerencias del maestro acompañante.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 Zaike Zen</p>
+</footer>
+
+</body>
+</html>
