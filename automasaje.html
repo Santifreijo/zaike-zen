@@ -53,11 +53,36 @@
     .video-placeholder video {
       display: block;
       width: min(100%, 520px);
+      height: auto;
+      object-fit: contain;
+      margin: 0 auto;
+      border-radius: 18px;
+      background: #f5f0e7;
+    }
+
+    main > .automasaje-texto:nth-of-type(3) {
+      padding-bottom: 0;
+    }
+
+    main > .automasaje-texto:nth-of-type(3) + .section {
+      padding-top: 4px;
+    }
+
+    .video-poster-preview {
+      display: block;
+      width: min(100%, 520px);
       aspect-ratio: 9 / 16;
       object-fit: cover;
       margin: 0 auto;
       border-radius: 18px;
-      background: transparent;
+    }
+
+    .video-preparacion-texto {
+      margin: 1rem 0 0;
+      color: #607068;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-align: center;
     }
 
     .bloque-tecnica {
@@ -251,7 +276,7 @@
   <section class="section">
     <div class="video-placeholder">
       <video controls preload="metadata" poster="cartel-video-automasaje.jpg">
-        <source src="automasaje.mp4" type="video/mp4">
+        <source src="video_automasaje.mp4" type="video/mp4">
       </video>
     </div>
   </section>
