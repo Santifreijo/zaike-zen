@@ -71,6 +71,10 @@
   background-color: #dbe7df;
   font-weight: 500;
 }
+.nav-dropdown summary.active {
+  background-color: #dbe7df;
+  font-weight: 500;
+}
 .nav-links a {
   color: var(--muted);
   font-size: 0.94rem;
@@ -558,6 +562,11 @@
       border-bottom: 1px solid rgba(120,144,126,0.12);
     }
 
+    .mobile-menu-panel a.active {
+      background-color: #dbe7df;
+      font-weight: 500;
+    }
+
     .mobile-menu-panel a:last-child {
       border-bottom: 0;
     }
@@ -711,7 +720,18 @@
         </details>
         
         <a href="camino-del-practicante.html">El Camino del Practicante</a>
-<a href="como-estabilizar.html">Cómo estabilizar</a>
+        <details class="nav-dropdown">
+          <summary>Cómo estabilizar</summary>
+          <ul>
+            <li><a href="como-estabilizar.html">Visión general</a></li>
+            <li><a href="automasaje.html">Automasaje</a></li>
+            <li><a href="meditacion-movimiento.html">Meditación en movimiento</a></li>
+            <li><a href="hogenchaku.html">Hogenchaku</a></li>
+            <li><a href="nanso.html">Nanso</a></li>
+            <li><a href="susokukan.html">Susokukan</a></li>
+            <li><a href="respiraciones.html">Respiraciones básicas</a></li>
+          </ul>
+        </details>
         <details class="nav-dropdown">
           <summary>Cómo profundizar</summary>
           <ul>
@@ -743,6 +763,18 @@
           <a href="#postura-sentada">Postura sentada</a>
           <a href="#respiracion-tanden">Respiración Tanden</a>
           <a href="#atencion">Atención</a>
+        </div>
+        <a href="camino-del-practicante.html">El Camino del Practicante</a>
+
+        <div class="mobile-menu-group">
+          <p>Cómo estabilizar</p>
+          <a href="como-estabilizar.html">Visión general</a>
+          <a href="automasaje.html">Automasaje</a>
+          <a href="meditacion-movimiento.html">Meditación en movimiento</a>
+          <a href="hogenchaku.html">Hogenchaku</a>
+          <a href="nanso.html">Nanso</a>
+          <a href="susokukan.html">Susokukan</a>
+          <a href="respiraciones.html">Respiraciones básicas</a>
         </div>
 
         <div class="mobile-menu-group">
