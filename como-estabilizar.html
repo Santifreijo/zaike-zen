@@ -11,6 +11,279 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
+    .container { width: min(92%, 1120px); margin: 0 auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(247, 244, 237, 0.72);
+      border-bottom: 1px solid rgba(126, 154, 132, 0.12);
+      box-shadow: 0 6px 24px rgba(38, 49, 44, 0.04);
+    }
+
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; gap: 1rem; }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #26312c;
+    }
+
+    .brand span { color: #5f7865; }
+
+    .nav-links {
+      display: flex;
+      gap: 0.4rem;
+      align-items: center;
+    }
+
+    .nav-links a.active {
+      background-color: #dbe7df;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      color: #607068;
+      font-size: 0.94rem;
+      padding: 0.5rem 0.85rem;
+      border-radius: 999px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all 0.25s ease;
+      background: rgba(255,255,255,0.35);
+      border: 1px solid rgba(120,140,125,0.18);
+    }
+
+    .nav-links a:hover {
+      color: #5f7865;
+      background: rgba(255,255,255,0.85);
+      border-color: rgba(93,122,100,0.35);
+      box-shadow: 0 6px 18px rgba(40,60,45,0.08);
+      transform: translateY(-1px);
+    }
+
+    .nav-links a:active {
+      transform: scale(0.97);
+    }
+
+    .nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .nav-dropdown summary {
+      cursor: pointer;
+      padding: 0.5rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.35);
+      border: 1px solid rgba(120,140,125,0.18);
+      color: #607068;
+      font-size: 0.94rem;
+      transition: all 0.25s ease;
+    }
+
+    .nav-dropdown summary:hover {
+      color: #5f7865;
+      background: rgba(255,255,255,0.85);
+      border-color: rgba(93,122,100,0.35);
+      box-shadow: 0 6px 18px rgba(40,60,45,0.08);
+      transform: translateY(-1px);
+    }
+
+    .nav-dropdown ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(120,144,126,0.2);
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(38,49,44,0.08);
+      min-width: 200px;
+      z-index: 10;
+      display: none;
+    }
+
+    .nav-dropdown[open] ul {
+      display: block;
+    }
+
+    .nav-dropdown li {
+      border-bottom: 1px solid rgba(120,144,126,0.1);
+    }
+
+    .nav-dropdown li:last-child {
+      border-bottom: none;
+    }
+
+    .nav-dropdown a {
+      display: block;
+      padding: 0.75rem 1rem;
+      color: #607068;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .nav-dropdown a:hover {
+      background: rgba(126,154,132,0.1);
+      color: #5f7865;
+    }
+
+    .mobile-menu-toggle,
+    .mobile-menu-panel {
+      display: none;
+    }
+
+    .mobile-menu-toggle {
+      align-items: center;
+      justify-content: center;
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(120,140,125,0.18);
+      background: rgba(255,255,255,0.55);
+      color: #607068;
+      font: inherit;
+      font-size: 0.94rem;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(38,49,44,0.08);
+    }
+
+    .mobile-menu-panel {
+      width: 100%;
+      gap: 1rem;
+      padding: 1rem;
+      border: 1px solid rgba(120,144,126,0.2);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.82);
+      box-shadow: 0 10px 30px rgba(38,49,44,0.08);
+    }
+
+    .mobile-menu-group {
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .mobile-menu-group p {
+      color: #5f7865;
+      font-size: 0.86rem;
+      font-weight: 700;
+      margin-bottom: 0.1rem;
+    }
+
+    .mobile-menu-panel a {
+      color: #607068;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid rgba(120,144,126,0.12);
+    }
+
+    .mobile-menu-panel a:last-child {
+      border-bottom: 0;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .header-logo {
+      height: 72px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        width: min(92%, 1120px);
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+      }
+
+      .brand-logo {
+        grid-column: 1;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-menu-toggle {
+        display: inline-flex;
+        grid-column: 2;
+        justify-self: end;
+        min-height: 42px;
+        padding: 0.55rem 1rem;
+        background: rgba(255,255,255,0.72);
+        border-color: rgba(120,144,126,0.24);
+        color: #5f7865;
+        font-weight: 700;
+      }
+
+      .mobile-menu-panel.is-open {
+        display: grid;
+      }
+
+      .mobile-menu-panel {
+        grid-column: 1 / -1;
+        margin-top: 0.75rem;
+        padding: 1.1rem;
+        gap: 1.15rem;
+        border-radius: 22px;
+        background: rgba(255,253,248,0.92);
+        border: 1px solid rgba(120,144,126,0.18);
+        box-shadow: 0 18px 44px rgba(38,49,44,0.1);
+        backdrop-filter: blur(12px);
+      }
+
+      .mobile-menu-group {
+        gap: 0.2rem;
+        padding-bottom: 0.85rem;
+        border-bottom: 1px solid rgba(120,144,126,0.12);
+      }
+
+      .mobile-menu-group:last-child {
+        padding-bottom: 0;
+        border-bottom: 0;
+      }
+
+      .mobile-menu-group p {
+        margin-bottom: 0.35rem;
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(95,120,101,0.9);
+      }
+
+      .mobile-menu-panel a {
+        padding: 0.62rem 0.2rem;
+        border-bottom: 0;
+        color: #2f3a34;
+        line-height: 1.35;
+      }
+
+      .mobile-menu-panel a:active {
+        color: #5f7865;
+        transform: scale(0.99);
+      }
+
+      .nav-dropdown ul {
+        position: static;
+        width: 100%;
+        min-width: none;
+      }
+
+      .header-logo {
+        height: 58px;
+      }
+    }
+
     .intro-estabilizacion {
       max-width: 860px;
       text-align: center;
@@ -149,19 +422,87 @@
 
 <body>
 
-<header>
-  <nav class="navbar">
-    <a href="index.html" class="logo">Zaike Zen</a>
+<header class="topbar">
+  <div class="container nav">
+    <a href="index.html#inicio" class="brand brand-logo" aria-label="Zaike Zen">
+      <img src="Imagen-zaike-zen.jpg"
+           alt="Zaike Zen - Zen laico"
+           class="header-logo">
+    </a>
+    <nav class="nav-links">
+      <details class="nav-dropdown">
+        <summary>Inicio</summary>
+        <ul>
+          <li><a href="index.html#inicio">Inicio</a></li>
+          <li><a href="index.html#que-es-meditar">Qué es meditar</a></li>
+          <li><a href="index.html#zen">Qué es Zaike Zen</a></li>
+        </ul>
+      </details>
 
-    <ul class="nav-links">
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="como-empezar-a-meditar.html">Cómo empezar</a></li>
-      <li><a href="camino-del-practicante.html">El Camino del Practicante</a></li>
-      <li><a href="como-estabilizar.html" class="active">Estabilización</a></li>
-      <li><a href="cuanto-tiempo-meditar-al-dia.html">Tiempo de práctica</a></li>
-      <li><a href="beneficios-meditacion.html">Beneficios</a></li>
-    </ul>
-  </nav>
+      <details class="nav-dropdown">
+        <summary>Cómo empezar</summary>
+        <ul>
+          <li><a href="index.html#rutina-sugerida">Rutina sugerida</a></li>
+          <li><a href="como-empezar-a-meditar.html">Empezar desde cero</a></li>
+          <li><a href="cuanto-tiempo-meditar-al-dia.html">Cuánto tiempo meditar</a></li>
+          <li><a href="index.html#meditaciones">Consignas básicas</a></li>
+          <li><a href="index.html#postura-sentada">Postura sentada</a></li>
+          <li><a href="index.html#respiracion-tanden">Respiración Tanden</a></li>
+          <li><a href="index.html#atencion">Atención</a></li>
+        </ul>
+      </details>
+
+      <a href="camino-del-practicante.html">El Camino del Practicante</a>
+      <a href="como-estabilizar.html" class="active">Cómo estabilizar</a>
+      <details class="nav-dropdown">
+        <summary>Cómo profundizar</summary>
+        <ul>
+          <li><a href="index.html#textos">Impermanencia y realidad</a></li>
+          <li><a href="index.html#textos">Vacuidad y no dualidad</a></li>
+          <li><a href="index.html#textos">Patrones y transformación</a></li>
+          <li><a href="index.html#textos">Compasión y acción</a></li>
+        </ul>
+      </details>
+
+      <a href="beneficios-meditacion.html">Beneficios</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+    <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu-panel">Menú</button>
+    <nav class="mobile-menu-panel" id="mobile-menu-panel" aria-label="Menú móvil">
+      <div class="mobile-menu-group">
+        <p>Inicio</p>
+        <a href="index.html#inicio">Inicio</a>
+        <a href="index.html#que-es-meditar">Qué es meditar</a>
+        <a href="index.html#zen">Qué es Zaike Zen</a>
+      </div>
+
+      <div class="mobile-menu-group">
+        <p>Cómo empezar</p>
+        <a href="index.html#rutina-sugerida">Rutina sugerida</a>
+        <a href="como-empezar-a-meditar.html">Empezar desde cero</a>
+        <a href="cuanto-tiempo-meditar-al-dia.html">Cuánto tiempo meditar</a>
+        <a href="index.html#meditaciones">Consignas básicas</a>
+        <a href="index.html#postura-sentada">Postura sentada</a>
+        <a href="index.html#respiracion-tanden">Respiración Tanden</a>
+        <a href="index.html#atencion">Atención</a>
+      </div>
+      <a href="camino-del-practicante.html">El Camino del Practicante</a>
+      <a href="como-estabilizar.html" class="active">Cómo estabilizar</a>
+
+      <div class="mobile-menu-group">
+        <p>Profundizar</p>
+        <a href="index.html#textos">Impermanencia y realidad</a>
+        <a href="index.html#textos">Vacuidad y no dualidad</a>
+        <a href="index.html#textos">Patrones y transformación</a>
+        <a href="index.html#textos">Compasión y acción</a>
+      </div>
+
+      <div class="mobile-menu-group">
+        <a href="beneficios-meditacion.html">Beneficios</a>
+        <a href="index.html#contacto">Contacto</a>
+      </div>
+    </nav>
+  </div>
 </header>
 
 <main>
@@ -277,6 +618,28 @@
 <footer>
   <p>&copy; 2026 Zaike Zen</p>
 </footer>
+
+<script>
+  const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+  const mobileMenuPanel = document.querySelector('.mobile-menu-panel');
+
+  const closeMobileMenu = () => {
+    if (!mobileMenuToggle || !mobileMenuPanel) return;
+    mobileMenuPanel.classList.remove('is-open');
+    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+  };
+
+  if (mobileMenuToggle && mobileMenuPanel) {
+    mobileMenuToggle.addEventListener('click', () => {
+      const isOpen = mobileMenuPanel.classList.toggle('is-open');
+      mobileMenuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    mobileMenuPanel.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
+    });
+  }
+</script>
 
 </body>
 </html>
