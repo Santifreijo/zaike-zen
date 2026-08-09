@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Meditación en movimiento | Zaike Zen</title>
+  <meta name="description" content="Meditación en movimiento para integrar movimiento, respiración y atención antes de la meditación sentada en Zaike Zen.">
+
+  <link rel="canonical" href="https://zaikezen.es/meditacion-movimiento.html">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .container { width: min(92%, 1120px); margin: 0 auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(247, 244, 237, 0.72);
+      border-bottom: 1px solid rgba(126, 154, 132, 0.12);
+      box-shadow: 0 6px 24px rgba(38, 49, 44, 0.04);
+    }
+
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; gap: 1rem; }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #26312c;
+    }
+
+    .brand span { color: #5f7865; }
+
+    .nav-links {
+      display: flex;
+      gap: 0.4rem;
+      align-items: center;
+    }
+
+    .nav-links a.active {
+      background-color: #dbe7df;
+      font-weight: 500;
+    }
+
+    .nav-dropdown summary.active {
+      background-color: #dbe7df;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      color: #607068;
+      font-size: 0.94rem;
+      padding: 0.5rem 0.85rem;
+      border-radius: 999px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all 0.25s ease;
+      background: rgba(255,255,255,0.35);
+      border: 1px solid rgba(120,140,125,0.18);
+    }
+
+    .nav-links a:hover {
+      color: #5f7865;
+      background: rgba(255,255,255,0.85);
+      border-color: rgba(93,122,100,0.35);
+      box-shadow: 0 6px 18px rgba(40,60,45,0.08);
+      transform: translateY(-1px);
+    }
+
+    .nav-links a:active {
+      transform: scale(0.97);
+    }
+
+    .nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .nav-dropdown summary {
+      cursor: pointer;
+      padding: 0.5rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.35);
+      border: 1px solid rgba(120,140,125,0.18);
+      color: #607068;
+      font-size: 0.94rem;
+      transition: all 0.25s ease;
+    }
+
+    .nav-dropdown summary:hover {
+      color: #5f7865;
+      background: rgba(255,255,255,0.85);
+      border-color: rgba(93,122,100,0.35);
+      box-shadow: 0 6px 18px rgba(40,60,45,0.08);
+      transform: translateY(-1px);
+    }
+
+    .nav-dropdown ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(120,144,126,0.2);
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(38,49,44,0.08);
+      min-width: 200px;
+      z-index: 10;
+      display: none;
+    }
+
+    .nav-dropdown[open] ul {
+      display: block;
+    }
+
+    .nav-dropdown li {
+      border-bottom: 1px solid rgba(120,144,126,0.1);
+    }
+
+    .nav-dropdown li:last-child {
+      border-bottom: none;
+    }
+
+    .nav-dropdown a {
+      display: block;
+      padding: 0.75rem 1rem;
+      color: #607068;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .nav-dropdown a:hover {
+      background: rgba(126,154,132,0.1);
+      color: #5f7865;
+    }
+
+    .mobile-menu-toggle,
+    .mobile-menu-panel {
+      display: none;
+    }
+
+    .mobile-menu-toggle {
+      align-items: center;
+      justify-content: center;
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(120,140,125,0.18);
+      background: rgba(255,255,255,0.55);
+      color: #607068;
+      font: inherit;
+      font-size: 0.94rem;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(38,49,44,0.08);
+    }
+
+    .mobile-menu-panel {
+      width: 100%;
+      gap: 1rem;
+      padding: 1rem;
+      border: 1px solid rgba(120,144,126,0.2);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.82);
+      box-shadow: 0 10px 30px rgba(38,49,44,0.08);
+    }
+
+    .mobile-menu-group {
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .mobile-menu-group p {
+      color: #5f7865;
+      font-size: 0.86rem;
+      font-weight: 700;
+      margin-bottom: 0.1rem;
+    }
+
+    .mobile-menu-panel a {
+      color: #607068;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid rgba(120,144,126,0.12);
+    }
+
+    .mobile-menu-panel a.active {
+      background-color: #dbe7df;
+      font-weight: 500;
+    }
+
+    .mobile-menu-panel a:last-child {
+      border-bottom: 0;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .header-logo {
+      height: 72px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        width: min(92%, 1120px);
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+      }
+
+      .brand-logo {
+        grid-column: 1;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-menu-toggle {
+        display: inline-flex;
+        grid-column: 2;
+        justify-self: end;
+        min-height: 42px;
+        padding: 0.55rem 1rem;
+        background: rgba(255,255,255,0.72);
+        border-color: rgba(120,144,126,0.24);
+        color: #5f7865;
+        font-weight: 700;
+      }
+
+      .mobile-menu-panel.is-open {
+        display: grid;
+      }
+
+      .mobile-menu-panel {
+        grid-column: 1 / -1;
+        margin-top: 0.75rem;
+        padding: 1.1rem;
+        gap: 1.15rem;
+        border-radius: 22px;
+        background: rgba(255,253,248,0.92);
+        border: 1px solid rgba(120,144,126,0.18);
+        box-shadow: 0 18px 44px rgba(38,49,44,0.1);
+        backdrop-filter: blur(12px);
+      }
+
+      .mobile-menu-group {
+        gap: 0.2rem;
+        padding-bottom: 0.85rem;
+        border-bottom: 1px solid rgba(120,144,126,0.12);
+      }
+
+      .mobile-menu-group:last-child {
+        padding-bottom: 0;
+        border-bottom: 0;
+      }
+
+      .mobile-menu-group p {
+        margin-bottom: 0.35rem;
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(95,120,101,0.9);
+      }
+
+      .mobile-menu-panel a {
+        padding: 0.62rem 0.2rem;
+        border-bottom: 0;
+        color: #2f3a34;
+        line-height: 1.35;
+      }
+
+      .mobile-menu-panel a:active {
+        color: #5f7865;
+        transform: scale(0.99);
+      }
+
+      .nav-dropdown ul {
+        position: static;
+        width: 100%;
+        min-width: none;
+      }
+
+      .header-logo {
+        height: 58px;
+      }
+    }
+
+    .automasaje-texto {
+      max-width: 920px;
+    }
+
+    .hero {
+      padding-bottom: 2.5rem;
+    }
+
+    .automasaje-texto h2 {
+      font-size: 2rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .automasaje-texto p {
+      margin-bottom: 1rem;
+    }
+
+    .pendiente-texto {
+      padding: 1.2rem 1.4rem;
+      background: rgba(255, 253, 248, 0.82);
+      border: 1px solid rgba(126, 154, 132, 0.22);
+      border-radius: 18px;
+      color: #607068;
+      box-shadow: 0 10px 24px rgba(38, 49, 44, 0.05);
+    }
+
+    .video-placeholder {
+      min-height: 280px;
+      display: grid;
+      place-items: center;
+      padding: 2rem;
+      background:
+        radial-gradient(circle at top left, rgba(232, 239, 231, 0.9), transparent 32%),
+        rgba(255, 253, 248, 0.82);
+      border: 1px solid rgba(126, 154, 132, 0.22);
+      border-radius: 24px;
+      box-shadow: 0 18px 50px rgba(38, 49, 44, 0.08);
+      text-align: center;
+      color: #5f7865;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .video-placeholder video {
+      display: block;
+      width: min(100%, 520px);
+      height: auto;
+      object-fit: contain;
+      margin: 0 auto;
+      border-radius: 18px;
+      background: #f5f0e7;
+    }
+
+    .video-placeholder h2 {
+      margin: 0;
+      color: #26312c;
+      font-size: 1.6rem;
+    }
+
+    .video-placeholder p {
+      margin: 0 0 0.5rem;
+      color: #607068;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    main > .automasaje-texto:nth-of-type(3) {
+      padding-bottom: 0;
+    }
+
+    main > .automasaje-texto:nth-of-type(3) + .section {
+      padding-top: 4px;
+    }
+
+    .bloque-tecnica {
+      margin-bottom: 2.4rem;
+    }
+
+    .bloque-tecnica h3 {
+      margin: 0 0 1rem;
+      font-size: 1.35rem;
+      color: #26312c;
+    }
+
+    .cartel-tecnica {
+      width: 100%;
+      max-width: 1200px;
+      margin: 2.4rem auto 3rem;
+    }
+
+    .cartel-tecnica img {
+      width: 100%;
+      max-width: 1200px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 24px;
+      box-shadow: 0 18px 50px rgba(38, 49, 44, 0.1);
+    }
+
+    .cartel-tecnica-placeholder {
+      width: 100%;
+      min-height: 360px;
+      display: grid;
+      place-items: center;
+      gap: 0.55rem;
+      padding: 2rem;
+      border: 1px dashed rgba(126, 154, 132, 0.42);
+      border-radius: 24px;
+      color: #7e9a84;
+      text-align: center;
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.36);
+    }
+
+    .cartel-tecnica img[hidden],
+    .cartel-tecnica-placeholder[hidden] {
+      display: none;
+    }
+
+    .placeholder-symbol {
+      width: 56px;
+      height: 56px;
+      border: 2px solid rgba(126, 154, 132, 0.48);
+      border-right-color: transparent;
+      border-radius: 50%;
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .cartel-tecnica-placeholder {
+        min-height: 220px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="container nav">
+    <a href="index.html#inicio" class="brand brand-logo" aria-label="Zaike Zen">
+      <img src="Imagen-zaike-zen.jpg"
+           alt="Zaike Zen - Zen laico"
+           class="header-logo">
+    </a>
+    <nav class="nav-links">
+      <details class="nav-dropdown">
+        <summary>Inicio</summary>
+        <ul>
+          <li><a href="index.html#inicio">Inicio</a></li>
+          <li><a href="index.html#que-es-meditar">Qué es meditar</a></li>
+          <li><a href="index.html#zen">Qué es Zaike Zen</a></li>
+        </ul>
+      </details>
+
+      <details class="nav-dropdown">
+        <summary>Cómo empezar</summary>
+        <ul>
+          <li><a href="index.html#rutina-sugerida">Rutina sugerida</a></li>
+          <li><a href="como-empezar-a-meditar.html">Empezar desde cero</a></li>
+          <li><a href="cuanto-tiempo-meditar-al-dia.html">Cuánto tiempo meditar</a></li>
+          <li><a href="index.html#meditaciones">Consignas básicas</a></li>
+          <li><a href="index.html#postura-sentada">Postura sentada</a></li>
+          <li><a href="index.html#respiracion-tanden">Respiración Tanden</a></li>
+          <li><a href="index.html#atencion">Atención</a></li>
+        </ul>
+      </details>
+
+      <a href="camino-del-practicante.html">El Camino del Practicante</a>
+      <details class="nav-dropdown">
+        <summary class="active">Cómo estabilizar</summary>
+        <ul>
+          <li><a href="como-estabilizar.html">Visión general</a></li>
+          <li><a href="automasaje.html">Automasaje</a></li>
+          <li><a href="meditacion-movimiento.html">Meditación en movimiento</a></li>
+          <li><a aria-disabled="true">Hogenchaku</a></li>
+          <li><a aria-disabled="true">Nanso</a></li>
+          <li><a aria-disabled="true">Susokukan</a></li>
+          <li><a aria-disabled="true">Naikan</a></li>
+        </ul>
+      </details>
+      <details class="nav-dropdown">
+        <summary>Cómo profundizar</summary>
+        <ul>
+          <li><a href="index.html#textos">Impermanencia y realidad</a></li>
+          <li><a href="index.html#textos">Vacuidad y no dualidad</a></li>
+          <li><a href="index.html#textos">Patrones y transformación</a></li>
+          <li><a href="index.html#textos">Compasión y acción</a></li>
+        </ul>
+      </details>
+
+      <a href="beneficios-meditacion.html">Beneficios</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+    <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu-panel">Menú</button>
+    <nav class="mobile-menu-panel" id="mobile-menu-panel" aria-label="Menú móvil">
+      <div class="mobile-menu-group">
+        <p>Inicio</p>
+        <a href="index.html#inicio">Inicio</a>
+        <a href="index.html#que-es-meditar">Qué es meditar</a>
+        <a href="index.html#zen">Qué es Zaike Zen</a>
+      </div>
+
+      <div class="mobile-menu-group">
+        <p>Cómo empezar</p>
+        <a href="index.html#rutina-sugerida">Rutina sugerida</a>
+        <a href="como-empezar-a-meditar.html">Empezar desde cero</a>
+        <a href="cuanto-tiempo-meditar-al-dia.html">Cuánto tiempo meditar</a>
+        <a href="index.html#meditaciones">Consignas básicas</a>
+        <a href="index.html#postura-sentada">Postura sentada</a>
+        <a href="index.html#respiracion-tanden">Respiración Tanden</a>
+        <a href="index.html#atencion">Atención</a>
+      </div>
+      <a href="camino-del-practicante.html">El Camino del Practicante</a>
+
+      <div class="mobile-menu-group">
+        <p>Cómo estabilizar</p>
+        <a href="como-estabilizar.html">Visión general</a>
+        <a href="automasaje.html">Automasaje</a>
+        <a href="meditacion-movimiento.html" class="active">Meditación en movimiento</a>
+        <a aria-disabled="true">Hogenchaku</a>
+        <a aria-disabled="true">Nanso</a>
+        <a aria-disabled="true">Susokukan</a>
+        <a aria-disabled="true">Naikan</a>
+      </div>
+
+      <div class="mobile-menu-group">
+        <p>Profundizar</p>
+        <a href="index.html#textos">Impermanencia y realidad</a>
+        <a href="index.html#textos">Vacuidad y no dualidad</a>
+        <a href="index.html#textos">Patrones y transformación</a>
+        <a href="index.html#textos">Compasión y acción</a>
+      </div>
+
+      <div class="mobile-menu-group">
+        <a href="beneficios-meditacion.html">Beneficios</a>
+        <a href="index.html#contacto">Contacto</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Meditación en movimiento</h1>
+      <p>
+        Integrar movimiento, respiración y atención antes de la meditación sentada.
+      </p>
+    </div>
+  </section>
+
+  <section class="section automasaje-texto">
+    <h2>Introducción</h2>
+    <div class="pendiente-texto">
+      <p>La meditación en movimiento es una ayuda, un paso previo, para que el practicante pueda salir de sus procesos mentales habituales de forma gradual y abrirse a los procesos mentales que son más propios de la meditación. Junto al automasaje, forma parte de la antesala de la meditación sentada y en quietud.</p>
+      <p>En esta práctica se integran movimiento consciente, respiración natural y atención plena. Cada gesto se realiza con suavidad, sin forzar, manteniendo la postura estable y dejando que la respiración acompañe el movimiento.</p>
+      <p>El propósito general es preparar el cuerpo y la mente, soltar tensiones, cultivar presencia y favorecer que la atención encuentre un apoyo corporal claro antes de sentarse a meditar.</p>
+    </div>
+  </section>
+
+  <section class="section automasaje-texto">
+    <h2>Técnica</h2>
+    <div class="pendiente-texto">
+      <div class="bloque-tecnica">
+        <h3>Enraizamiento y equilibrio</h3>
+        <figure class="cartel-tecnica">
+          <img src="cartel-enraizamiento-y-equilibrio.jpg" alt="Cartel de meditación en movimiento: enraizamiento y equilibrio" hidden onload="this.hidden=false; this.nextElementSibling.hidden=true;" onerror="this.hidden=true;">
+          <figcaption class="cartel-tecnica-placeholder"><span class="placeholder-symbol" aria-hidden="true"></span><span>Cartel en preparación</span></figcaption>
+        </figure>
+        <p>En bipedestación, con los pies a la altura de las caderas y los brazos estirados a lo largo del cuerpo, despertamos el equilibrio y la presencia a través de inclinaciones suaves y movimientos circulares. Primero inclinamos ligeramente el cuerpo hacia delante y hacia atrás, manteniendo el equilibrio y la atención en la planta de los pies. Después inclinamos el cuerpo hacia la izquierda y hacia la derecha, sintiendo el apoyo desde los tobillos hasta toda la planta de los pies.</p>
+        <p>Finalmente realizamos círculos suaves hacia ambos lados, conservando el equilibrio en la postura de pie. Este ejercicio nos sitúa en el lugar del aquí y en el momento del ahora: cuerpo estable, mente presente y corazón sereno. La respiración permanece natural hacia el tanden, con atención en la planta de los pies y en el equilibrio.</p>
+      </div>
+
+      <div class="bloque-tecnica">
+        <h3>Giro de tronco</h3>
+        <figure class="cartel-tecnica">
+          <img src="cartel-giro-de-tronco.jpg" alt="Cartel de meditación en movimiento: giro de tronco" hidden onload="this.hidden=false; this.nextElementSibling.hidden=true;" onerror="this.hidden=true;">
+          <figcaption class="cartel-tecnica-placeholder"><span class="placeholder-symbol" aria-hidden="true"></span><span>Cartel en preparación</span></figcaption>
+        </figure>
+        <p>Movemos el tronco siguiendo a la mano, soltando tensiones y mejorando la movilidad y la atención corporal. En la primera parte, la mano izquierda permanece en el tanden y la mano derecha recorre en diagonal el hombro izquierdo por delante y la zona lumbar izquierda por detrás; el tronco gira siguiendo a la mano. En la segunda parte, invertimos el movimiento con la mano izquierda activa y la mano derecha en el tanden.</p>
+        <p>Puede realizarse también como variante integrada, alternando las manos derecha e izquierda y girando hacia ambos lados de forma fluida. La clave es dejar que el tronco siga a la mano, con pies equilibrados, respiración natural hacia el tanden y movimiento continuo y armonioso. El propósito es soltar tensiones del tronco y la zona lumbar, mejorar la movilidad, equilibrar el cuerpo y calmar la mente.</p>
+      </div>
+
+      <div class="bloque-tecnica">
+        <h3>Soltar las manos</h3>
+        <figure class="cartel-tecnica">
+          <img src="cartel-soltar-manos.jpg" alt="Cartel de meditación en movimiento: soltar las manos" hidden onload="this.hidden=false; this.nextElementSibling.hidden=true;" onerror="this.hidden=true;">
+          <figcaption class="cartel-tecnica-placeholder"><span class="placeholder-symbol" aria-hidden="true"></span><span>Cartel en preparación</span></figcaption>
+        </figure>
+        <p>Soltamos tensión en las manos y en los brazos y damos aire al cuerpo. Desde la postura inicial, subimos un brazo hacia delante hasta la altura del hombro, con el dorso de la mano orientado hacia un lado y la palma hacia el otro, mientras la otra mano permanece en el tanden. Estiramos parcialmente los dedos y agitamos la mano desde la muñeca, como si quisiéramos dar aire, dejándola suelta y ligera durante unos segundos.</p>
+        <p>Después cambiamos de mano y repetimos el mismo ejercicio. También podemos practicar con ambas manos al frente, agitándolas al mismo tiempo y dejándolas sueltas desde las muñecas. Mantén la postura estable, la respiración natural hacia el tanden y la atención en la sensación del movimiento suave. La intención es soltar tensiones acumuladas en manos, brazos y hombros, favoreciendo la circulación de la energía y la respiración.</p>
+      </div>
+
+      <div class="bloque-tecnica">
+        <h3>Abrir y cerrar brazos</h3>
+        <figure class="cartel-tecnica">
+          <img src="cartel-abrir-y-cerrar-brazos.jpg" alt="Cartel de meditación en movimiento: abrir y cerrar brazos" hidden onload="this.hidden=false; this.nextElementSibling.hidden=true;" onerror="this.hidden=true;">
+          <figcaption class="cartel-tecnica-placeholder"><span class="placeholder-symbol" aria-hidden="true"></span><span>Cartel en preparación</span></figcaption>
+        </figure>
+        <p>Coordinamos movimiento y respiración para abrir el pecho, despertar la energía y centrar la atención. Desde la postura inicial, abrimos los brazos hacia los lados de forma semicircular y semiflexionada, como si estuviéramos rodeando un árbol. Las palmas miran hacia delante o ligeramente hacia dentro, sintiendo cómo las escápulas tienden a juntarse por detrás y el pecho se expande.</p>
+        <p>Después llevamos los brazos hacia delante, manteniéndolos semicirculares y semiflexionados, como si abrazáramos un árbol. Al llegar al centro, entrelazamos los dedos de las manos en un choque suave, sin tensión. Repetimos el movimiento acompañándolo con la respiración: inspiramos al abrir los brazos y espiramos al cerrar y entrelazar las manos. La práctica favorece la concentración y reduce tensión en hombros y cuello.</p>
+      </div>
+
+      <div class="bloque-tecnica">
+        <h3>Giro desde las caderas</h3>
+        <figure class="cartel-tecnica">
+          <img src="cartel-giro-desde-caderas.jpg" alt="Cartel de meditación en movimiento: giro desde las caderas" hidden onload="this.hidden=false; this.nextElementSibling.hidden=true;" onerror="this.hidden=true;">
+          <figcaption class="cartel-tecnica-placeholder"><span class="placeholder-symbol" aria-hidden="true"></span><span>Cartel en preparación</span></figcaption>
+        </figure>
+        <p>Movemos las caderas suavemente y dejamos que el tronco, los brazos y la cabeza sigan el movimiento. Desde la postura inicial, giramos la cadera hacia un lado: el tronco, los brazos y la cabeza siguen pasivamente el giro, llevados por la inercia, mientras los brazos golpean suavemente el abdomen por delante y por detrás. Volvemos al centro y giramos hacia el otro lado, alternando el movimiento.</p>
+        <p>La atención se sitúa en la planta de los pies y en las caderas. Percibimos el movimiento de las caderas como origen del giro. Si hay tensión en la cintura o en la espalda, se pueden flexionar ligeramente las rodillas. El propósito es soltar rigideces en la cintura, mejorar la movilidad, activar la circulación y centrar la atención en el aquí y ahora.</p>
+      </div>
+
+      <div class="bloque-tecnica">
+        <h3>Talones y vibración</h3>
+        <figure class="cartel-tecnica">
+          <img src="cartel-talones-y-vibracion.jpg" alt="Cartel de meditación en movimiento: talones y vibración" hidden onload="this.hidden=false; this.nextElementSibling.hidden=true;" onerror="this.hidden=true;">
+          <figcaption class="cartel-tecnica-placeholder"><span class="placeholder-symbol" aria-hidden="true"></span><span>Cartel en preparación</span></figcaption>
+        </figure>
+        <p>Activamos las piernas, liberamos tensiones y armonizamos cuerpo y mente. Desde la postura inicial, con los pies juntos y las manos en el tanden, elevamos lentamente ambos talones manteniendo el apoyo en las puntas de los pies. Sentimos el equilibrio, la activación de las piernas y el alargamiento de la columna.</p>
+        <p>Después dejamos caer los talones al suelo con un suave golpe y notamos la vibración, permitiendo que todo el cuerpo vibre de forma natural y relajada. Al terminar, detenemos las vibraciones y volvemos a la postura estable, permaneciendo unos segundos en calma, sintiendo la circulación en las piernas y la ligereza en todo el cuerpo. La respiración sigue siendo natural y fluida.</p>
+      </div>
+
+      <div class="bloque-tecnica">
+        <h3>Equilibrio sobre pierna</h3>
+        <figure class="cartel-tecnica">
+          <img src="cartel-equilibrio-sobre-pierna.jpg" alt="Cartel de meditación en movimiento: equilibrio sobre pierna" hidden onload="this.hidden=false; this.nextElementSibling.hidden=true;" onerror="this.hidden=true;">
+          <figcaption class="cartel-tecnica-placeholder"><span class="placeholder-symbol" aria-hidden="true"></span><span>Cartel en preparación</span></figcaption>
+        </figure>
+        <p>Fortalecemos el equilibrio, la concentración y la presencia en el aquí y ahora. Desde la postura inicial, con los pies juntos y las manos en el tanden, centramos la atención en la respiración y en la sensación de apoyo de los pies en el suelo. Después desplazamos suavemente el peso hacia una pierna y elevamos la rodilla contraria, manteniendo el tronco erguido, los hombros relajados y la mirada al frente.</p>
+        <p>La atención en un punto fijo y la respiración natural ayudan a mantener el equilibrio. Conviene mantener la pelvis nivelada y el tronco alineado, sin bloquear la rodilla ni el tobillo de apoyo. Luego descendemos con control y repetimos hacia el otro lado, durante varias respiraciones por cada pierna. La práctica mejora el equilibrio, fortalece piernas, tobillos y centro, y cultiva calma, confianza y presencia.</p>
+      </div>
+
+      <div class="bloque-tecnica">
+        <h3>Cuello y respiración</h3>
+        <figure class="cartel-tecnica">
+          <img src="cartel-cuello-y-respiracion.jpg" alt="Cartel de meditación en movimiento: cuello y respiración" hidden onload="this.hidden=false; this.nextElementSibling.hidden=true;" onerror="this.hidden=true;">
+          <figcaption class="cartel-tecnica-placeholder"><span class="placeholder-symbol" aria-hidden="true"></span><span>Cartel en preparación</span></figcaption>
+        </figure>
+        <p>Liberamos tensiones en el cuello, armonizamos la respiración y calmamos la mente. Iniciamos bajando el mentón al pecho con la exhalación, seguimos subiendo de forma circular por un lado con la inhalación y finalizamos bajando por el otro lado durante la exhalación, describiendo así un círculo. Después realizamos el círculo en sentido contrario.</p>
+        <p>También podemos girar lentamente la cabeza hacia un lado al inspirar y volver al centro al espirar, repitiendo hacia el otro lado, o inclinar suavemente la cabeza acercando la oreja al hombro al inspirar y regresando al centro al espirar. La respiración coordina el movimiento: inspira al abrir, espira al volver. Observamos las sensaciones en cuello, pecho y abdomen sin juicio, con movimiento suave y consciente.</p>
+      </div>
+
+      <div class="bloque-tecnica">
+        <h3>Tronco y respiración</h3>
+        <figure class="cartel-tecnica">
+          <img src="cartel-tronco-y-respiracion.jpg" alt="Cartel de meditación en movimiento: tronco y respiración" hidden onload="this.hidden=false; this.nextElementSibling.hidden=true;" onerror="this.hidden=true;">
+          <figcaption class="cartel-tecnica-placeholder"><span class="placeholder-symbol" aria-hidden="true"></span><span>Cartel en preparación</span></figcaption>
+        </figure>
+        <p>Movemos el tronco con la respiración para liberar tensiones y cultivar presencia. Inspiramos subiendo las manos a las caderas. Después exhalamos extendiendo el tronco hacia atrás, flexionando ligeramente las rodillas y dejando que los codos tiren suavemente hacia atrás. Al terminar la exhalación, recuperamos la vertical inspirando.</p>
+        <p>Continuamos exhalando al bajar las manos a lo largo del cuerpo e inspirando al juntar los pies. Finalmente, exhalamos flexionando el tronco hacia delante y abajo hasta tocar el suelo con las puntas de los dedos, flexionando las rodillas; inspiramos subiendo hasta enderezar el tronco y dejando las manos a lo largo del cuerpo. Realizamos el conjunto varias veces, con movimiento suave, sin prisas ni tensiones.</p>
+      </div>
+
+      <div class="bloque-tecnica">
+        <h3>Brazos y respiración</h3>
+        <figure class="cartel-tecnica">
+          <img src="cartel-brazos-y-respiracion.jpg" alt="Cartel de meditación en movimiento: brazos y respiración" hidden onload="this.hidden=false; this.nextElementSibling.hidden=true;" onerror="this.hidden=true;">
+          <figcaption class="cartel-tecnica-placeholder"><span class="placeholder-symbol" aria-hidden="true"></span><span>Cartel en preparación</span></figcaption>
+        </figure>
+        <p>Movemos los brazos con la respiración para liberar tensiones y cultivar presencia. Inspiramos subiendo los brazos estirados hacia delante con las palmas hacia arriba, hasta la altura de los hombros. Giramos las palmas hacia abajo y exhalamos bajando los brazos estirados con las palmas hacia abajo hasta volver a la postura inicial.</p>
+        <p>Después inspiramos elevando los brazos estirados hacia delante con las palmas hacia abajo hasta alinearlos con el tronco. Giramos las palmas hacia afuera y exhalamos bajando los brazos suavemente por los lados, acariciando el aire al ritmo de la respiración, hasta llegar a la postura inicial. Repetimos el ejercicio completo manteniendo respiración natural, suave y consciente, con coordinación entre movimiento y respiración.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="video-placeholder">
+      <h2>Práctica completa</h2>
+      <p>Realiza ahora la secuencia completa siguiendo el vídeo.</p>
+      <video controls preload="metadata" poster="tarjeta-meditacion-en-movimiento.jpg">
+        <source src="video-meditación-movimiento.mp4" type="video/mp4">
+      </video>
+    </div>
+  </section>
+
+  <section class="section cta-section">
+    <a class="button" href="como-estabilizar.html">Volver a Estabilización</a>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 Zaike Zen</p>
+</footer>
+
+<script>
+  const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+  const mobileMenuPanel = document.querySelector('.mobile-menu-panel');
+
+  const closeMobileMenu = () => {
+    if (!mobileMenuToggle || !mobileMenuPanel) return;
+    mobileMenuPanel.classList.remove('is-open');
+    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+  };
+
+  if (mobileMenuToggle && mobileMenuPanel) {
+    mobileMenuToggle.addEventListener('click', () => {
+      const isOpen = mobileMenuPanel.classList.toggle('is-open');
+      mobileMenuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    mobileMenuPanel.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
+    });
+  }
+</script>
+
+</body>
+</html>

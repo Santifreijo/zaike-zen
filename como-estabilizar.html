@@ -296,7 +296,12 @@
 
     .intro-estabilizacion {
       max-width: 860px;
+      padding-top: 0;
       text-align: center;
+    }
+
+    .hero {
+      padding-bottom: 2.5rem;
     }
 
     .intro-estabilizacion p {
@@ -346,6 +351,16 @@
       object-fit: cover;
       border-radius: 18px;
       display: block;
+    }
+
+    .estabilizacion-card:nth-child(-n + 6) .card-media {
+      height: auto;
+      aspect-ratio: 3 / 2;
+    }
+
+    .card-media img.tarjeta-estabilizacion {
+      object-fit: contain;
+      object-position: center center;
     }
 
     .card-media-placeholder {
@@ -469,10 +484,10 @@
           <li><a href="como-estabilizar.html">Visión general</a></li>
           <li><a href="automasaje.html">Automasaje</a></li>
           <li><a href="meditacion-movimiento.html">Meditación en movimiento</a></li>
-          <li><a href="hogenchaku.html">Hogenchaku</a></li>
-          <li><a href="nanso.html">Nanso</a></li>
-          <li><a href="susokukan.html">Susokukan</a></li>
-          <li><a href="respiraciones.html">Respiraciones básicas</a></li>
+          <li><a aria-disabled="true">Hogenchaku</a></li>
+          <li><a aria-disabled="true">Nanso</a></li>
+          <li><a aria-disabled="true">Susokukan</a></li>
+          <li><a aria-disabled="true">Naikan</a></li>
         </ul>
       </details>
       <details class="nav-dropdown">
@@ -514,10 +529,10 @@
         <a href="como-estabilizar.html" class="active">Visión general</a>
         <a href="automasaje.html">Automasaje</a>
         <a href="meditacion-movimiento.html">Meditación en movimiento</a>
-        <a href="hogenchaku.html">Hogenchaku</a>
-        <a href="nanso.html">Nanso</a>
-        <a href="susokukan.html">Susokukan</a>
-        <a href="respiraciones.html">Respiraciones básicas</a>
+        <a aria-disabled="true">Hogenchaku</a>
+        <a aria-disabled="true">Nanso</a>
+        <a aria-disabled="true">Susokukan</a>
+        <a aria-disabled="true">Naikan</a>
       </div>
 
       <div class="mobile-menu-group">
@@ -566,8 +581,7 @@
     <div class="estabilizacion-grid">
       <article class="estabilizacion-card">
         <figure class="card-media">
-          <img src="estabilizacion-automasaje.jpg" alt="Automasaje" hidden onload="this.hidden=false; this.nextElementSibling.hidden=true;" onerror="this.hidden=true;">
-          <figcaption class="card-media-placeholder"><span class="placeholder-symbol" aria-hidden="true"></span><span>Imagen en preparación</span></figcaption>
+          <img src="tarjeta-automasaje.jpg" alt="Automasaje" class="tarjeta-estabilizacion" hidden onload="this.hidden=false; this.nextElementSibling.hidden=true;" onerror="this.hidden=true;">
         </figure>
         <div>
           <h3>Automasaje</h3>
@@ -578,20 +592,18 @@
 
       <article class="estabilizacion-card">
         <figure class="card-media">
-          <img src="estabilizacion-meditacion-movimiento.jpg" alt="Meditación en movimiento" hidden onload="this.hidden=false; this.nextElementSibling.hidden=true;" onerror="this.hidden=true;">
-          <figcaption class="card-media-placeholder"><span class="placeholder-symbol" aria-hidden="true"></span><span>Imagen en preparación</span></figcaption>
+          <img src="tarjeta-meditacion-en-movimiento.jpg" alt="Meditación en movimiento" class="tarjeta-estabilizacion" hidden onload="this.hidden=false; this.nextElementSibling.hidden=true;" onerror="this.hidden=true;">
         </figure>
         <div>
           <h3>Meditación en movimiento</h3>
           <p>Integrar movimiento, respiración y atención antes de la meditación sentada.</p>
         </div>
-        <span class="estado-preparacion">En preparación</span>
+        <a class="button" href="meditacion-movimiento.html">Comenzar</a>
       </article>
 
       <article class="estabilizacion-card">
         <figure class="card-media">
-          <img src="estabilizacion-hogenchaku.jpg" alt="Hogenchaku" hidden onload="this.hidden=false; this.nextElementSibling.hidden=true;" onerror="this.hidden=true;">
-          <figcaption class="card-media-placeholder"><span class="placeholder-symbol" aria-hidden="true"></span><span>Imagen en preparación</span></figcaption>
+          <img src="tarjeta-hogenchaku.jpg" alt="Hogenchaku" class="tarjeta-estabilizacion" hidden onload="this.hidden=false; this.nextElementSibling.hidden=true;" onerror="this.hidden=true;">
         </figure>
         <div>
           <h3>Hogenchaku</h3>
@@ -602,8 +614,7 @@
 
       <article class="estabilizacion-card">
         <figure class="card-media">
-          <img src="estabilizacion-nanso.jpg" alt="Nanso" hidden onload="this.hidden=false; this.nextElementSibling.hidden=true;" onerror="this.hidden=true;">
-          <figcaption class="card-media-placeholder"><span class="placeholder-symbol" aria-hidden="true"></span><span>Imagen en preparación</span></figcaption>
+          <img src="tarjeta-nanso.jpg" alt="Nanso" class="tarjeta-estabilizacion" hidden onload="this.hidden=false; this.nextElementSibling.hidden=true;" onerror="this.hidden=true;">
         </figure>
         <div>
           <h3>Nanso</h3>
@@ -614,8 +625,7 @@
 
       <article class="estabilizacion-card">
         <figure class="card-media">
-          <img src="estabilizacion-susokukan.jpg" alt="Susokukan" hidden onload="this.hidden=false; this.nextElementSibling.hidden=true;" onerror="this.hidden=true;">
-          <figcaption class="card-media-placeholder"><span class="placeholder-symbol" aria-hidden="true"></span><span>Imagen en preparación</span></figcaption>
+          <img src="tarjeta-susokukan.jpg" alt="Susokukan" class="tarjeta-estabilizacion" hidden onload="this.hidden=false; this.nextElementSibling.hidden=true;" onerror="this.hidden=true;">
         </figure>
         <div>
           <h3>Susokukan</h3>
@@ -626,12 +636,11 @@
 
       <article class="estabilizacion-card">
         <figure class="card-media">
-          <img src="estabilizacion-respiraciones.jpg" alt="Respiraciones básicas" hidden onload="this.hidden=false; this.nextElementSibling.hidden=true;" onerror="this.hidden=true;">
-          <figcaption class="card-media-placeholder"><span class="placeholder-symbol" aria-hidden="true"></span><span>Imagen en preparación</span></figcaption>
+          <img src="tarjeta-naikan.jpg" alt="Naikan" class="tarjeta-estabilizacion" hidden onload="this.hidden=false; this.nextElementSibling.hidden=true;" onerror="this.hidden=true;">
         </figure>
         <div>
-          <h3>Respiraciones básicas</h3>
-          <p>Explorar progresivamente diferentes recorridos de la respiración.</p>
+          <h3>Naikan</h3>
+          <p>Profundizar en el silencio, la contemplación y la mirada interior.</p>
         </div>
         <span class="estado-preparacion">En preparación</span>
       </article>
