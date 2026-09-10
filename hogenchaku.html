@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Hogenchaku · Relajarse y soltar | Zaike Zen</title>
+  <meta name="description" content="Práctica de Hogenchaku para relajar progresivamente el cuerpo al comienzo de la meditación sentada, integrando postura, respiración y atención.">
+
+  <link rel="canonical" href="https://zaikezen.es/hogenchaku.html">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .container { width: min(92%, 1120px); margin: 0 auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(247, 244, 237, 0.72);
+      border-bottom: 1px solid rgba(126, 154, 132, 0.12);
+      box-shadow: 0 6px 24px rgba(38, 49, 44, 0.04);
+    }
+
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; gap: 1rem; }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #26312c;
+    }
+
+    .brand span { color: #5f7865; }
+
+    .nav-links {
+      display: flex;
+      gap: 0.4rem;
+      align-items: center;
+    }
+
+    .nav-links a.active {
+      background-color: #dbe7df;
+      font-weight: 500;
+    }
+
+    .nav-dropdown summary.active {
+      background-color: #dbe7df;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      color: #607068;
+      font-size: 0.94rem;
+      padding: 0.5rem 0.85rem;
+      border-radius: 999px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all 0.25s ease;
+      background: rgba(255,255,255,0.35);
+      border: 1px solid rgba(120,140,125,0.18);
+    }
+
+    .nav-links a:hover {
+      color: #5f7865;
+      background: rgba(255,255,255,0.85);
+      border-color: rgba(93,122,100,0.35);
+      box-shadow: 0 6px 18px rgba(40,60,45,0.08);
+      transform: translateY(-1px);
+    }
+
+    .nav-links a:active {
+      transform: scale(0.97);
+    }
+
+    .nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .nav-dropdown summary {
+      cursor: pointer;
+      padding: 0.5rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.35);
+      border: 1px solid rgba(120,140,125,0.18);
+      color: #607068;
+      font-size: 0.94rem;
+      transition: all 0.25s ease;
+    }
+
+    .nav-dropdown summary:hover {
+      color: #5f7865;
+      background: rgba(255,255,255,0.85);
+      border-color: rgba(93,122,100,0.35);
+      box-shadow: 0 6px 18px rgba(40,60,45,0.08);
+      transform: translateY(-1px);
+    }
+
+    .nav-dropdown ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(120,144,126,0.2);
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(38,49,44,0.08);
+      min-width: 200px;
+      z-index: 10;
+      display: none;
+    }
+
+    .nav-dropdown[open] ul {
+      display: block;
+    }
+
+    .nav-dropdown li {
+      border-bottom: 1px solid rgba(120,144,126,0.1);
+    }
+
+    .nav-dropdown li:last-child {
+      border-bottom: none;
+    }
+
+    .nav-dropdown a {
+      display: block;
+      padding: 0.75rem 1rem;
+      color: #607068;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .nav-dropdown a:hover {
+      background: rgba(126,154,132,0.1);
+      color: #5f7865;
+    }
+
+    .mobile-menu-toggle,
+    .mobile-menu-panel {
+      display: none;
+    }
+
+    .mobile-menu-toggle {
+      align-items: center;
+      justify-content: center;
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(120,140,125,0.18);
+      background: rgba(255,255,255,0.55);
+      color: #607068;
+      font: inherit;
+      font-size: 0.94rem;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(38,49,44,0.08);
+    }
+
+    .mobile-menu-panel {
+      width: 100%;
+      gap: 1rem;
+      padding: 1rem;
+      border: 1px solid rgba(120,144,126,0.2);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.82);
+      box-shadow: 0 10px 30px rgba(38,49,44,0.08);
+    }
+
+    .mobile-menu-group {
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .mobile-menu-group p {
+      color: #5f7865;
+      font-size: 0.86rem;
+      font-weight: 700;
+      margin-bottom: 0.1rem;
+    }
+
+    .mobile-menu-panel a {
+      color: #607068;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid rgba(120,144,126,0.12);
+    }
+
+    .mobile-menu-panel a.active {
+      background-color: #dbe7df;
+      font-weight: 500;
+    }
+
+    .mobile-menu-panel a:last-child {
+      border-bottom: 0;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .header-logo {
+      height: 72px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .hero {
+      padding: 3.5rem 0 2.5rem;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      margin: 0 0 0.5rem;
+      font-size: clamp(2.3rem, 5vw, 4rem);
+      line-height: 1.1;
+      color: #26312c;
+      letter-spacing: -0.04em;
+    }
+
+    .hero p {
+      margin: 0;
+      color: #5f7865;
+      font-size: clamp(1rem, 2.3vw, 1.25rem);
+      line-height: 1.6;
+    }
+
+    .section {
+      width: min(92%, 1120px);
+      margin: 0 auto;
+      padding: 1.6rem 0 2.5rem;
+    }
+
+    .practice-block {
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .practice-block h2,
+    .hogenchaku-section h2 {
+      margin: 0 0 1.2rem;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      line-height: 1.2;
+      color: #26312c;
+    }
+
+    .practice-text {
+      padding: 1.6rem 1.8rem;
+      background: rgba(255, 253, 248, 0.82);
+      border: 1px solid rgba(126, 154, 132, 0.22);
+      border-radius: 18px;
+      box-shadow: 0 10px 24px rgba(38, 49, 44, 0.05);
+    }
+
+    .practice-text p {
+      margin: 0 0 1rem;
+      color: #2f3a34;
+      line-height: 1.9;
+      font-size: 1.04rem;
+      text-align: left;
+    }
+
+    .practice-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .hogenchaku-cartel-wrapper {
+      position: relative;
+      width: min(100%, 800px);
+      margin: 0 auto;
+      padding: 0.25rem 0 1rem;
+    }
+
+    .hogenchaku-expand-control {
+      display: flex;
+      justify-content: center;
+      margin-top: 0.25rem;
+      padding-bottom: 0.5rem;
+    }
+
+    .hogenchaku-expand-button {
+      appearance: none;
+      border: 1px solid rgba(120, 144, 126, 0.2);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.66);
+      color: #5f7865;
+      font: inherit;
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 0.7rem 1.1rem;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      box-shadow: 0 8px 20px rgba(38, 49, 44, 0.04);
+    }
+
+    .hogenchaku-expand-button:hover,
+    .hogenchaku-expand-button:focus-visible {
+      transform: translateY(-1px);
+      border-color: rgba(95, 120, 101, 0.34);
+      box-shadow: 0 12px 24px rgba(38, 49, 44, 0.08);
+      outline: none;
+    }
+
+    .hogenchaku-cartel {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 800px;
+      margin: 0 auto;
+      border-radius: 24px;
+      box-shadow: 0 18px 50px rgba(38, 49, 44, 0.08);
+    }
+
+    .hogenchaku-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.2rem;
+      background: rgba(20, 25, 23, 0.46);
+      backdrop-filter: blur(2px);
+      z-index: 200;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.2s ease, visibility 0.2s ease;
+    }
+
+    .hogenchaku-modal-backdrop.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .hogenchaku-modal-panel {
+      position: relative;
+      width: min(95vw, 1280px);
+      max-height: 90vh;
+      overflow: auto;
+      padding: 2.25rem 1rem 1rem;
+      border-radius: 24px;
+      background: rgba(247, 244, 237, 0.98);
+      border: 1px solid rgba(126, 154, 132, 0.2);
+      box-shadow: 0 18px 64px rgba(24, 31, 28, 0.14);
+      scrollbar-width: thin;
+    }
+
+    .hogenchaku-modal-panel::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .hogenchaku-modal-panel::-webkit-scrollbar-thumb {
+      background: rgba(95, 120, 101, 0.34);
+      border-radius: 999px;
+    }
+
+    .hogenchaku-modal-close {
+      position: absolute;
+      top: 0.7rem;
+      right: 0.8rem;
+      width: 2.2rem;
+      height: 2.2rem;
+      border: 1px solid rgba(120, 144, 126, 0.24);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.8);
+      color: #2f3a34;
+      font-size: 1.3rem;
+      line-height: 1;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+
+    .hogenchaku-modal-close:hover,
+    .hogenchaku-modal-close:focus-visible {
+      outline: none;
+      border-color: rgba(95, 120, 101, 0.34);
+      box-shadow: 0 8px 20px rgba(38, 49, 44, 0.1);
+    }
+
+    .hogenchaku-modal-content {
+      width: min(100%, 1180px);
+      margin: 0 auto;
+    }
+
+    .hogenchaku-modal-content .hogenchaku-cartel-wrapper {
+      width: min(100%, 1200px);
+      max-width: none;
+      padding: 0;
+    }
+
+    .hogenchaku-modal-content .hogenchaku-cartel {
+      max-width: none;
+    }
+
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    .hogenchaku-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      border-radius: 24px;
+    }
+
+    .image-echo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      pointer-events: none;
+      display: block;
+      opacity: 0;
+      transform-origin: center center;
+      filter: brightness(1.20) saturate(1.15) drop-shadow(0 0 6px rgba(188, 152, 84, 0.25));
+    }
+
+    .tanden-copy {
+      clip-path: polygon(41% 51%, 59% 51%, 59% 63%, 41% 63%);
+      filter: brightness(1.22) saturate(1.22) drop-shadow(0 0 8px rgba(68, 138, 203, 0.35));
+      animation: tandenPulse 4.8s ease-in-out infinite;
+    }
+
+    .yellow-copy {
+      clip-path: polygon(44% 9%, 56% 9%, 56% 23%, 44% 23%);
+      filter: brightness(1.22) saturate(1.10) drop-shadow(0 0 6px rgba(188, 152, 84, 0.30));
+      animation: yellowZonePulse 16.6s ease-in-out infinite;
+    }
+
+    .yellow-copy-1 { clip-path: polygon(43% 9%, 57% 9%, 57% 22%, 43% 22%); animation-delay: 0s; }
+    .yellow-copy-2 { clip-path: polygon(41% 22%, 59% 22%, 59% 31%, 41% 31%); animation-delay: 1.9s; }
+    .yellow-copy-3 { clip-path: polygon(39% 31%, 61% 31%, 61% 46%, 39% 46%); animation-delay: 3.9s; }
+    .yellow-copy-4 { clip-path: polygon(41% 46%, 59% 46%, 59% 58%, 41% 58%); animation-delay: 5.9s; }
+    .yellow-copy-5 { clip-path: polygon(38% 58%, 62% 58%, 62% 68%, 38% 68%); animation-delay: 8.0s; }
+    .yellow-copy-6 { clip-path: polygon(40% 68%, 60% 68%, 60% 81%, 40% 81%); animation-delay: 10.0s; }
+    .yellow-copy-7 { clip-path: polygon(37% 81%, 63% 81%, 63% 90%, 37% 90%); animation-delay: 12.0s; }
+    .yellow-copy-8 { clip-path: polygon(42% 90%, 58% 90%, 58% 96%, 42% 96%); animation-delay: 14.0s; }
+
+    .global-halo {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 42%;
+      height: 74%;
+      transform: translate(-50%, -50%);
+      border: 2px solid rgba(180, 141, 62, 0.72);
+      border-radius: 46% / 52%;
+      opacity: 0;
+      background: rgba(180, 141, 62, 0.03);
+      animation: globalPulse 4.8s ease-in-out infinite;
+      animation-delay: 16s;
+    }
+
+    .audio-block {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .audio-block p {
+      margin: 0 0 1rem;
+      color: #607068;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    audio {
+      width: min(100%, 560px);
+      display: block;
+      margin: 0 auto;
+      border-radius: 16px;
+    }
+
+    .cta-section {
+      display: flex;
+      justify-content: center;
+      padding-top: 1rem;
+      padding-bottom: 3rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 1.5rem;
+      border-radius: 999px;
+      background: #dfe9df;
+      color: #26312c;
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid rgba(126, 154, 132, 0.24);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 10px 24px rgba(38, 49, 44, 0.06);
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 28px rgba(38, 49, 44, 0.1);
+    }
+
+    footer {
+      padding: 1.5rem 0 2rem;
+      text-align: center;
+      color: #607068;
+      border-top: 1px solid rgba(126,154,132,0.12);
+    }
+
+    @keyframes tandenPulse {
+      0% {
+        opacity: 0;
+        transform: scale(1);
+      }
+      18% {
+        opacity: 0.65;
+        transform: scale(1.015);
+      }
+      48% {
+        opacity: 0.28;
+        transform: scale(1.022);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(1.025);
+      }
+    }
+
+    @keyframes yellowZonePulse {
+      0%, 10% {
+        opacity: 0;
+        transform: scale(1);
+      }
+      18%, 28% {
+        opacity: 0.70;
+        transform: scale(1.010);
+      }
+      34%, 100% {
+        opacity: 0;
+        transform: scale(1.018);
+      }
+    }
+
+    @keyframes globalPulse {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.98);
+      }
+      20% {
+        opacity: 0.7;
+      }
+      48% {
+        opacity: 0.42;
+        transform: translate(-50%, -50%) scale(1.03);
+      }
+      72% {
+        opacity: 0.18;
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.08);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .practice-text {
+        padding: 1.25rem 1.2rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        width: min(92%, 1120px);
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+      }
+
+      .brand-logo {
+        grid-column: 1;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-menu-toggle {
+        display: inline-flex;
+        grid-column: 2;
+        justify-self: end;
+        min-height: 42px;
+        padding: 0.55rem 1rem;
+        background: rgba(255,255,255,0.72);
+        border-color: rgba(120,144,126,0.24);
+        color: #5f7865;
+        font-weight: 700;
+      }
+
+      .mobile-menu-panel.is-open {
+        display: grid;
+      }
+
+      .mobile-menu-panel {
+        grid-column: 1 / -1;
+        margin-top: 0.75rem;
+        padding: 1.1rem;
+        gap: 1.15rem;
+        border-radius: 22px;
+        background: rgba(255,253,248,0.92);
+        border: 1px solid rgba(120,144,126,0.18);
+        box-shadow: 0 18px 44px rgba(38,49,44,0.1);
+        backdrop-filter: blur(12px);
+      }
+
+      .mobile-menu-group {
+        gap: 0.2rem;
+        padding-bottom: 0.85rem;
+        border-bottom: 1px solid rgba(120,144,126,0.12);
+      }
+
+      .mobile-menu-group:last-child {
+        padding-bottom: 0;
+        border-bottom: 0;
+      }
+
+      .mobile-menu-group p {
+        margin-bottom: 0.35rem;
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(95,120,101,0.9);
+      }
+
+      .mobile-menu-panel a {
+        padding: 0.62rem 0.2rem;
+        border-bottom: 0;
+        color: #2f3a34;
+        line-height: 1.35;
+      }
+
+      .mobile-menu-panel a:active {
+        color: #5f7865;
+        transform: scale(0.99);
+      }
+
+      .nav-dropdown ul {
+        position: static;
+        width: 100%;
+        min-width: none;
+      }
+
+      .header-logo {
+        height: 58px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
+
+      .hogenchaku-overlay {
+        opacity: 0.7;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="container nav">
+    <a href="index.html#inicio" class="brand brand-logo" aria-label="Zaike Zen">
+      <img src="Imagen-zaike-zen.jpg" alt="Zaike Zen - Zen laico" class="header-logo">
+    </a>
+    <nav class="nav-links" aria-label="Navegación principal">
+      <details class="nav-dropdown">
+        <summary>Inicio</summary>
+        <ul>
+          <li><a href="index.html#inicio">Inicio</a></li>
+          <li><a href="index.html#que-es-meditar">Qué es meditar</a></li>
+          <li><a href="index.html#zen">Qué es Zaike Zen</a></li>
+        </ul>
+      </details>
+
+      <details class="nav-dropdown">
+        <summary>Cómo empezar</summary>
+        <ul>
+          <li><a href="index.html#rutina-sugerida">Rutina sugerida</a></li>
+          <li><a href="como-empezar-a-meditar.html">Empezar desde cero</a></li>
+          <li><a href="cuanto-tiempo-meditar-al-dia.html">Cuánto tiempo meditar</a></li>
+          <li><a href="index.html#meditaciones">Consignas básicas</a></li>
+          <li><a href="index.html#postura-sentada">Postura sentada</a></li>
+          <li><a href="index.html#respiracion-tanden">Respiración Tanden</a></li>
+          <li><a href="index.html#atencion">Atención</a></li>
+        </ul>
+      </details>
+
+      <a href="camino-del-practicante.html">El Camino del Practicante</a>
+      <details class="nav-dropdown">
+        <summary class="active">Cómo estabilizar</summary>
+        <ul>
+          <li><a href="como-estabilizar.html">Visión general</a></li>
+          <li><a href="automasaje.html">Automasaje</a></li>
+          <li><a href="meditacion-movimiento.html">Meditación en movimiento</a></li>
+          <li><a href="hogenchaku.html" class="active">Hogenchaku</a></li>
+          <li><a aria-disabled="true">Nanso</a></li>
+          <li><a aria-disabled="true">Susokukan</a></li>
+          <li><a aria-disabled="true">Naikan</a></li>
+        </ul>
+      </details>
+      <details class="nav-dropdown">
+        <summary>Cómo profundizar</summary>
+        <ul>
+          <li><a href="index.html#textos">Impermanencia y realidad</a></li>
+          <li><a href="index.html#textos">Vacuidad y no dualidad</a></li>
+          <li><a href="index.html#textos">Patrones y transformación</a></li>
+          <li><a href="index.html#textos">Compasión y acción</a></li>
+        </ul>
+      </details>
+
+      <a href="beneficios-meditacion.html">Beneficios</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+    <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu-panel">Menú</button>
+    <nav class="mobile-menu-panel" id="mobile-menu-panel" aria-label="Menú móvil">
+      <div class="mobile-menu-group">
+        <p>Inicio</p>
+        <a href="index.html#inicio">Inicio</a>
+        <a href="index.html#que-es-meditar">Qué es meditar</a>
+        <a href="index.html#zen">Qué es Zaike Zen</a>
+      </div>
+
+      <div class="mobile-menu-group">
+        <p>Cómo empezar</p>
+        <a href="index.html#rutina-sugerida">Rutina sugerida</a>
+        <a href="como-empezar-a-meditar.html">Empezar desde cero</a>
+        <a href="cuanto-tiempo-meditar-al-dia.html">Cuánto tiempo meditar</a>
+        <a href="index.html#meditaciones">Consignas básicas</a>
+        <a href="index.html#postura-sentada">Postura sentada</a>
+        <a href="index.html#respiracion-tanden">Respiración Tanden</a>
+        <a href="index.html#atencion">Atención</a>
+      </div>
+      <a href="camino-del-practicante.html">El Camino del Practicante</a>
+
+      <div class="mobile-menu-group">
+        <p>Cómo estabilizar</p>
+        <a href="como-estabilizar.html">Visión general</a>
+        <a href="automasaje.html">Automasaje</a>
+        <a href="meditacion-movimiento.html">Meditación en movimiento</a>
+        <a href="hogenchaku.html" class="active">Hogenchaku</a>
+        <a aria-disabled="true">Nanso</a>
+        <a aria-disabled="true">Susokukan</a>
+        <a aria-disabled="true">Naikan</a>
+      </div>
+
+      <div class="mobile-menu-group">
+        <p>Profundizar</p>
+        <a href="index.html#textos">Impermanencia y realidad</a>
+        <a href="index.html#textos">Vacuidad y no dualidad</a>
+        <a href="index.html#textos">Patrones y transformación</a>
+        <a href="index.html#textos">Compasión y acción</a>
+      </div>
+
+      <div class="mobile-menu-group">
+        <a href="beneficios-meditacion.html">Beneficios</a>
+        <a href="index.html#contacto">Contacto</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" aria-labelledby="hogenchaku-titulo">
+    <div class="hero-content">
+      <h1 id="hogenchaku-titulo">Hogenchaku</h1>
+      <p>Relajarse y soltar</p>
+    </div>
+  </section>
+
+  <section class="section practice-block" aria-labelledby="la-practica-titulo">
+    <h2 id="la-practica-titulo">La práctica</h2>
+    <div class="practice-text">
+      <p>Esta práctica se realiza después de acomodar la postura, al inicio de la meditación sentada, para continuar profundizando poco a poco y permitir que la atención se dirija hacia nuestras sensaciones corporales de una forma sistemática y progresiva, sin forzar ni imponer. Lo importante es conocer bien la práctica y dejarse llevar por ella, sin forzar y sin rechazar, como si nuestro cuerpo ya supiese lo que tiene que hacer y no fuese necesario tomar ninguna decisión.</p>
+      <p>Partiremos de la postura sentada que sea habitual en nuestra práctica; en nuestro caso, sentados en una silla, con un cojín bajo los isquiones, las caderas ligeramente más elevadas que las rodillas y la columna vertebral bien erguida, sin forzar los arcos de movilidad, simplemente manteniendo una postura estable y equilibrada, como ya hemos descrito anteriormente.</p>
+      <p>Con las manos en el tanden o sobre los muslos, comprobamos que los hombros estén relajados, los codos próximos a los costados y la cabeza alineada con el tronco, de tal manera que el peso de la parte superior del cuerpo descanse sobre los isquiones de la pelvis. En la parte inferior, las rodillas permanecen paralelas y alineadas con las caderas, transmitiendo el peso hacia las plantas de los pies, también paralelos y completamente apoyados sobre el suelo.</p>
+      <p>Chequeamos la postura percibiendo que estamos cada vez más estables y equilibrados, hasta alcanzar las sensaciones adecuadas para mantener la inmovilidad durante el tiempo que dure la meditación.</p>
+      <p>A continuación, nos fijamos con detenimiento en los diferentes equilibrios que componen el equilibrio general del cuerpo: cómo la cabeza se equilibra sobre los hombros, cómo los brazos descansan respecto al tronco y cómo la parte superior del cuerpo se equilibra con la pelvis y la parte inferior hasta llegar a las plantas de los pies. Con facilidad observaremos que muchas partes del cuerpo no son necesarias para mantener la postura y que, progresivamente, pueden relajarse. Del equilibrio empieza a surgir la relajación.</p>
+      <p>Podemos observar, por ejemplo, cómo los músculos de la frente se alisan, el entrecejo se distiende y los párpados se relajan, junto con los músculos que mueven los ojos. La boca, las mejillas y los músculos de la expresión también se sueltan. Poco a poco percibimos cómo los músculos de la masticación se relajan desde la mandíbula inferior hasta las sienes, y cómo el cuero cabelludo participa también de esta sensación de distensión hasta abarcar toda la cabeza.</p>
+      <p>Nada ha cambiado en nuestra postura y, sin embargo, sentimos que la cabeza está más relajada. Esa relajación puede comenzar a descender por la nuca hasta los hombros. Ponemos la atención en estas partes del cuerpo y, al pasar sobre ellas, dejamos que respondan espontáneamente con una sensación de distensión.</p>
+      <p>Poco a poco llegamos a los brazos. Recorremos primero uno y después el otro, sintiendo cómo se sueltan músculos, tendones y ligamentos mientras las articulaciones encuentran una posición cada vez más natural. Antebrazos, muñecas, palmas y dorsos de las manos, hasta alcanzar cada uno de los dedos. Cada extremidad superior se va soltando con el paso de nuestra atención y se incorpora a las partes del cuerpo que ya están relajadas.</p>
+      <p>Los músculos del pecho y de la caja torácica también se distienden. La respiración abdominal permite que la zona intercostal permanezca más relajada mientras el abdomen se expande con la inhalación y regresa pasivamente durante la exhalación. La relajación que comenzó en la cabeza sigue descendiendo ahora por el tórax y el abdomen.</p>
+      <p>Nos fijamos en el tanden y en los movimientos que produce la respiración, que poco a poco se hace más espontánea y natural. La relajación del vientre se extiende a la pelvis y a las caderas y, al soltarse estas zonas, la postura puede ajustarse todavía mejor.</p>
+      <p>Muslos, piernas y pies van distendiéndose progresivamente hasta que nuestra atención alcanza las plantas de los pies. De esta manera, la relajación ha recorrido todo el cuerpo, desde la cabeza hasta el suelo.</p>
+      <p>La respiración es cada vez más fácil y las sensaciones del cuerpo, que hasta este momento percibíamos de forma parcial, comienzan a integrarse en una sensación global. Ya no necesitamos recorrer cada parte por separado. Sentimos el cuerpo entero.</p>
+      <p>Con cada exhalación dejamos que todo el cuerpo se suelte un poco más, manteniendo la postura inmóvil, estable y sin esfuerzo. La relajación se hace cada vez más global y profunda.</p>
+      <p>A medida que vamos relajando el cuerpo, vamos también soltando tensiones emocionales y pequeñas contracturas. Nos abrimos y nos dejamos llevar, profundizando en una atención global sobre nuestro cuerpo que favorece una sensación creciente de armonía y bienestar.</p>
+    </div>
+  </section>
+
+  <section class="section hogenchaku-section" aria-labelledby="recorrido-titulo">
+    <h2 id="recorrido-titulo">El recorrido de la relajación</h2>
+    <div class="hogenchaku-cartel-wrapper" aria-label="Cartel de Hogenchaku">
+      <img class="hogenchaku-cartel" src="cartel-hogenchaku.png" alt="Cartel de Hogenchaku con recorrido progresivo de la relajación desde la cabeza hasta los pies y atención a la respiración en el tanden.">
+      <div class="hogenchaku-overlay" aria-hidden="true">
+        <img class="image-echo tanden-copy" src="cartel-hogenchaku.png" alt="">
+
+        <img class="image-echo yellow-copy yellow-copy-1" src="cartel-hogenchaku.png" alt="">
+        <img class="image-echo yellow-copy yellow-copy-2" src="cartel-hogenchaku.png" alt="">
+        <img class="image-echo yellow-copy yellow-copy-3" src="cartel-hogenchaku.png" alt="">
+        <img class="image-echo yellow-copy yellow-copy-4" src="cartel-hogenchaku.png" alt="">
+        <img class="image-echo yellow-copy yellow-copy-5" src="cartel-hogenchaku.png" alt="">
+        <img class="image-echo yellow-copy yellow-copy-6" src="cartel-hogenchaku.png" alt="">
+        <img class="image-echo yellow-copy yellow-copy-7" src="cartel-hogenchaku.png" alt="">
+        <img class="image-echo yellow-copy yellow-copy-8" src="cartel-hogenchaku.png" alt="">
+
+        <span class="global-halo"></span>
+      </div>
+    </div>
+    <div class="hogenchaku-expand-control">
+      <button type="button" class="hogenchaku-expand-button" data-open-modal>Ampliar cartel</button>
+    </div>
+  </section>
+
+  <div class="hogenchaku-modal-backdrop" id="hogenchaku-modal" aria-hidden="true">
+    <div class="hogenchaku-modal-panel" role="dialog" aria-modal="true" aria-labelledby="hogenchaku-modal-title" tabindex="-1">
+      <button type="button" class="hogenchaku-modal-close" aria-label="Cerrar cartel ampliado" data-close-modal>&times;</button>
+      <div class="hogenchaku-modal-content">
+        <h2 id="hogenchaku-modal-title" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Cartel ampliado de Hogenchaku</h2>
+        <div class="hogenchaku-cartel-wrapper" aria-label="Cartel ampliado de Hogenchaku">
+          <img class="hogenchaku-cartel" src="cartel-hogenchaku.png" alt="Cartel de Hogenchaku con recorrido progresivo de la relajación desde la cabeza hasta los pies y atención a la respiración en el tanden.">
+          <div class="hogenchaku-overlay" aria-hidden="true">
+            <img class="image-echo tanden-copy" src="cartel-hogenchaku.png" alt="">
+
+            <img class="image-echo yellow-copy yellow-copy-1" src="cartel-hogenchaku.png" alt="">
+            <img class="image-echo yellow-copy yellow-copy-2" src="cartel-hogenchaku.png" alt="">
+            <img class="image-echo yellow-copy yellow-copy-3" src="cartel-hogenchaku.png" alt="">
+            <img class="image-echo yellow-copy yellow-copy-4" src="cartel-hogenchaku.png" alt="">
+            <img class="image-echo yellow-copy yellow-copy-5" src="cartel-hogenchaku.png" alt="">
+            <img class="image-echo yellow-copy yellow-copy-6" src="cartel-hogenchaku.png" alt="">
+            <img class="image-echo yellow-copy yellow-copy-7" src="cartel-hogenchaku.png" alt="">
+            <img class="image-echo yellow-copy yellow-copy-8" src="cartel-hogenchaku.png" alt="">
+
+            <span class="global-halo"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section" aria-labelledby="practica-guiada-titulo">
+    <h2 id="practica-guiada-titulo">Práctica guiada</h2>
+    <div class="audio-block">
+      <p>Puedes utilizar este audio para acompañar la práctica de Hogenchaku.</p>
+      <audio controls preload="metadata">
+        <source src="audio-hogenchaku.mp3" type="audio/mpeg">
+        Tu navegador no admite el elemento de audio.
+      </audio>
+    </div>
+  </section>
+
+  <section class="section cta-section">
+    <a class="button" href="como-estabilizar.html">Volver a Estabilización</a>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2026 Zaike Zen</p>
+</footer>
+
+<script>
+  const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+  const mobileMenuPanel = document.querySelector('.mobile-menu-panel');
+
+  const closeMobileMenu = () => {
+    if (!mobileMenuToggle || !mobileMenuPanel) return;
+    mobileMenuPanel.classList.remove('is-open');
+    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+  };
+
+  if (mobileMenuToggle && mobileMenuPanel) {
+    mobileMenuToggle.addEventListener('click', () => {
+      const isOpen = mobileMenuPanel.classList.toggle('is-open');
+      mobileMenuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    mobileMenuPanel.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
+    });
+  }
+
+  const modalBackdrop = document.getElementById('hogenchaku-modal');
+  const modalPanel = modalBackdrop ? modalBackdrop.querySelector('.hogenchaku-modal-panel') : null;
+  const modalCloseButton = modalBackdrop ? modalBackdrop.querySelector('[data-close-modal]') : null;
+  const modalOpenButton = document.querySelector('[data-open-modal]');
+  const previousFocusable = document.querySelector('body');
+  let previousFocus = null;
+
+  const setModalState = (isOpen) => {
+    if (!modalBackdrop || !modalPanel || !modalCloseButton) return;
+
+    modalBackdrop.classList.toggle('is-open', isOpen);
+    modalBackdrop.setAttribute('aria-hidden', String(!isOpen));
+    document.body.classList.toggle('modal-open', isOpen);
+
+    const inertTargets = Array.from(document.body.children).filter((child) => child !== modalBackdrop);
+    inertTargets.forEach((element) => {
+      if (isOpen) {
+        element.setAttribute('inert', 'true');
+      } else {
+        element.removeAttribute('inert');
+      }
+    });
+
+    if (isOpen) {
+      previousFocus = document.activeElement;
+      modalCloseButton.focus();
+      modalPanel.scrollTop = 0;
+    } else if (previousFocus) {
+      previousFocus.focus();
+      previousFocus = null;
+    }
+  };
+
+  const closeModal = () => setModalState(false);
+
+  if (modalOpenButton && modalBackdrop && modalPanel && modalCloseButton) {
+    modalOpenButton.addEventListener('click', () => setModalState(true));
+    modalCloseButton.addEventListener('click', closeModal);
+
+    modalBackdrop.addEventListener('click', (event) => {
+      if (event.target === modalBackdrop) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (modalBackdrop.classList.contains('is-open') && event.key === 'Escape') {
+        closeModal();
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
