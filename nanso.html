@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Nanso · La imaginación al servicio de la atención | Zaike Zen</title>
+  <meta name="description" content="Práctica de Nanso que utiliza la respiración, la atención y la imaginación para recorrer progresivamente el cuerpo mediante una visualización de luz.">
+
+  <link rel="canonical" href="https://zaikezen.es/nanso.html">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .container { width: min(92%, 1120px); margin: 0 auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(247, 244, 237, 0.72);
+      border-bottom: 1px solid rgba(126, 154, 132, 0.12);
+      box-shadow: 0 6px 24px rgba(38, 49, 44, 0.04);
+    }
+
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; gap: 1rem; }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #26312c;
+    }
+
+    .brand span { color: #5f7865; }
+
+    .nav-links {
+      display: flex;
+      gap: 0.4rem;
+      align-items: center;
+    }
+
+    .nav-links a.active {
+      background-color: #dbe7df;
+      font-weight: 500;
+    }
+
+    .nav-dropdown summary.active {
+      background-color: #dbe7df;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      color: #607068;
+      font-size: 0.94rem;
+      padding: 0.5rem 0.85rem;
+      border-radius: 999px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all 0.25s ease;
+      background: rgba(255,255,255,0.35);
+      border: 1px solid rgba(120,140,125,0.18);
+    }
+
+    .nav-links a:hover {
+      color: #5f7865;
+      background: rgba(255,255,255,0.85);
+      border-color: rgba(93,122,100,0.35);
+      box-shadow: 0 6px 18px rgba(40,60,45,0.08);
+      transform: translateY(-1px);
+    }
+
+    .nav-links a:active {
+      transform: scale(0.97);
+    }
+
+    .nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .nav-dropdown summary {
+      cursor: pointer;
+      padding: 0.5rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.35);
+      border: 1px solid rgba(120,140,125,0.18);
+      color: #607068;
+      font-size: 0.94rem;
+      transition: all 0.25s ease;
+    }
+
+    .nav-dropdown summary:hover {
+      color: #5f7865;
+      background: rgba(255,255,255,0.85);
+      border-color: rgba(93,122,100,0.35);
+      box-shadow: 0 6px 18px rgba(40,60,45,0.08);
+      transform: translateY(-1px);
+    }
+
+    .nav-dropdown ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(120,144,126,0.2);
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(38,49,44,0.08);
+      min-width: 200px;
+      z-index: 10;
+      display: none;
+    }
+
+    .nav-dropdown[open] ul {
+      display: block;
+    }
+
+    .nav-dropdown li {
+      border-bottom: 1px solid rgba(120,144,126,0.1);
+    }
+
+    .nav-dropdown li:last-child {
+      border-bottom: none;
+    }
+
+    .nav-dropdown a {
+      display: block;
+      padding: 0.75rem 1rem;
+      color: #607068;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .nav-dropdown a:hover {
+      background: rgba(126,154,132,0.1);
+      color: #5f7865;
+    }
+
+    .mobile-menu-toggle,
+    .mobile-menu-panel {
+      display: none;
+    }
+
+    .mobile-menu-toggle {
+      align-items: center;
+      justify-content: center;
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(120,140,125,0.18);
+      background: rgba(255,255,255,0.55);
+      color: #607068;
+      font: inherit;
+      font-size: 0.94rem;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(38,49,44,0.08);
+    }
+
+    .mobile-menu-panel {
+      width: 100%;
+      gap: 1rem;
+      padding: 1rem;
+      border: 1px solid rgba(120,144,126,0.2);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.82);
+      box-shadow: 0 10px 30px rgba(38,49,44,0.08);
+    }
+
+    .mobile-menu-group {
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .mobile-menu-group p {
+      color: #5f7865;
+      font-size: 0.86rem;
+      font-weight: 700;
+      margin-bottom: 0.1rem;
+    }
+
+    .mobile-menu-panel a {
+      color: #607068;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid rgba(120,144,126,0.12);
+    }
+
+    .mobile-menu-panel a.active {
+      background-color: #dbe7df;
+      font-weight: 500;
+    }
+
+    .mobile-menu-panel a:last-child {
+      border-bottom: 0;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .header-logo {
+      height: 72px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .hero {
+      padding: 3.5rem 0 2.5rem;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      margin: 0 0 0.5rem;
+      font-size: clamp(2.3rem, 5vw, 4rem);
+      line-height: 1.1;
+      color: #26312c;
+      letter-spacing: -0.04em;
+    }
+
+    .hero p {
+      margin: 0;
+      color: #5f7865;
+      font-size: clamp(1rem, 2.3vw, 1.25rem);
+      line-height: 1.6;
+    }
+
+    .section {
+      width: min(92%, 1120px);
+      margin: 0 auto;
+      padding: 1.6rem 0 2.5rem;
+    }
+
+    .practice-block {
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .practice-block h2,
+    .nanso-section h2 {
+      margin: 0 0 1.2rem;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      line-height: 1.2;
+      color: #26312c;
+    }
+
+    .practice-text {
+      padding: 1.6rem 1.8rem;
+      background: rgba(255, 253, 248, 0.82);
+      border: 1px solid rgba(126, 154, 132, 0.22);
+      border-radius: 18px;
+      box-shadow: 0 10px 24px rgba(38, 49, 44, 0.05);
+    }
+
+    .practice-text p {
+      margin: 0 0 1rem;
+      color: #2f3a34;
+      line-height: 1.9;
+      font-size: 1.04rem;
+      text-align: left;
+    }
+
+    .practice-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .nanso-cartel-wrapper {
+      position: relative;
+      width: min(100%, 800px);
+      margin: 0 auto;
+      padding: 0.25rem 0 1rem;
+    }
+
+    .nanso-expand-control {
+      display: flex;
+      justify-content: center;
+      margin-top: 0.25rem;
+      padding-bottom: 0.5rem;
+    }
+
+    .nanso-expand-button {
+      appearance: none;
+      border: 1px solid rgba(120, 144, 126, 0.2);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.66);
+      color: #5f7865;
+      font: inherit;
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 0.7rem 1.1rem;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      box-shadow: 0 8px 20px rgba(38, 49, 44, 0.04);
+    }
+
+    .nanso-expand-button:hover,
+    .nanso-expand-button:focus-visible {
+      transform: translateY(-1px);
+      border-color: rgba(95, 120, 101, 0.34);
+      box-shadow: 0 12px 24px rgba(38, 49, 44, 0.08);
+      outline: none;
+    }
+
+    .nanso-cartel-stage {
+      position: relative;
+      width: min(100%, 800px);
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 24px;
+      background: #fff;
+    }
+
+    .nanso-cartel {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 800px;
+      margin: 0 auto;
+      border-radius: 24px;
+      box-shadow: 0 18px 50px rgba(38, 49, 44, 0.08);
+    }
+
+    .nanso-base-frame {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 800px;
+      margin: 0 auto;
+      border-radius: 24px;
+      box-shadow: 0 18px 50px rgba(38, 49, 44, 0.08);
+    }
+
+    .nanso-frame {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      margin: 0 auto;
+      border-radius: 24px;
+      opacity: 0;
+      transition: opacity 1.25s ease-in-out;
+      pointer-events: none;
+      will-change: opacity;
+    }
+
+    .nanso-frame.is-visible {
+      opacity: 1;
+    }
+
+    .nanso-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      border-radius: 24px;
+    }
+
+    .nanso-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.2rem;
+      background: rgba(20, 25, 23, 0.46);
+      backdrop-filter: blur(2px);
+      z-index: 200;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.2s ease, visibility 0.2s ease;
+    }
+
+    .nanso-modal-backdrop.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .nanso-modal-panel {
+      position: relative;
+      width: min(95vw, 1280px);
+      max-height: 90vh;
+      overflow: auto;
+      padding: 2.25rem 1rem 1rem;
+      border-radius: 24px;
+      background: rgba(247, 244, 237, 0.98);
+      border: 1px solid rgba(126, 154, 132, 0.2);
+      box-shadow: 0 18px 64px rgba(24, 31, 28, 0.14);
+      scrollbar-width: thin;
+    }
+
+    .nanso-modal-panel::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .nanso-modal-panel::-webkit-scrollbar-thumb {
+      background: rgba(95, 120, 101, 0.34);
+      border-radius: 999px;
+    }
+
+    .nanso-modal-close {
+      position: absolute;
+      top: 0.7rem;
+      right: 0.8rem;
+      width: 2.2rem;
+      height: 2.2rem;
+      border: 1px solid rgba(120, 144, 126, 0.24);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.8);
+      color: #2f3a34;
+      font-size: 1.3rem;
+      line-height: 1;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+
+    .nanso-modal-close:hover,
+    .nanso-modal-close:focus-visible {
+      outline: none;
+      border-color: rgba(95, 120, 101, 0.34);
+      box-shadow: 0 8px 20px rgba(38, 49, 44, 0.1);
+    }
+
+    .nanso-modal-content {
+      width: min(100%, 1180px);
+      margin: 0 auto;
+    }
+
+    .nanso-modal-content .nanso-cartel-wrapper {
+      width: min(100%, 1200px);
+      max-width: none;
+      padding: 0;
+    }
+
+    .nanso-modal-content .nanso-cartel {
+      max-width: none;
+    }
+
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    .audio-block {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .audio-block p {
+      margin: 0 0 1rem;
+      color: #607068;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    audio {
+      width: min(100%, 560px);
+      display: block;
+      margin: 0 auto;
+      border-radius: 16px;
+    }
+
+    .cta-section {
+      display: flex;
+      justify-content: center;
+      padding-top: 1rem;
+      padding-bottom: 3rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 1.5rem;
+      border-radius: 999px;
+      background: #dfe9df;
+      color: #26312c;
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid rgba(126, 154, 132, 0.24);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 10px 24px rgba(38, 49, 44, 0.06);
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 28px rgba(38, 49, 44, 0.1);
+    }
+
+    footer {
+      padding: 1.5rem 0 2rem;
+      text-align: center;
+      color: #607068;
+      border-top: 1px solid rgba(126,154,132,0.12);
+    }
+
+    @media (max-width: 900px) {
+      .practice-text {
+        padding: 1.25rem 1.2rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        width: min(92%, 1120px);
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+      }
+
+      .brand-logo {
+        grid-column: 1;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-menu-toggle {
+        display: inline-flex;
+        grid-column: 2;
+        justify-self: end;
+        min-height: 42px;
+        padding: 0.55rem 1rem;
+        background: rgba(255,255,255,0.72);
+        border-color: rgba(120,144,126,0.24);
+        color: #5f7865;
+        font-weight: 700;
+      }
+
+      .mobile-menu-panel.is-open {
+        display: grid;
+      }
+
+      .mobile-menu-panel {
+        grid-column: 1 / -1;
+        margin-top: 0.75rem;
+        padding: 1.1rem;
+        gap: 1.15rem;
+        border-radius: 22px;
+        background: rgba(255,253,248,0.92);
+        border: 1px solid rgba(120,144,126,0.18);
+        box-shadow: 0 18px 44px rgba(38,49,44,0.1);
+        backdrop-filter: blur(12px);
+      }
+
+      .mobile-menu-group {
+        gap: 0.2rem;
+        padding-bottom: 0.85rem;
+        border-bottom: 1px solid rgba(120,144,126,0.12);
+      }
+
+      .mobile-menu-group:last-child {
+        padding-bottom: 0;
+        border-bottom: 0;
+      }
+
+      .mobile-menu-group p {
+        margin-bottom: 0.35rem;
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(95,120,101,0.9);
+      }
+
+      .mobile-menu-panel a {
+        padding: 0.62rem 0.2rem;
+        border-bottom: 0;
+        color: #2f3a34;
+        line-height: 1.35;
+      }
+
+      .mobile-menu-panel a:active {
+        color: #5f7865;
+        transform: scale(0.99);
+      }
+
+      .nav-dropdown ul {
+        position: static;
+        width: 100%;
+        min-width: none;
+      }
+
+      .header-logo {
+        height: 58px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="container nav">
+    <a href="index.html#inicio" class="brand brand-logo" aria-label="Zaike Zen">
+      <img src="Imagen-zaike-zen.jpg" alt="Zaike Zen - Zen laico" class="header-logo">
+    </a>
+    <nav class="nav-links" aria-label="Navegación principal">
+      <details class="nav-dropdown">
+        <summary>Inicio</summary>
+        <ul>
+          <li><a href="index.html#inicio">Inicio</a></li>
+          <li><a href="index.html#que-es-meditar">Qué es meditar</a></li>
+          <li><a href="index.html#zen">Qué es Zaike Zen</a></li>
+        </ul>
+      </details>
+
+      <details class="nav-dropdown">
+        <summary>Cómo empezar</summary>
+        <ul>
+          <li><a href="index.html#rutina-sugerida">Rutina sugerida</a></li>
+          <li><a href="como-empezar-a-meditar.html">Empezar desde cero</a></li>
+          <li><a href="cuanto-tiempo-meditar-al-dia.html">Cuánto tiempo meditar</a></li>
+          <li><a href="index.html#meditaciones">Consignas básicas</a></li>
+          <li><a href="index.html#postura-sentada">Postura sentada</a></li>
+          <li><a href="index.html#respiracion-tanden">Respiración Tanden</a></li>
+          <li><a href="index.html#atencion">Atención</a></li>
+        </ul>
+      </details>
+
+      <a href="camino-del-practicante.html">El Camino del Practicante</a>
+      <details class="nav-dropdown">
+        <summary class="active">Cómo estabilizar</summary>
+        <ul>
+          <li><a href="como-estabilizar.html">Visión general</a></li>
+          <li><a href="automasaje.html">Automasaje</a></li>
+          <li><a href="meditacion-movimiento.html">Meditación en movimiento</a></li>
+          <li><a href="hogenchaku.html">Hogenchaku</a></li>
+          <li><a href="nanso.html" class="active">Nanso</a></li>
+          <li><a aria-disabled="true">Susokukan</a></li>
+          <li><a aria-disabled="true">Naikan</a></li>
+        </ul>
+      </details>
+      <details class="nav-dropdown">
+        <summary>Cómo profundizar</summary>
+        <ul>
+          <li><a href="index.html#textos">Impermanencia y realidad</a></li>
+          <li><a href="index.html#textos">Vacuidad y no dualidad</a></li>
+          <li><a href="index.html#textos">Patrones y transformación</a></li>
+          <li><a href="index.html#textos">Compasión y acción</a></li>
+        </ul>
+      </details>
+
+      <a href="beneficios-meditacion.html">Beneficios</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+    <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu-panel">Menú</button>
+    <nav class="mobile-menu-panel" id="mobile-menu-panel" aria-label="Menú móvil">
+      <div class="mobile-menu-group">
+        <p>Inicio</p>
+        <a href="index.html#inicio">Inicio</a>
+        <a href="index.html#que-es-meditar">Qué es meditar</a>
+        <a href="index.html#zen">Qué es Zaike Zen</a>
+      </div>
+
+      <div class="mobile-menu-group">
+        <p>Cómo empezar</p>
+        <a href="index.html#rutina-sugerida">Rutina sugerida</a>
+        <a href="como-empezar-a-meditar.html">Empezar desde cero</a>
+        <a href="cuanto-tiempo-meditar-al-dia.html">Cuánto tiempo meditar</a>
+        <a href="index.html#meditaciones">Consignas básicas</a>
+        <a href="index.html#postura-sentada">Postura sentada</a>
+        <a href="index.html#respiracion-tanden">Respiración Tanden</a>
+        <a href="index.html#atencion">Atención</a>
+      </div>
+      <a href="camino-del-practicante.html">El Camino del Practicante</a>
+
+      <div class="mobile-menu-group">
+        <p>Cómo estabilizar</p>
+        <a href="como-estabilizar.html">Visión general</a>
+        <a href="automasaje.html">Automasaje</a>
+        <a href="meditacion-movimiento.html">Meditación en movimiento</a>
+        <a href="hogenchaku.html">Hogenchaku</a>
+        <a href="nanso.html" class="active">Nanso</a>
+        <a aria-disabled="true">Susokukan</a>
+        <a aria-disabled="true">Naikan</a>
+      </div>
+
+      <div class="mobile-menu-group">
+        <p>Profundizar</p>
+        <a href="index.html#textos">Impermanencia y realidad</a>
+        <a href="index.html#textos">Vacuidad y no dualidad</a>
+        <a href="index.html#textos">Patrones y transformación</a>
+        <a href="index.html#textos">Compasión y acción</a>
+      </div>
+
+      <div class="mobile-menu-group">
+        <a href="beneficios-meditacion.html">Beneficios</a>
+        <a href="index.html#contacto">Contacto</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" aria-labelledby="nanso-titulo">
+    <div class="hero-content">
+      <h1 id="nanso-titulo">Nanso</h1>
+      <p>La imaginación al servicio de la atención</p>
+    </div>
+  </section>
+
+  <section class="section practice-block" aria-labelledby="la-practica-titulo">
+    <h2 id="la-practica-titulo">La práctica</h2>
+    <div class="practice-text">
+      <p>La práctica continúa incrementando la concentración sobre nuestro cuerpo a través de la imaginación. El Nanso es una práctica muy antigua que se utilizaba para potenciar nuestra propia capacidad de restablecernos a través de ejercicio de la respiración, la atención y la imaginación. En este caso el Nanso, además de favorecer nuestro bienestar, nos permite seguir adentrándonos en la unión del cuerpo y de la mente, constituyéndose así como un paso esencial de la meditación a través de la mirada interior.</p>
+      <p>Originalmente el Nanso era una sustancia medicinal de color blanco que se introducía imaginariamente en nuestro cuerpo desde la cabeza hasta los pies mediante sucesivos ciclos respiratorios. Hoy podemos imaginarla también como una bola de luz que, como un manantial entra hasta el centro de nuestra cabeza con la inhalación y, con la exhalación, la inunda extendiéndose por todos sus órganos, hasta que progresivamente la ocupa totalmente y la envuelve, dejando una sensación renovadora y revitalizante. Durante varios ciclos respiratorios esta sensación se hace más evidente hasta que, de forma espontánea, este manantial de luz entra con la inhalación hasta el centro de nuestro pecho y, con la exhalación, se extiendo por los órganos internos inundándolos de luz, haciéndolos brillar y dejando una sensación renovadora. Pulmones y corazón se limpian con este baño de luz, que va llegando a todos los rincones del tórax con las sucesivas respiraciones, hasta que todo el tronco se siente inundado y envuelto en luz renovadora y revitalizante.</p>
+      <p>Con la inspiración se extiende este manantial de luz desde la cabeza hasta el centro del abdomen y, con la exhalación, inunda los órganos internos hasta llenar completamente la cavidad abdominal, dejando una sensación revitalizante. Poco a poco todo el cuerpo de ve bañado por este manantial, desde la cabeza hasta la pelvis y las extremidades, llegando al centro de la planta de los pies. Todo nuestro cuerpo forma parte de este manantial de luz que nos atraviesa con la respiración, limpia y renueva nuestras células para dejarnos a su paso armonía y bienestar.</p>
+      <p>Ahora nuestra mente y nuestro cuerpo están íntimamente unidos, podríamos sentir que todo nuestro cuerpo está en la mente y que la mente está en cada parte de nuestro cuerpo. Nuestra atención está completamente saturada por las imágenes sentidas de nuestro cuerpo.</p>
+      <p>La relajación y la unión mente y cuerpo nos permitirán seguir adentrándonos en la práctica de la meditación casi sin darnos cuenta. La meditación se hace a partir de esta unión de cuerpo y mente, que absorbe nuestra atención concentrándola cada vez más.</p>
+    </div>
+  </section>
+
+  <section class="section nanso-section" aria-labelledby="recorrido-titulo">
+    <h2 id="recorrido-titulo">Atención amorosa en el cuerpo</h2>
+    <div class="nanso-cartel-wrapper" aria-label="Cartel de Nanso">
+      <div class="nanso-cartel-stage" data-nanso-cycle>
+        <img class="nanso-base-frame" src="cartel-nanso-base.png" alt="Cartel base de Nanso." onerror="this.style.display='none';">
+        <img class="nanso-frame is-visible is-base" src="cartel-nanso1.png" alt="Estado 1 del cartel de Nanso." onerror="this.style.display='none';">
+        <img class="nanso-frame" src="cartel-nanso2.png" alt="Estado 2 del cartel de Nanso." onerror="this.style.display='none';">
+        <img class="nanso-frame" src="cartel-nanso3.png" alt="Estado 3 del cartel de Nanso." onerror="this.style.display='none';">
+        <img class="nanso-frame" src="cartel-nanso4.png" alt="Estado 4 del cartel de Nanso." onerror="this.style.display='none';">
+        <img class="nanso-frame" src="cartel-nanso5.png" alt="Estado 5 del cartel de Nanso." onerror="this.style.display='none';">
+        <img class="nanso-frame" src="cartel-nanso6.png" alt="Estado 6 del cartel de Nanso." onerror="this.style.display='none';">
+        <img class="nanso-frame" src="cartel-nanso7.png" alt="Estado 7 del cartel de Nanso." onerror="this.style.display='none';">
+        <img class="nanso-frame" src="cartel-nanso8.png" alt="Estado 8 del cartel de Nanso." onerror="this.style.display='none';">
+      </div>
+    </div>
+    <div class="nanso-expand-control">
+      <button type="button" class="nanso-expand-button" data-open-modal>Ampliar cartel</button>
+    </div>
+  </section>
+
+  <div class="nanso-modal-backdrop" id="nanso-modal" aria-hidden="true">
+    <div class="nanso-modal-panel" role="dialog" aria-modal="true" aria-labelledby="nanso-modal-title" tabindex="-1">
+      <button type="button" class="nanso-modal-close" aria-label="Cerrar cartel ampliado" data-close-modal>&times;</button>
+      <div class="nanso-modal-content">
+        <h2 id="nanso-modal-title" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Cartel ampliado de Nanso</h2>
+        <div class="nanso-cartel-wrapper" aria-label="Cartel ampliado de Nanso">
+          <div class="nanso-cartel-stage" data-nanso-cycle>
+            <img class="nanso-base-frame" src="cartel-nanso-base.png" alt="Cartel base de Nanso." onerror="this.style.display='none';">
+            <img class="nanso-frame is-visible is-base" src="cartel-nanso1.png" alt="Estado 1 del cartel de Nanso." onerror="this.style.display='none';">
+            <img class="nanso-frame" src="cartel-nanso2.png" alt="Estado 2 del cartel de Nanso." onerror="this.style.display='none';">
+            <img class="nanso-frame" src="cartel-nanso3.png" alt="Estado 3 del cartel de Nanso." onerror="this.style.display='none';">
+            <img class="nanso-frame" src="cartel-nanso4.png" alt="Estado 4 del cartel de Nanso." onerror="this.style.display='none';">
+            <img class="nanso-frame" src="cartel-nanso5.png" alt="Estado 5 del cartel de Nanso." onerror="this.style.display='none';">
+            <img class="nanso-frame" src="cartel-nanso6.png" alt="Estado 6 del cartel de Nanso." onerror="this.style.display='none';">
+            <img class="nanso-frame" src="cartel-nanso7.png" alt="Estado 7 del cartel de Nanso." onerror="this.style.display='none';">
+            <img class="nanso-frame" src="cartel-nanso8.png" alt="Estado 8 del cartel de Nanso." onerror="this.style.display='none';">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section" aria-labelledby="practica-guiada-titulo">
+    <h2 id="practica-guiada-titulo">Práctica guiada</h2>
+    <div class="audio-block">
+      <p>Puedes utilizar este audio para acompañar la práctica de Nanso.</p>
+      <audio controls preload="metadata">
+        <source src="audio-nanso.mp3" type="audio/mpeg">
+        Tu navegador no admite el elemento de audio.
+      </audio>
+    </div>
+  </section>
+
+  <section class="section cta-section">
+    <a class="button" href="como-estabilizar.html">Volver a Estabilización</a>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2026 Zaike Zen</p>
+</footer>
+
+<script>
+  const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+  const mobileMenuPanel = document.querySelector('.mobile-menu-panel');
+
+  const closeMobileMenu = () => {
+    if (!mobileMenuToggle || !mobileMenuPanel) return;
+    mobileMenuPanel.classList.remove('is-open');
+    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+  };
+
+  if (mobileMenuToggle && mobileMenuPanel) {
+    mobileMenuToggle.addEventListener('click', () => {
+      const isOpen = mobileMenuPanel.classList.toggle('is-open');
+      mobileMenuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    mobileMenuPanel.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
+    });
+  }
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  const setVisibleFrame = (stage, index) => {
+    const frames = stage.querySelectorAll('.nanso-frame');
+    frames.forEach((frame, frameIndex) => {
+      frame.classList.toggle('is-visible', frameIndex === index);
+    });
+  };
+
+  const crossfadeFrames = (stage, fromIndex, toIndex, duration) => {
+    if (fromIndex === toIndex) {
+      setVisibleFrame(stage, toIndex);
+      return;
+    }
+
+    const frames = stage.querySelectorAll('.nanso-frame');
+    const fromFrame = frames[fromIndex];
+    const toFrame = frames[toIndex];
+
+    if (!fromFrame || !toFrame) return;
+
+    fromFrame.classList.add('is-visible');
+    toFrame.classList.add('is-visible');
+
+    window.setTimeout(() => {
+      fromFrame.classList.remove('is-visible');
+    }, duration);
+  };
+
+  const startNansoSequence = (stage) => {
+    if (!stage || stage.dataset.sequenceStarted === 'true') return;
+    stage.dataset.sequenceStarted = 'true';
+
+    if (prefersReducedMotion.matches) {
+      setVisibleFrame(stage, 0);
+      return;
+    }
+
+    const steps = [
+      { type: 'hold', index: 0, duration: 1500 },
+      { type: 'fade', from: 0, to: 1, duration: 1250 },
+      { type: 'hold', index: 1, duration: 2000 },
+      { type: 'fade', from: 1, to: 2, duration: 1250 },
+      { type: 'hold', index: 2, duration: 2000 },
+      { type: 'fade', from: 2, to: 3, duration: 1250 },
+      { type: 'hold', index: 3, duration: 2000 },
+      { type: 'fade', from: 3, to: 4, duration: 1250 },
+      { type: 'hold', index: 4, duration: 2000 },
+      { type: 'fade', from: 4, to: 5, duration: 1250 },
+      { type: 'hold', index: 5, duration: 2000 },
+      { type: 'fade', from: 5, to: 6, duration: 1250 },
+      { type: 'hold', index: 6, duration: 2000 },
+      { type: 'fade', from: 6, to: 7, duration: 1250 },
+      { type: 'hold', index: 7, duration: 2000 },
+      { type: 'fade', from: 7, to: 8, duration: 1250 },
+      { type: 'hold', index: 8, duration: 5000 },
+      { type: 'fade', from: 8, to: 0, duration: 1250 }
+    ];
+
+    let stepIndex = 0;
+
+    const tick = () => {
+      const step = steps[stepIndex % steps.length];
+
+      if (step.type === 'hold') {
+        setVisibleFrame(stage, step.index);
+      } else {
+        crossfadeFrames(stage, step.from, step.to, step.duration);
+      }
+
+      stepIndex += 1;
+      window.setTimeout(tick, step.duration);
+    };
+
+    tick();
+  };
+
+  document.querySelectorAll('[data-nanso-cycle]').forEach(startNansoSequence);
+
+  const modalBackdrop = document.getElementById('nanso-modal');
+  const modalPanel = modalBackdrop ? modalBackdrop.querySelector('.nanso-modal-panel') : null;
+  const modalCloseButton = modalBackdrop ? modalBackdrop.querySelector('[data-close-modal]') : null;
+  const modalOpenButton = document.querySelector('[data-open-modal]');
+  let previousFocus = null;
+
+  const setModalState = (isOpen) => {
+    if (!modalBackdrop || !modalPanel || !modalCloseButton) return;
+
+    modalBackdrop.classList.toggle('is-open', isOpen);
+    modalBackdrop.setAttribute('aria-hidden', String(!isOpen));
+    document.body.classList.toggle('modal-open', isOpen);
+
+    const inertTargets = Array.from(document.body.children).filter((child) => child !== modalBackdrop);
+    inertTargets.forEach((element) => {
+      if (isOpen) {
+        element.setAttribute('inert', 'true');
+      } else {
+        element.removeAttribute('inert');
+      }
+    });
+
+    if (isOpen) {
+      previousFocus = document.activeElement;
+      modalCloseButton.focus();
+      modalPanel.scrollTop = 0;
+      document.querySelectorAll('[data-nanso-cycle]').forEach(startNansoSequence);
+    } else if (previousFocus) {
+      previousFocus.focus();
+      previousFocus = null;
+    }
+  };
+
+  const closeModal = () => setModalState(false);
+
+  if (modalOpenButton && modalBackdrop && modalPanel && modalCloseButton) {
+    modalOpenButton.addEventListener('click', () => setModalState(true));
+    modalCloseButton.addEventListener('click', closeModal);
+
+    modalBackdrop.addEventListener('click', (event) => {
+      if (event.target === modalBackdrop) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (modalBackdrop.classList.contains('is-open') && event.key === 'Escape') {
+        closeModal();
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
