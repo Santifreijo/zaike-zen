@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Susokukan 1 · Contar las respiraciones | Zaike Zen</title>
+<meta name="description" content="Práctica de Susokukan 1 para estabilizar la atención mediante diferentes tipos de respiración y el conteo progresivo de las respiraciones.">
+
+<link rel="canonical" href="https://zaikezen.es/susokukan-1.html">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .container { width: min(92%, 1120px); margin: 0 auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(247, 244, 237, 0.72);
+      border-bottom: 1px solid rgba(126, 154, 132, 0.12);
+      box-shadow: 0 6px 24px rgba(38, 49, 44, 0.04);
+    }
+
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; gap: 1rem; }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #26312c;
+    }
+
+    .brand span { color: #5f7865; }
+
+    .nav-links {
+      display: flex;
+      gap: 0.4rem;
+      align-items: center;
+    }
+
+    .nav-links a.active {
+      background-color: #dbe7df;
+      font-weight: 500;
+    }
+
+    .nav-dropdown summary.active {
+      background-color: #dbe7df;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      color: #607068;
+      font-size: 0.94rem;
+      padding: 0.5rem 0.85rem;
+      border-radius: 999px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all 0.25s ease;
+      background: rgba(255,255,255,0.35);
+      border: 1px solid rgba(120,140,125,0.18);
+    }
+
+    .nav-links a:hover {
+      color: #5f7865;
+      background: rgba(255,255,255,0.85);
+      border-color: rgba(93,122,100,0.35);
+      box-shadow: 0 6px 18px rgba(40,60,45,0.08);
+      transform: translateY(-1px);
+    }
+
+    .nav-links a:active {
+      transform: scale(0.97);
+    }
+
+    .nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .nav-dropdown summary {
+      cursor: pointer;
+      padding: 0.5rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.35);
+      border: 1px solid rgba(120,140,125,0.18);
+      color: #607068;
+      font-size: 0.94rem;
+      transition: all 0.25s ease;
+    }
+
+    .nav-dropdown summary:hover {
+      color: #5f7865;
+      background: rgba(255,255,255,0.85);
+      border-color: rgba(93,122,100,0.35);
+      box-shadow: 0 6px 18px rgba(40,60,45,0.08);
+      transform: translateY(-1px);
+    }
+
+    .nav-dropdown ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(120,144,126,0.2);
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(38,49,44,0.08);
+      min-width: 200px;
+      z-index: 10;
+      display: none;
+    }
+
+    .nav-dropdown[open] ul {
+      display: block;
+    }
+
+    .nav-dropdown li {
+      border-bottom: 1px solid rgba(120,144,126,0.1);
+    }
+
+    .nav-dropdown li:last-child {
+      border-bottom: none;
+    }
+
+    .nav-dropdown a {
+      display: block;
+      padding: 0.75rem 1rem;
+      color: #607068;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .nav-dropdown a:hover {
+      background: rgba(126,154,132,0.1);
+      color: #5f7865;
+    }
+
+    .mobile-menu-toggle,
+    .mobile-menu-panel {
+      display: none;
+    }
+
+    .mobile-menu-toggle {
+      align-items: center;
+      justify-content: center;
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(120,140,125,0.18);
+      background: rgba(255,255,255,0.55);
+      color: #607068;
+      font: inherit;
+      font-size: 0.94rem;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(38,49,44,0.08);
+    }
+
+    .mobile-menu-panel {
+      width: 100%;
+      gap: 1rem;
+      padding: 1rem;
+      border: 1px solid rgba(120,144,126,0.2);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.82);
+      box-shadow: 0 10px 30px rgba(38,49,44,0.08);
+    }
+
+    .mobile-menu-group {
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .mobile-menu-group p {
+      color: #5f7865;
+      font-size: 0.86rem;
+      font-weight: 700;
+      margin-bottom: 0.1rem;
+    }
+
+    .mobile-menu-panel a {
+      color: #607068;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid rgba(120,144,126,0.12);
+    }
+
+    .mobile-menu-panel a.active {
+      background-color: #dbe7df;
+      font-weight: 500;
+    }
+
+    .mobile-menu-panel a:last-child {
+      border-bottom: 0;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .header-logo {
+      height: 72px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .hero {
+      padding: 3.5rem 0 2.5rem;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      margin: 0 0 0.5rem;
+      font-size: clamp(2.3rem, 5vw, 4rem);
+      line-height: 1.1;
+      color: #26312c;
+      letter-spacing: -0.04em;
+    }
+
+    .hero p {
+      margin: 0;
+      color: #5f7865;
+      font-size: clamp(1rem, 2.3vw, 1.25rem);
+      line-height: 1.6;
+    }
+
+    .section {
+      width: min(92%, 1120px);
+      margin: 0 auto;
+      padding: 1.6rem 0 2.5rem;
+    }
+
+    .practice-block {
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .practice-block h2,
+    .nanso-section h2 {
+      margin: 0 0 1.2rem;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      line-height: 1.2;
+      color: #26312c;
+    }
+
+    .practice-text {
+      padding: 1.6rem 1.8rem;
+      background: rgba(255, 253, 248, 0.82);
+      border: 1px solid rgba(126, 154, 132, 0.22);
+      border-radius: 18px;
+      box-shadow: 0 10px 24px rgba(38, 49, 44, 0.05);
+    }
+
+    .practice-text p {
+      margin: 0 0 1rem;
+      color: #2f3a34;
+      line-height: 1.9;
+      font-size: 1.04rem;
+      text-align: left;
+    }
+
+    .practice-text p:last-child {
+      margin-bottom: 0;
+    }
+
+   .nanso-cartel-wrapper {
+  width: min(100%, 1000px);
+  margin: 0 auto;
+  padding: 0.25rem 0 1.5rem;
+  position: relative;
+}
+.susokukan-halo {
+  position: absolute;
+  left: 13.4%;
+  top: 30.5%;
+  width: 12px;
+height: 12px;
+border-radius: 50%;
+background: rgba(170, 225, 255, 0.75);
+box-shadow:
+  0 0 7px rgba(120, 210, 255, 0.85),
+  0 0 12px rgba(70, 180, 255, 0.65),
+  0 0 20px rgba(40, 140, 255, 0.35);
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  pointer-events: none;
+  animation: respiracion-cabeza-tanden 9s ease-in-out infinite;
+}
+.susokukan-halo-2a,
+.susokukan-halo-2b {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(170, 225, 255, 0.75);
+  box-shadow:
+    0 0 7px rgba(120, 210, 255, 0.85),
+    0 0 12px rgba(70, 180, 255, 0.65),
+    0 0 20px rgba(40, 140, 255, 0.35);
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  pointer-events: none;
+}
+@keyframes respiracion-cabeza-tanden {
+  /* Inicio: fosas nasales */
+  0% {
+    top: 30.5%;
+    opacity: 0;
+  }
+
+  /* Aparece suavemente */
+  5% {
+    opacity: 1;
+  }
+
+  /* INSPIRACIÓN: nariz → tanden */
+  42% {
+    top: 43.5%;
+    opacity: 1;
+  }
+
+  /* Breve pausa en el tanden */
+  48% {
+    top: 43.5%;
+    opacity: 0.85;
+  }
+
+  /* EXHALACIÓN: tanden → nariz */
+  90% {
+    top: 30.5%;
+    opacity: 1;
+  }
+
+  /* Fin y pequeña pausa */
+  100% {
+    top: 30.5%;
+    opacity: 0;
+  }
+}
+.susokukan-halo-2a,
+.susokukan-halo-2b {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(170, 225, 255, 0.75);
+  box-shadow:
+    0 0 7px rgba(120, 210, 255, 0.85),
+    0 0 12px rgba(70, 180, 255, 0.65),
+    0 0 20px rgba(40, 140, 255, 0.35);
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+}
+.susokukan-halo-2a {
+  animation: respiracion-tanden-pies-a 9s ease-in-out infinite;
+}
+
+.susokukan-halo-2b {
+  animation: respiracion-tanden-pies-b 9s ease-in-out infinite;
+}
+@keyframes respiracion-tanden-pies-a {
+  /* INSPIRACIÓN: fosas nasales → tanden */
+  0% {
+    left: 38.4%;
+    top: 30.5%;
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  42% {
+    left: 38.4%;
+    top: 43.5%;
+    opacity: 1;
+  }
+
+  /* EXHALACIÓN: tanden → pie izquierdo */
+  48% {
+    left: 38.4%;
+    top: 43.5%;
+    opacity: 1;
+    background: rgba(40, 105, 220, 0.9);
+box-shadow:
+  0 0 7px rgba(35, 95, 220, 0.9),
+  0 0 12px rgba(25, 75, 200, 0.75),
+  0 0 20px rgba(20, 60, 180, 0.45);
+  }
+65% {
+  left: 37.4%;
+  top: 51%;
+  opacity: 1;
+}
+
+  90% {
+    left: 35.9%;
+    top: 63.5%;
+    opacity: 1;
+  }
+
+  100% {
+  left: 35.9%;
+  top: 63.5%;
+  opacity: 0;
+  background: rgba(40, 105, 220, 0.9);
+  box-shadow:
+    0 0 7px rgba(35, 95, 220, 0.9),
+    0 0 12px rgba(25, 75, 200, 0.75),
+    0 0 20px rgba(20, 60, 180, 0.45);
+}
+}
+
+@keyframes respiracion-tanden-pies-b {
+  /* Invisible durante la inspiración */
+  0%,
+  47% {
+    left: 38.4%;
+    top: 43.5%;
+    opacity: 0;
+  }
+
+  /* Aparece en el tanden al comenzar la exhalación */
+  48% {
+    left: 38.4%;
+    top: 43.5%;
+    opacity: 1;
+    background: rgba(40, 105, 220, 0.9);
+box-shadow:
+  0 0 7px rgba(35, 95, 220, 0.9),
+  0 0 12px rgba(25, 75, 200, 0.75),
+  0 0 20px rgba(20, 60, 180, 0.45);
+  }
+65% {
+  left: 39.4%;
+  top: 51%;
+  opacity: 1;
+}
+
+  /* Tanden → pie derecho */
+  90% {
+    left: 40.9%;
+    top: 63.5%;
+    opacity: 1;
+  }
+
+  100% {
+  left: 40.9%;
+  top: 63.5%;
+  opacity: 1;
+  background: rgba(40, 105, 220, 0.9);
+  box-shadow:
+    0 0 7px rgba(35, 95, 220, 0.9),
+    0 0 12px rgba(25, 75, 200, 0.75),
+    0 0 20px rgba(20, 60, 180, 0.45);
+}
+}
+/* RESPIRACIÓN 3 · PIES → TIERRA */
+
+.susokukan-halo-3a,
+.susokukan-halo-3b {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(170, 225, 255, 0.75);
+  box-shadow:
+    0 0 7px rgba(120, 210, 255, 0.85),
+    0 0 12px rgba(70, 180, 255, 0.65),
+    0 0 20px rgba(40, 140, 255, 0.35);
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  pointer-events: none;
+  opacity: 1;
+}
+
+/* RESPIRACIÓN 3 · PIES → TIERRA */
+
+.susokukan-halo-3a,
+.susokukan-halo-3b {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(170, 225, 255, 0.75);
+  box-shadow:
+    0 0 7px rgba(120, 210, 255, 0.85),
+    0 0 12px rgba(70, 180, 255, 0.65),
+    0 0 20px rgba(40, 140, 255, 0.35);
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.susokukan-halo-3a {
+  animation: respiracion-pies-tierra-a 9s ease-in-out infinite;
+}
+
+.susokukan-halo-3b {
+  animation: respiracion-pies-tierra-b 9s ease-in-out infinite;
+}
+
+@keyframes respiracion-pies-tierra-a {
+
+  /* INSPIRACIÓN: fosas nasales → tanden */
+  0% {
+    left: 62.1%;
+    top: 30.5%;
+    opacity: 0;
+  }
+
+  5% {
+    left: 62.1%;
+    top: 30.5%;
+    opacity: 1;
+  }
+
+  /* Llegada al tanden */
+  42% {
+    left: 62.1%;
+    top: 43.5%;
+    opacity: 1;
+  }
+
+  /* Tanden → pie izquierdo */
+  65% {
+    left: 61.0%;
+    top: 51%;
+    opacity: 1;
+  }
+
+  /* Llegada al pie izquierdo */
+  90% {
+    left: 60.7%;
+    top: 61.8%;
+    opacity: 1;
+  }
+
+  100% {
+    left: 60.7%;
+    top: 61.8%;
+    opacity: 0;
+  }
+}
+
+@keyframes respiracion-pies-tierra-b {
+
+  /* Invisible mientras el primer halo llega al tanden */
+  0%,
+  42% {
+    left: 62.1%;
+    top: 43.5%;
+    opacity: 0;
+  }
+
+  /* Aparece en el tanden: comienza la bifurcación */
+  43% {
+    left: 62.1%;
+    top: 43.5%;
+    opacity: 1;
+  }
+
+  /* Tanden → pie derecho */
+  65% {
+    left: 64.2%;
+    top: 51%;
+    opacity: 1;
+  }
+
+  /* Llegada al pie derecho */
+  90% {
+    left: 64.7%;
+    top: 61.8%;
+    opacity: 1;
+  }
+
+  100% {
+    left: 64.7%;
+    top: 61.8%;
+    opacity: 0;
+  }
+}
+/* EXHALACIÓN 3 · ENRAIZAMIENTO */
+
+.susokukan-raices-3 {
+  position: absolute;
+  left: 57.5%;
+  top: 61.5%;
+  width: 10.5%;
+  height: 25%;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(35, 95, 220, 0.38) 0%,
+    rgba(25, 75, 200, 0.24) 35%,
+    rgba(20, 60, 180, 0.12) 65%,
+    rgba(20, 60, 180, 0) 100%
+  );
+
+  filter: blur(7px);
+  transform-origin: 50% 0%;
+  animation: enraizamiento-3 9s ease-in-out infinite;
+}
+
+/* EXHALACIÓN 3 · ENRAIZAMIENTO LUMINOSO */
+
+.susokukan-raices-3 {
+  position: absolute;
+
+  /* Zona de tierra bajo los dos pies */
+  left: 57%;
+  top: 61%;
+  width: 11.5%;
+  height: 27%;
+
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+
+  /* Dos focos luminosos: uno bajo cada pie */
+  background:
+    radial-gradient(
+      ellipse at 32% 0%,
+      rgba(190, 240, 255, 0.45) 0%,
+      rgba(90, 200, 255, 0.70) 20%,
+      rgba(40, 150, 255, 0.40) 48%,
+      rgba(20, 100, 230, 0.12) 70%,
+      transparent 100%
+    ),
+    radial-gradient(
+      ellipse at 68% 0%,
+      rgba(190, 240, 255, 0.45) 0%,
+      rgba(90, 200, 255, 0.70) 20%,
+      rgba(40, 150, 255, 0.40) 48%,
+      rgba(20, 100, 230, 0.12) 70%,
+      transparent 100%
+    );
+
+  filter: blur(14px);
+  transform-origin: 50% 0%;
+  animation: enraizamiento-3 9s ease-in-out infinite;
+}
+
+@keyframes enraizamiento-3 {
+
+  /* Invisible */
+  0%,
+  70% {
+    opacity: 0;
+    transform: scaleY(0.03) scaleX(0.75);
+  }
+
+  /* Nace bajo las plantas de los pies */
+  74% {
+    opacity: 0.35;
+    transform: scaleY(0.08) scaleX(0.8);
+  }
+
+  /* Enraizamiento: resplandor corto y difuso */
+  86% {
+    opacity: 0.65;
+    transform: scaleY(0.38) scaleX(0.95);
+  }
+
+  /* Se mantiene brevemente */
+  92% {
+    opacity: 0.55;
+    transform: scaleY(0.38) scaleX(0.95);
+  }
+
+  /* Se desvanece */
+  100% {
+    opacity: 0;
+    transform: scaleY(0.38) scaleX(0.95);
+  }
+}
+/* RESPIRACIÓN 4 · PIES → TIERRA EN ESPIRAL */
+
+.susokukan-halo-4a,
+.susokukan-halo-4b {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(170, 225, 255, 0.75);
+  box-shadow:
+    0 0 7px rgba(120, 210, 255, 0.85),
+    0 0 12px rgba(70, 180, 255, 0.65),
+    0 0 20px rgba(40, 140, 255, 0.35);
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.susokukan-halo-4a {
+  animation: respiracion-espiral-a 9s ease-in-out infinite;
+}
+
+.susokukan-halo-4b {
+  animation: respiracion-espiral-b 9s ease-in-out infinite;
+}
+
+@keyframes respiracion-espiral-a {
+
+  0% {
+    left: 87.1%;
+    top: 30.5%;
+    opacity: 0;
+  }
+
+  2.5% {
+    left: 87.1%;
+    top: 30.5%;
+    opacity: 1;
+  }
+
+  21% {
+    left: 87.1%;
+    top: 43.5%;
+    opacity: 1;
+  }
+
+  32.5% {
+    left: 85.3%;
+    top: 51%;
+    opacity: 1;
+  }
+
+  41% {
+    left: 84.4%;
+    top: 61.8%;
+    opacity: 1;
+  }
+
+  45.5% {
+    left: 86.5%;
+    top: 62.5%;
+    opacity: 1;
+  }
+
+  48.5% {
+    left: 87.2%;
+    top: 63.4%;
+    opacity: 1;
+  }
+
+  49.5% {
+    left: 87.2%;
+    top: 63.4%;
+    opacity: 1;
+  }
+
+  50% {
+    left: 87.2%;
+    top: 63.4%;
+    opacity: 0;
+  }
+
+  100% {
+    left: 87.2%;
+    top: 63.4%;
+    opacity: 0;
+  }
+}
+
+
+@keyframes respiracion-espiral-b {
+
+  0%,
+  21% {
+    left: 87.1%;
+    top: 43.5%;
+    opacity: 0;
+  }
+
+  21.5% {
+    left: 87.1%;
+    top: 43.5%;
+    opacity: 1;
+  }
+
+  32.5% {
+    left: 88.5%;
+    top: 51%;
+    opacity: 1;
+  }
+
+  41% {
+    left: 88.4%;
+    top: 61.8%;
+    opacity: 1;
+  }
+
+  45.5% {
+    left: 88.2%;
+    top: 62.5%;
+    opacity: 1;
+  }
+
+  48.5% {
+    left: 87.2%;
+    top: 63.4%;
+    opacity: 1;
+  }
+
+  49.5% {
+    left: 87.2%;
+    top: 63.4%;
+    opacity: 1;
+  }
+
+  50% {
+    left: 87.2%;
+    top: 63.4%;
+    opacity: 0;
+  }
+
+  100% {
+    left: 87.2%;
+    top: 63.4%;
+    opacity: 0;
+  }
+}
+/* EXHALACIÓN 4 · RECORRIDO EN ESPIRAL */
+
+.susokukan-espiral-4 {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+
+  background: rgba(40, 105, 220, 0.9);
+  box-shadow:
+    0 0 7px rgba(35, 95, 220, 0.9),
+    0 0 12px rgba(25, 75, 200, 0.75),
+    0 0 20px rgba(20, 60, 180, 0.45);
+
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  pointer-events: none;
+  opacity: 0;
+
+  animation: recorrido-espiral-4 9s linear infinite;
+}
+@keyframes recorrido-espiral-4 {
+
+  /* Invisible hasta que termina la fusión */
+  0%,
+  49.9% {
+    left: 87.2%;
+    top: 63.4%;
+    opacity: 0;
+  }
+
+  /* Nace el punto oscuro exactamente en la fusión */
+  50% {
+    left: 87.2%;
+    top: 63.4%;
+    opacity: 1;
+  }
+
+  /* Primera vuelta */
+  56% {
+    left: 85.7%;
+    top: 64.8%;
+    opacity: 1;
+  }
+
+  62% {
+    left: 89.0%;
+    top: 66.2%;
+    opacity: 1;
+  }
+
+  /* Segunda vuelta */
+  68% {
+    left: 85.6%;
+    top: 68%;
+    opacity: 1;
+  }
+
+  74% {
+    left: 88.8%;
+    top: 70%;
+    opacity: 1;
+  }
+
+  /* Tercera vuelta */
+  80% {
+    left: 86.0%;
+    top: 72%;
+    opacity: 1;
+  }
+
+  86% {
+    left: 88.4%;
+    top: 74%;
+    opacity: 1;
+  }
+
+  /* La espiral se estrecha */
+ 91% {
+  left: 86.5%;
+  top: 69.5%;
+  opacity: 1;
+}
+
+95% {
+  left: 87.8%;
+  top: 70.5%;
+  opacity: 1;
+}
+
+98% {
+  left: 87.2%;
+  top: 71.5%;
+  opacity: 1;
+}
+
+100% {
+  left: 87.2%;
+  top: 71.5%;
+  opacity: 0;
+}
+}
+
+    .nanso-cartel {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: 0 auto;
+      border-radius: 24px;
+      box-shadow: 0 18px 50px rgba(38, 49, 44, 0.08);
+    }
+
+    .susokukan-audios {
+      width: min(100%, 1000px);
+      margin: 1rem auto 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .audio-block {
+      padding: 1.2rem;
+      text-align: center;
+      background: rgba(255, 253, 248, 0.82);
+      border: 1px solid rgba(126, 154, 132, 0.22);
+
+ border-radius: 18px;
+      box-shadow: 0 10px 24px rgba(38, 49, 44, 0.05);
+    }
+
+    .audio-block h3 {
+      margin: 0 0 0.9rem;
+      color: #2f3a34;
+      font-size: 1.05rem;
+      line-height: 1.4;
+    }
+
+    audio {
+      display: block;
+      width: 100%;
+      margin: 0 auto;
+      border-radius: 16px;
+    }
+
+    @media (max-width: 700px) {
+      .susokukan-audios {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .cta-section {
+      display: flex;
+      justify-content: center;
+      padding-top: 1rem;
+      padding-bottom: 3rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 1.5rem;
+      border-radius: 999px;
+      background: #dfe9df;
+      color: #26312c;
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid rgba(126, 154, 132, 0.24);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 10px 24px rgba(38, 49, 44, 0.06);
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 28px rgba(38, 49, 44, 0.1);
+    }
+
+    footer {
+      padding: 1.5rem 0 2rem;
+      text-align: center;
+      color: #607068;
+      border-top: 1px solid rgba(126,154,132,0.12);
+    }
+
+    @media (max-width: 900px) {
+      .practice-text {
+        padding: 1.25rem 1.2rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        width: min(92%, 1120px);
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+      }
+
+      .brand-logo {
+        grid-column: 1;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-menu-toggle {
+        display: inline-flex;
+        grid-column: 2;
+        justify-self: end;
+        min-height: 42px;
+        padding: 0.55rem 1rem;
+        background: rgba(255,255,255,0.72);
+        border-color: rgba(120,144,126,0.24);
+        color: #5f7865;
+        font-weight: 700;
+      }
+
+      .mobile-menu-panel.is-open {
+        display: grid;
+      }
+
+      .mobile-menu-panel {
+        grid-column: 1 / -1;
+        margin-top: 0.75rem;
+        padding: 1.1rem;
+        gap: 1.15rem;
+        border-radius: 22px;
+        background: rgba(255,253,248,0.92);
+        border: 1px solid rgba(120,144,126,0.18);
+        box-shadow: 0 18px 44px rgba(38,49,44,0.1);
+        backdrop-filter: blur(12px);
+      }
+
+      .mobile-menu-group {
+        gap: 0.2rem;
+        padding-bottom: 0.85rem;
+        border-bottom: 1px solid rgba(120,144,126,0.12);
+      }
+
+      .mobile-menu-group:last-child {
+        padding-bottom: 0;
+        border-bottom: 0;
+      }
+
+      .mobile-menu-group p {
+        margin-bottom: 0.35rem;
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(95,120,101,0.9);
+      }
+
+      .mobile-menu-panel a {
+        padding: 0.62rem 0.2rem;
+        border-bottom: 0;
+        color: #2f3a34;
+        line-height: 1.35;
+      }
+
+      .mobile-menu-panel a:active {
+        color: #5f7865;
+        transform: scale(0.99);
+      }
+
+      .nav-dropdown ul {
+        position: static;
+        width: 100%;
+        min-width: none;
+      }
+
+      .header-logo {
+        height: 58px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="container nav">
+    <a href="index.html#inicio" class="brand brand-logo" aria-label="Zaike Zen">
+      <img src="Imagen-zaike-zen.jpg" alt="Zaike Zen - Zen laico" class="header-logo">
+    </a>
+    <nav class="nav-links" aria-label="Navegación principal">
+      <details class="nav-dropdown">
+        <summary>Inicio</summary>
+        <ul>
+          <li><a href="index.html#inicio">Inicio</a></li>
+          <li><a href="index.html#que-es-meditar">Qué es meditar</a></li>
+          <li><a href="index.html#zen">Qué es Zaike Zen</a></li>
+        </ul>
+      </details>
+
+      <details class="nav-dropdown">
+        <summary>Cómo empezar</summary>
+        <ul>
+          <li><a href="index.html#rutina-sugerida">Rutina sugerida</a></li>
+          <li><a href="como-empezar-a-meditar.html">Empezar desde cero</a></li>
+          <li><a href="cuanto-tiempo-meditar-al-dia.html">Cuánto tiempo meditar</a></li>
+          <li><a href="index.html#meditaciones">Consignas básicas</a></li>
+          <li><a href="index.html#postura-sentada">Postura sentada</a></li>
+          <li><a href="index.html#respiracion-tanden">Respiración Tanden</a></li>
+          <li><a href="index.html#atencion">Atención</a></li>
+        </ul>
+      </details>
+
+      <a href="camino-del-practicante.html">El Camino del Practicante</a>
+      <details class="nav-dropdown">
+        <summary class="active">Cómo estabilizar</summary>
+        <ul>
+          <li><a href="como-estabilizar.html">Visión general</a></li>
+          <li><a href="automasaje.html">Automasaje</a></li>
+          <li><a href="meditacion-movimiento.html">Meditación en movimiento</a></li>
+          <li><a href="hogenchaku.html">Hogenchaku</a></li>
+<li><a href="nanso.html">Nanso</a></li>
+<li><a href="susokukan-1.html" class="active">Susokukan 1</a></li>
+        </ul>
+      </details>
+      <details class="nav-dropdown">
+        <summary>Cómo profundizar</summary>
+        <ul>
+          <li><a href="index.html#textos">Impermanencia y realidad</a></li>
+          <li><a href="index.html#textos">Vacuidad y no dualidad</a></li>
+          <li><a href="index.html#textos">Patrones y transformación</a></li>
+          <li><a href="index.html#textos">Compasión y acción</a></li>
+        </ul>
+      </details>
+
+      <a href="beneficios-meditacion.html">Beneficios</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+    <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu-panel">Menú</button>
+    <nav class="mobile-menu-panel" id="mobile-menu-panel" aria-label="Menú móvil">
+      <div class="mobile-menu-group">
+        <p>Inicio</p>
+        <a href="index.html#inicio">Inicio</a>
+        <a href="index.html#que-es-meditar">Qué es meditar</a>
+        <a href="index.html#zen">Qué es Zaike Zen</a>
+      </div>
+
+      <div class="mobile-menu-group">
+        <p>Cómo empezar</p>
+        <a href="index.html#rutina-sugerida">Rutina sugerida</a>
+        <a href="como-empezar-a-meditar.html">Empezar desde cero</a>
+        <a href="cuanto-tiempo-meditar-al-dia.html">Cuánto tiempo meditar</a>
+        <a href="index.html#meditaciones">Consignas básicas</a>
+        <a href="index.html#postura-sentada">Postura sentada</a>
+        <a href="index.html#respiracion-tanden">Respiración Tanden</a>
+        <a href="index.html#atencion">Atención</a>
+      </div>
+      <a href="camino-del-practicante.html">El Camino del Practicante</a>
+
+      <div class="mobile-menu-group">
+        <p>Cómo estabilizar</p>
+        <a href="como-estabilizar.html">Visión general</a>
+        <a href="automasaje.html">Automasaje</a>
+        <a href="meditacion-movimiento.html">Meditación en movimiento</a>
+        <a href="hogenchaku.html">Hogenchaku</a>
+<a href="nanso.html">Nanso</a>
+<a href="susokukan-1.html" class="active">Susokukan 1</a>
+      </div>
+
+      <div class="mobile-menu-group">
+        <p>Profundizar</p>
+        <a href="index.html#textos">Impermanencia y realidad</a>
+        <a href="index.html#textos">Vacuidad y no dualidad</a>
+        <a href="index.html#textos">Patrones y transformación</a>
+        <a href="index.html#textos">Compasión y acción</a>
+      </div>
+
+      <div class="mobile-menu-group">
+        <a href="beneficios-meditacion.html">Beneficios</a>
+        <a href="index.html#contacto">Contacto</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" aria-labelledby="susokukan-titulo">
+    <div class="hero-content">
+      <h1 id="susokukan-titulo">Susokukan 1</h1>
+      <p>Contar las respiraciones</p>
+    </div>
+  </section>
+
+  <section class="section practice-block" aria-labelledby="la-practica-titulo">
+    <h2 id="la-practica-titulo">La práctica</h2>
+    <div class="practice-text">
+      <p>Nuestra postura está ya estable y equilibrada, el cuerpo suelto y relajado, sentimos la unión de cuerpo y mente, y nos abrimos poco a poco, más y más, a la meditación. La práctica continúa con el ejercicio de los diferentes tipos de respiraciones. Como ya se ha comentado, la respiración es uno de los pilares de la meditación y, en este momento, adquiere mayor detenimiento. Hay muchos tipos de respiraciones involucradas en la práctica de la meditación.</p>
+
+      <p>Estos tipos de respiración parten de la respiración tanden, ya explicada, y la complementan con diferentes formas de llevar la atención hacia distintas partes del cuerpo como si sintiésemos el flujo del aire que lo recorre. Esto nos permitirá estabilizar todavía más la atención en las sensaciones corporales y, al mismo tiempo, observar los efectos de la respiración tanto en nuestro cuerpo como en nuestra mente.</p>
+
+      <p>La propuesta que se muestra a continuación es una síntesis que sirve de base al practicante para introducirse en diferentes tipos de respiración y que puede ser modificada por el maestro acompañante según el momento y la persona que practica.</p>
+
+      <p>Inicialmente cada tipo de respiración se practicará mediante series de 10 repeticiones, contando cada respiración durante la exhalación hasta completar el ciclo. Serán, de esta forma, 10 repeticiones para cada tipo de respiración. Esto nos ayudará a retener más la atención y a volver a la respiración si algún pensamiento pasa por nuestra mente. Esto es importante, si algún pensamiento distrae nuestra atención, simplemente volveremos a contar el ciclo de respiraciones en el que nos encontremos nuevamente desde el principio.</p>
+    </div>
+    
+  </section>
+
+   <section class="section nanso-section" aria-labelledby="respiraciones-titulo">
+    <h2 id="respiraciones-titulo">Las cuatro respiraciones</h2>
+
+    <div class="nanso-cartel-wrapper" aria-label="Cartel de Susokukan 1 con las cuatro respiraciones">
+      <img
+        class="nanso-cartel"
+src="cartel-susokukan-1-base.png"
+        alt="Susokukan 1: esquema de las cuatro respiraciones Cabeza-Tanden, Tanden-Pies, Pies-Tierra y Pies-Tierra en espiral."
+      >
+      <div class="susokukan-halo" aria-hidden="true"></div>
+
+      <div class="susokukan-halo-2a" aria-hidden="true"></div>
+<div class="susokukan-halo-2b" aria-hidden="true"></div>
+<div class="susokukan-halo-3a" aria-hidden="true"></div>
+<div class="susokukan-halo-3b" aria-hidden="true"></div>
+<div class="susokukan-raices-3" aria-hidden="true"></div>
+<div class="susokukan-halo-4a" aria-hidden="true"></div>
+<div class="susokukan-halo-4b" aria-hidden="true"></div>
+<div class="susokukan-espiral-4" aria-hidden="true"></div>
+</div>
+    </div>
+        <div class="susokukan-audios">
+      <div class="audio-block">
+        <h3>1. Cabeza → Tanden</h3>
+        <audio controls preload="metadata">
+         <source src="susokukan-1-cabeza-tanden.mp3" type="audio/mpeg">
+          Tu navegador no admite la reproducción de audio.
+        </audio>
+      </div>
+
+      <div class="audio-block">
+        <h3>2. Tanden → Pies</h3>
+        <audio controls preload="metadata">
+          <source src="susokukan-1-tanden-pies.mp3" type="audio/mpeg">
+          Tu navegador no admite la reproducción de audio.
+        </audio>
+      </div>
+
+      <div class="audio-block">
+        <h3>3. Pies → Tierra</h3>
+        <audio controls preload="metadata">
+          <source src="susokukan-1-pies-tierra.mp3" type="audio/mpeg">
+          Tu navegador no admite la reproducción de audio.
+        </audio>
+      </div>
+
+      <div class="audio-block">
+        <h3>4. Pies → Tierra en espiral</h3>
+        <audio controls preload="metadata">
+         <source src="susokukan-1-pies-tierra-en-espiral.mp3" type="audio/mpeg">
+          Tu navegador no admite la reproducción de audio.
+        </audio>
+      </div>
+    </div>
+  </section>
+  <section class="section practice-block" aria-labelledby="tipos-respiracion-titulo">
+    <h2 id="tipos-respiracion-titulo">Tipos de respiración</h2>
+
+    <div class="practice-text">
+      <h3>1. Respiración cabeza-tanden, tanden básica</h3>
+      <p>Entra el aire por las fosas nasales con la inhalación hasta el tanden y sale el aire por las fosas nasales con la exhalación. Durante cada exhalación contamos sucesivamente 1, 2, 3…hasta completar una serie de 10 respiraciones.</p>
+
+      <h3>2. Respiración tanden-pies</h3>
+      <p>Entra el aire por las fosas nasales con la inhalación hasta el tanden y, con la exhalación, se dirige hasta el centro de la planta de los pies. Durante cada exhalación contamos sucesivamente 1, 2, 3…hasta completar una serie de 10 respiraciones.</p>
+
+      <h3>3. Respiración pies-tierra</h3>
+      <p>Entra el aire por las fosas nasales con la inhalación hasta el centro de la planta de los pies y, durante la exhalación, dirigimos el aire desde la planta de los pies hacia la tierra. Durante la exhalación contamos sucesivamente 1, 2, 3…hasta completar una o varias series de 10 respiraciones.</p>
+
+      <h3>4. Respiración pies-tierra en espiral. Kufû del maestro Itô</h3>
+      <p>Entra el aire por las fosas nasales con la inhalación hasta el centro de la planta de los pies y, durante la exhalación, dirigimos el aire haciendo una espiral desde la planta de los pies hasta el centro de la tierra. Durante la exhalación contamos sucesivamente 1, 2, 3…hasta completar una o varias series de 10 respiraciones.</p>
+    </div>
+  </section>
+ 
+  <section class="section practice-block" aria-labelledby="progresion-titulo">
+    <h2 id="progresion-titulo">Progresión en la práctica</h2>
+
+    <div class="practice-text">
+      <p>El practicante puede agregar poco a poco los diferentes tipos de respiración por el orden que se propone, cuando domine perfecta y progresivamente la respiración anterior. El entrenamiento de este tipo de respiraciones debe realizarse bajo la supervisión de un maestro acompañante y puede durar meses o años. Al exponerlas sucesivamente puede inducir al error de que cada respiración es fácilmente accesible. Es muy importante el entrenamiento gradual observando detenidamente las sensaciones internas hasta que cada tipo de respiración se automatice y ejecute sin esfuerzo alguno, evitando saltar a la siguiente sin haber profundizado lo suficiente. Otra forma de entenderlo es errónea y puede causar problemas. En caso de cualquier duda, es necesario consultar con el maestro acompañante.</p>
+    </div>
+  </section>
+  <section class="section cta-section">
+    <a class="button" href="como-estabilizar.html">Volver a Estabilización</a>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2026 Zaike Zen</p>
+</footer>
+
+<script>
+  const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+  const mobileMenuPanel = document.querySelector('.mobile-menu-panel');
+
+  const closeMobileMenu = () => {
+    if (!mobileMenuToggle || !mobileMenuPanel) return;
+    mobileMenuPanel.classList.remove('is-open');
+    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+  };
+
+  if (mobileMenuToggle && mobileMenuPanel) {
+    mobileMenuToggle.addEventListener('click', () => {
+      const isOpen = mobileMenuPanel.classList.toggle('is-open');
+      mobileMenuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    mobileMenuPanel.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
+    });
+  }
+
+  
+</script>
+
+</body>
+</html>
